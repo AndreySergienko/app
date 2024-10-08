@@ -11,7 +11,9 @@
     "lint": "npm run lint:eslint && npm run lint:prettier",
     "lint:eslint": "eslint .",
     "lint:prettier": "prettier . --check",
-    "lint:fix": "eslint . --fix && prettier --write --list-different ."
+    "lint:fix": "eslint . --fix && prettier --write --list-different . && stylelint --aei ./**/*.scss ./**/*.vue --fix",
+    "lint:style": "stylelint --aei ./**/*.scss ./**/*.vue",
+    "lint:style:fix": "stylelint --aei ./**/*.scss ./**/*.vue --fix"
   },
   "dependencies": {
     "nuxt": "^3.13.0",
@@ -19,14 +21,51 @@
     "vue-router": "latest"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@commitlint/types": "^19.5.0",
     "@eslint/js": "^9.10.0",
     "@nuxt/eslint": "^0.5.7",
     "@types/eslint-config-prettier": "^6.11.3",
+    "commitlint": "^19.5.0",
+    "cz-customizable": "^7.2.1",
     "eslint": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-vue": "^9.28.0",
     "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "postcss-html": "^1.7.0",
     "prettier": "^3.3.3",
-    "typescript-eslint": "^8.5.0"
+    "stylelint": "^16.9.0",
+    "stylelint-config-idiomatic-order": "^10.0.0",
+    "stylelint-config-standard": "^36.0.1",
+    "stylelint-order": "^6.0.4",
+    "stylelint-prettier": "^5.0.2",
+    "typescript-eslint": "^8.5.0",
+    "validate-branch-name": "^1.3.1",
+    "vite-plugin-eslint2": "^4.4.2"
+  },
+  "lint-staged": {
+    "*.{ts,vue}": [
+      "eslint --fix --cache",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "prettier --write",
+      "stylelint --aei --fix"
+    ]
+  },
+  "validate-branch-name": {
+    "pattern": "^(bug|fix|hotfix|release)/.+$",
+    "errorMsg": "Поправьте наименование ветки, обязательно наличие ключевого слова -> feature|fix|hotfix|release"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "config/git/commitizen.js"
+    }
   }
 }
