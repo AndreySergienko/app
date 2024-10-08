@@ -1,7 +1,5 @@
 <template>
-  <div>
-      куку
-  </div>
+  <SharedHistory></SharedHistory>
 </template>
 
 <script lang="css" >
