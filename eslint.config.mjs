@@ -46,6 +46,6 @@ export default withNuxt(
   },
   /** Ignores */
   {
-    ignores: ['node_modules', 'dist', 'public', '.nuxt']
+    ignores: ['node_modules', 'dist', 'public', '.nuxt', 'stylelint.config.mjs']
   }
 )
