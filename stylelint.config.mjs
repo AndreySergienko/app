@@ -2,10 +2,7 @@
 
 export default {
   customSyntax: 'postcss-html',
-  extends: [
-    'stylelint-config-standard',
-    'stylelint-config-idiomatic-order'
-  ],
+  extends: ['stylelint-config-standard', 'stylelint-config-idiomatic-order'],
   plugins: ['stylelint-order'],
   rules: {
     /** Regular expression, valid example class: .row .row-block .row-block__element .row-block__element--modificator */
