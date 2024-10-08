@@ -1,0 +1,12 @@
+:root {
+    --text: #000000;
+    --text-muted: #F8F8F8;
+
+    --font-size-title: 14px;
+    --font-size-text: 12px;
+    --font-size-small-text: 10px;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semiBld: 600;
+}

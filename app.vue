@@ -1,6 +1,9 @@
 <template>
   <div>
-    <NuxtRouteAnnouncer />
-    <NuxtWelcome />
+      куку
   </div>
 </template>
+
+<script lang="css" >
+
+</script>
