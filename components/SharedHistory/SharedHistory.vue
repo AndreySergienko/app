@@ -3,9 +3,6 @@
     <div class="container container__stories">
       Stories
     </div>
-    <div>
-      
-    </div>
   </div>
 </template>
 
