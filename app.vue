@@ -1,9 +1,7 @@
 <template>
-  <div>
-      куку
-  </div>
+  <SharedStoryCard></SharedStoryCard>
 </template>
 
-<script lang="css" >
+<script lang="css">
 
 </script>
