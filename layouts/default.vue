@@ -5,8 +5,8 @@
     </header>
     <main>
       <SharedContainer>
-        <ControllerStories />
-        <ControllerAnnouncements />
+        <ControllerStories class="stories" />
+        <ControllerAnnouncements class="announcements" />
         <slot />
         <SharedEnd />
       </SharedContainer>
@@ -21,5 +21,10 @@
   @media (width <= 1024px) {
     flex-direction: column;
   }
+}
+
+.stories,
+.announcements {
+  margin-bottom: var(--gap-xl);
 }
 </style>

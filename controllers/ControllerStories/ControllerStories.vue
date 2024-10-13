@@ -1,3 +1,3 @@
 <template>
-  <SharedTitle size="m">Stories</SharedTitle>
+  <SharedTitle size="m" class="mb-20">Stories</SharedTitle>
 </template>
