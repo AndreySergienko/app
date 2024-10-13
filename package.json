@@ -59,7 +59,7 @@
     ]
   },
   "validate-branch-name": {
-    "pattern": "^(feature|bug|fix|hotfix|release)/.+$",
+    "pattern": "^(feature|bug|fix|hotfix|release|develop)/.+$",
     "errorMsg": "Поправьте наименование ветки, обязательно наличие ключевого слова -> feature|fix|hotfix|release"
   },
   "config": {
