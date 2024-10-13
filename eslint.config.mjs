@@ -7,6 +7,7 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 
 /** Vue/Nuxt rules */
 const vueRules = {
+  'vue/multi-word-component-names': 'off',
   'vue/max-attributes-per-line': [
     'error',
     {
@@ -17,7 +18,8 @@ const vueRules = {
         max: 4
       }
     }
-  ]
+  ],
+  'function-no-unknown': 'off'
 }
 
 export default withNuxt(
