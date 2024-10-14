@@ -4,6 +4,3 @@
     pencil
   </NuxtLayout>
 </template>
-
-
-
