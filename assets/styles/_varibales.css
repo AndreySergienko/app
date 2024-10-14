@@ -20,4 +20,10 @@
 
   --tablet: 1024px;
   --mobile: 360px;
+
+  --duration: 0.2s;
+}
+
+.mb-20 {
+  margin-bottom: var(--gap-m);
 }
