@@ -1,7 +1,10 @@
 <template>
   <div :class="['shared-card', classes[size]]">
-    <div v-if="img" :class="['shared-card__image', classes[size]]">
-      <img :src="img.src" :alt="img.alt || 'picture'" class="picture" />
+    // Потенциально overflow: hidden
+    <div>
+      <div v-if="img" :class="['shared-card__image', classes[size]]">
+        <img :src="img.src" :alt="img.alt || 'picture'" class="picture" />
+      </div>
     </div>
 
     <div :class="['shared-card__content', classes[size]]">
@@ -37,26 +40,22 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 <style scoped>
 .shared-card {
   padding: var(--gap-xl);
-  background-color: var(--gray);
   border-radius: 10px;
+  background-color: var(--gray);
 }
 
 .shared-card.small {
-  padding: var(--gap-l);
-
   width: 325px;
+  padding: var(--gap-l);
 }
 
 .shared-card__image {
   height: calc(160px - var(--gap-l));
-  overflow: hidden;
-
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
   border-top: 4px solid var(--black);
   border-right: 4px solid var(--black);
   border-left: 4px solid var(--black);
-
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   transition: transform linear calc(var(--duration) / 1);
 }
 
@@ -66,9 +65,9 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 }
 
 .shared-card__content {
-  padding-top: var(--gap-l);
   display: flex;
   flex-direction: column;
+  padding-top: var(--gap-l);
   gap: var(--gap-l);
 }
 

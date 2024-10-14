@@ -40,7 +40,7 @@ const { color } = useThemesText(props.theme)
 }
 
 .shared-title.medium {
-  line-height: 150%;
   font-size: var(--font-size-m);
+  line-height: 150%;
 }
 </style>
