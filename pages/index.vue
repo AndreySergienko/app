@@ -1,3 +1,5 @@
 <template>
-  <div>Первая страница по дефолту - posts</div>
+  <div>
+    <SharedTab />
+  </div>
 </template>
