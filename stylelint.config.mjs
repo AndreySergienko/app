@@ -10,6 +10,7 @@ export default {
       '.[a-zA-Z0-9_-]+(__[a-zA-Z0-9_-]+)*',
       { resolveNestedSelectors: true }
     ],
+    'function-no-unknown': null,
     /** Ignore vue pseudoclass */
     'selector-pseudo-class-no-unknown': [
       true,
