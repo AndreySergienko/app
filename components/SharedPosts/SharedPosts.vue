@@ -50,6 +50,7 @@ const posts = reactive([
 
 .post {
   background-color: var(--gray);
+  border-radius: 10px;
 }
 
 .post__inner {

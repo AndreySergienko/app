@@ -15,7 +15,7 @@
         <SharedPosts />
       </div>
       <div v-if="activeTab === 'Projects'">
-        <div>Here is a projects...</div>
+        <SharedProjects />
       </div>
     </div>
   </div>
@@ -23,7 +23,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import SharedPosts from '../SharedProjects/SharedPosts.vue'
+import SharedPosts from '../SharedPosts/SharedPosts.vue'
+import SharedProjects from '../SharedProjects/SharedProjects.vue'
 
 const tabs = ['Posts', 'Projects']
 const activeTab = ref('Posts')
