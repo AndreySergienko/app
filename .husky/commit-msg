@@ -1,8 +1,1 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
-
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-. "$(dirname "$0")/common.sh"
-
 npx commitlint -e -g './config/git/commitlint.config.ts'

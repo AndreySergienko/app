@@ -14,7 +14,8 @@
     "lint:prettier:fix": "prettier --write .",
     "lint:fix": "eslint . --fix && prettier --write --list-different . && stylelint --aei ./**/*.scss ./**/*.vue --fix && prettier --write .",
     "lint:style": "stylelint --aei ./**/*.scss ./**/*.vue",
-    "lint:style:fix": "stylelint --aei ./**/*.scss ./**/*.vue --fix"
+    "lint:style:fix": "stylelint --aei ./**/*.scss ./**/*.vue --fix",
+    "prepare": "husky"
   },
   "dependencies": {
     "nuxt": "^3.13.0",
