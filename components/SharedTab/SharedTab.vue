@@ -32,21 +32,21 @@ const activeTab = ref('Posts')
 
 <style>
 .tabs {
-  margin-top: 40px;
   display: flex;
+  margin-top: 40px;
   gap: 20px;
 }
 
 .tab {
+  color: rgb(0 0 0 / 40%);
+  cursor: pointer;
   font-size: var(--font-size-m);
   font-weight: var(--weight-medium);
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.4);
   transition: color 0.3s ease;
 }
 
 .tab.active {
-  color: rgba(0, 0, 0, 1);
+  color: rgb(0 0 0 / 100%);
 }
 
 .tab__content {

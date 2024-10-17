@@ -1,2 +1,6 @@
 @import '_common.css';
 @import '_varibales.css';
+
+html {
+  scroll-behavior: smooth;
+}

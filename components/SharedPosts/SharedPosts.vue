@@ -49,34 +49,34 @@ const posts = reactive([
 }
 
 .post {
-  background-color: var(--gray);
   border-radius: 10px;
+  background-color: var(--gray);
 }
 
 .post__inner {
-  padding: 40px;
   display: flex;
   flex-direction: column;
+  padding: 40px;
   gap: var(--gap-l);
 }
 
 .post__date,
 .post__link {
+  color: var(--dark-gray);
   font-size: var(--font-size-s);
   font-weight: var(--weight-medium);
-  color: var(--dark-gray);
 }
 
 .post__title {
+  color: var(--dark);
   font-size: var(--font-size-m);
   font-weight: var(--weight-medium);
-  color: var(--dark);
 }
 
 .post__text {
+  color: var(--dark);
   font-size: var(--font-size-s);
   font-weight: var(--weight-regular);
-  color: var(--dark);
   line-height: 18px;
 }
 

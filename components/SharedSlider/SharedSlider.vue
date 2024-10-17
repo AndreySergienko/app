@@ -52,24 +52,26 @@ const prevSlide = () => {
 
 <style>
 .slider {
-  margin-top: 20px;
   display: flex;
+  max-width: 665px;
   align-items: center;
   justify-content: center;
-  max-width: 665px;
+  margin-top: 20px;
 }
+
 .slides-container {
-  width: 500px;
-  overflow: hidden;
-  width: 100%;
   display: flex;
+  overflow: hidden;
+  width: 500px;
+  width: 100%;
   justify-content: center;
   gap: 10px;
 }
+
 .slide {
+  width: 200px;
   padding: 5px;
   border: 1px solid var(--dark-gray);
-  width: 200px;
   transition: transform 0.3s ease;
 }
 </style>

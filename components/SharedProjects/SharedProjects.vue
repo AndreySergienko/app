@@ -42,16 +42,16 @@ const projects = reactive([
 }
 
 .projects__img {
-  background-color: var(--gray);
   padding: 30px;
   border-radius: 10px;
+  background-color: var(--gray);
 }
 
 .projects__info {
-  padding-top: 10px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
 }
 
 .projects__link {
@@ -62,12 +62,12 @@ const projects = reactive([
 .projects__lead,
 .projects__dev {
   padding: 7px;
+  border-radius: 3px;
+  background-color: var(--gray);
+  color: rgb(0 0 0 / 50%);
   font-size: var(--font-size-s);
   font-weight: var(--weight-regular);
-  background-color: var(--gray);
-  color: rgba(0, 0, 0, 0.5);
   text-decoration: none;
-  border-radius: 3px;
   transition: color 0.3s ease;
 }
 

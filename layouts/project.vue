@@ -32,6 +32,11 @@ const activeIndex = ref(0)
 
 function setActive(index) {
   activeIndex.value = index
+
+  const section = document.getElementById(`section-${index}`)
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 
 const router = useRouter()
@@ -50,25 +55,26 @@ const main = () => {
 .projects-layout__button {
   position: absolute;
   top: 60px;
-  left: 500px;
+  left: 490px;
   cursor: pointer;
 }
 
 .projects-layout__button button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
   font-size: var(--font-size-s);
   font-weight: var(--weight-medium);
-  background-color: white;
-  border: none;
-  cursor: pointer;
 }
+
 .projects-layout__button svg {
   width: 22px;
 }
 
 .projects-layout__nav {
-  position: absolute;
-  right: 170px;
+  position: fixed;
   top: 187px;
+  right: 170px;
   display: flex;
   flex-direction: column;
 }
