@@ -1,6 +1,6 @@
 <template>
   <NuxtLayout>
     <NuxtPage />
-    pencil
+    pencilasdasd
   </NuxtLayout>
 </template>
