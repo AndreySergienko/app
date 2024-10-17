@@ -9,6 +9,12 @@ dist
 # Node dependencies
 node_modules
 
+# Optional eslint cache
+.eslintcache
+
+# Optional stylint cache
+.stylelintcache
+
 # Logs
 logs
 *.log
