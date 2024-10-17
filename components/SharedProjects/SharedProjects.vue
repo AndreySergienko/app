@@ -5,7 +5,9 @@
         <img :src="project.img" alt="Projects" />
       </div>
       <div class="projects__info">
-        <h3 class="projects__name">{{ project.name }}</h3>
+        <nuxt-link :to="`/projects/${project.id}`" class="projects__name">
+          {{ project.name }}
+        </nuxt-link>
         <div class="projects__link">
           <a class="projects__lead" href="#">Project Lead</a>
           <a class="projects__dev" href="#">Development</a>
@@ -20,10 +22,12 @@ import Projects from '~/assets/images/Projects.png'
 
 const projects = reactive([
   {
+    id: 1,
     img: Projects,
     name: 'Promptopia Web-site'
   },
   {
+    id: 2,
     img: Projects,
     name: 'Promptopia Web-site'
   }
@@ -76,5 +80,6 @@ const projects = reactive([
   color: var(--black);
   font-size: var(--font-size-s);
   font-weight: var(--weight-medium);
+  text-decoration: none;
 }
 </style>
