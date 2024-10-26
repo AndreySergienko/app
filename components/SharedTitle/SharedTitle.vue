@@ -1,7 +1,7 @@
 <template>
   <component
     :is="components[props.size]"
-    :class="['shared-title', defaultClassesForElement[props.size]]"
+    :class="['shared-title hover', defaultClassesForElement[props.size]]"
   >
     <slot />
   </component>
@@ -42,5 +42,10 @@ const { color } = useThemesText(props.theme)
 .shared-title.medium {
   font-size: var(--font-size-m);
   line-height: 150%;
+}
+
+.shared-title.hover:hover {
+  color: v-bind('hover');
+  cursor: pointer;
 }
 </style>

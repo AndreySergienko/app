@@ -1,12 +1,10 @@
 <template>
   <div :class="['shared-card', classes[size]]">
-    // Потенциально overflow: hidden
-    <div>
+    <div class="shared-card__block-image">
       <div v-if="img" :class="['shared-card__image', classes[size]]">
         <img :src="img.src" :alt="img.alt || 'picture'" class="picture" />
       </div>
     </div>
-
     <div :class="['shared-card__content', classes[size]]">
       <SharedTitle size="s" theme="light">{{ date }}</SharedTitle>
       <SharedTitle class="shared-card__title" size="m" theme="dark">
@@ -39,40 +37,47 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 
 <style scoped>
 .shared-card {
-  padding: var(--gap-xl);
   border-radius: 10px;
   background-color: var(--gray);
 }
 
 .shared-card.small {
   width: 325px;
-  padding: var(--gap-l);
+}
+
+.shared-card__block-image {
+  height: 160px;
+  padding-top: var(--gap-l);
+  overflow: hidden;
 }
 
 .shared-card__image {
-  height: calc(160px - var(--gap-l));
-  border-top: 4px solid var(--black);
-  border-right: 4px solid var(--black);
-  border-left: 4px solid var(--black);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  transition: transform linear calc(var(--duration) / 1);
+  display: flex;
+  justify-content: center;
 }
 
 .picture {
   width: calc(325px - 60px);
   height: 130px;
+
+  border-top: 4px solid var(--black);
+  border-right: 4px solid var(--black);
+  border-left: 4px solid var(--black);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+
+  transition: transform linear calc(var(--duration) / 1);
 }
 
 .shared-card__content {
   display: flex;
   flex-direction: column;
-  padding-top: var(--gap-l);
+  padding: var(--gap-l) var(--gap-xl) var(--gap-xl) var(--gap-xl);
   gap: var(--gap-l);
 }
 
 .shared-card__content.small {
-  padding-top: var(--gap-m);
+  padding: var(--gap-m) var(--gap-l) var(--gap-l) var(--gap-l);
   gap: var(--gap-m);
 }
 
@@ -84,7 +89,7 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
   color: var(--blue);
 }
 
-.shared-card:hover .shared-card__image {
+.shared-card:hover .picture {
   transform: scale(1.05);
 }
 </style>
