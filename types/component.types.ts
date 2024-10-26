@@ -23,4 +23,6 @@ export interface SharedComponentWithTheme {
 
 export interface SharedComponentThemeAndSize
   extends SharedComponentWithTheme,
-    SharedComponentWithSize {}
+    SharedComponentWithSize {
+  hover?: keyof ComponentThemes
+}
