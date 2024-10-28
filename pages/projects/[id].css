@@ -1,0 +1,73 @@
+.project-container {
+  width: 60%;
+  margin-top: 127px;
+}
+.project__inner {
+  margin-bottom: 70px;
+  border-bottom: 1px solid #ededed;
+}
+.project__name {
+  margin-bottom: 50px;
+  font-size: var(--font-size-m);
+}
+.project__header {
+  display: flex;
+  gap: 128px;
+  margin-bottom: 50px;
+}
+.project__role,
+.project__date,
+.project__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  font-size: var(--font-size-s);
+}
+.project__role h4,
+.project__date h4,
+.project__lead h4 {
+  color: var(--dark-gray);
+}
+.project__role p,
+.project__date p,
+.project__lead p,
+.project__lead a {
+  font-weight: var(--weight-medium);
+  color: var(--black);
+}
+.project__text,
+.project__href-text {
+  width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  font-size: var(--font-size-s);
+  color: var(--black);
+  margin-bottom: 70px;
+}
+.project__img {
+  width: 100%;
+  margin-bottom: 70px;
+}
+.project__imgs {
+  display: flex;
+  gap: 20px;
+}
+.project__imgs img {
+  width: 50%;
+}
+.project__href-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.project__share {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.project__share-icons {
+  display: flex;
+  gap: 13px;
+  font-size: 30px;
+}
