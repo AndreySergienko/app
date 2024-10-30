@@ -61,12 +61,13 @@
   position: absolute;
   top: 20px;
   left: 90px;
-  width: 70%;
+  max-width: 70%;
   height: 5px;
-  background-color: transparent;
+  background-color: white;
+  border-radius: 10px;
 }
 
-.progress-bar::after {
+/* .progress-bar::after {
   content: '';
   display: block;
   height: 100%;
@@ -80,7 +81,7 @@
   to {
     width: 100%;
   }
-}
+} */
 
 .overlay {
   position: absolute;

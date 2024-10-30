@@ -16,41 +16,62 @@
       </div>
     </div>
   </div>
-  <div v-if="isModalOpen" class="modal">
+  <div v-if="isModalOpen" class="modal" @mousedown="pauseProgress" @mouseup="resumeProgress">
     <nuxt-icon class="close" name="close" filled @click="closeModal" />
     <div class="modal__content">
       <nuxt-icon class="modal__icon" name="prev" filled />
-      <div
-        class="progress-bar"
-        :style="{ width: progress + '%' }"
-        @mousedown="pauseProgress"
-        @mouseup="resumeProgress"
-      ></div>
+      <div class="progress-bar" :style="{ width: `${progressWidth}%` }"></div>
       <img class="modal__img" src="../../assets/images/ModalStories.png" alt="img" />
       <nuxt-icon class="modal__icon" name="next" filled />
     </div>
   </div>
 </template>
+
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, onUnmounted } from 'vue'
 import Stories1 from '@/assets/images/Stories_1.png'
 import Stories2 from '@/assets/images/Stroies_2.png'
 import Stories3 from '@/assets/images/Stories_3.png'
 
 const isModalOpen = ref(false)
 const selectedCard = ref(null)
+const progressWidth = ref(0)
+let intervalId = null
 
 function openModal(card) {
   selectedCard.value = card
   isModalOpen.value = true
-  setTimeout(() => {
-    closeModal()
-  }, 3000)
+  startProgress()
 }
 
 function closeModal() {
   isModalOpen.value = false
   selectedCard.value = null
+  resetProgress()
+}
+
+function startProgress() {
+  progressWidth.value = 0
+  intervalId = setInterval(() => {
+    if (progressWidth.value < 100) {
+      progressWidth.value += 100 / (3000 / 50)
+    } else {
+      closeModal()
+    }
+  }, 50)
+}
+
+function resetProgress() {
+  clearInterval(intervalId)
+  progressWidth.value = 0
+}
+
+function pauseProgress() {
+  clearInterval(intervalId)
+}
+
+function resumeProgress() {
+  startProgress()
 }
 
 const cards = reactive([
@@ -80,5 +101,9 @@ const cards = reactive([
     play: 'white_play'
   }
 ])
+
+onUnmounted(() => {
+  clearInterval(intervalId)
+})
 </script>
 <style scoped src="./SharedStories.css"></style>
