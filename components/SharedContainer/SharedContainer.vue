@@ -6,6 +6,9 @@
 
 <style scoped>
 .shared-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
   min-width: calc(100dvw - 250px);
   padding: 20px;

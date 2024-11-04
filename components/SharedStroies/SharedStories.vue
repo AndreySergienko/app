@@ -1,109 +1,38 @@
 <template>
-  <div class="card__story">
-    <div
-      v-for="(card, index) in cards"
-      :key="index"
-      class="card__story-item"
-      @click="openModal(card)"
-    >
-      <img :src="card.img" alt="img" />
+  <div class="card__story" @click="openModal">
+    <div class="card__story-item">
+      <img :src="props.card.img" alt="img" />
       <div class="card__story-followers">
-        <nuxt-icon :name="card.play" filled />
-        <div :style="{ color: index === 1 ? 'black' : 'white' }">{{ card.followers }}</div>
+        <nuxt-icon :name="props.card.play" filled />
+        <div :style="{ color: props.isSecondCard ? 'black' : 'white' }">
+          {{ props.card.followers }}
+        </div>
       </div>
-      <div v-if="index === 4" class="overlay">
+      <div v-if="props.isLastCard" class="overlay">
         <span class="overlay-text">Просмотрено</span>
       </div>
     </div>
   </div>
-  <div v-if="isModalOpen" class="modal" @mousedown="pauseProgress" @mouseup="resumeProgress">
-    <nuxt-icon class="close" name="close" filled @click="closeModal" />
-    <div class="modal__content">
-      <nuxt-icon class="modal__icon" name="prev" filled />
-      <div class="progress-bar" :style="{ width: `${progressWidth}%` }"></div>
-      <img class="modal__img" src="../../assets/images/ModalStories.png" alt="img" />
-      <nuxt-icon class="modal__icon" name="next" filled />
-    </div>
-  </div>
+  <SharedModal v-if="isModalOpen" @close="isModalOpen = false">
+    <p>Контент модального окна</p>
+  </SharedModal>
 </template>
 
 <script setup>
-import { reactive, ref, onUnmounted } from 'vue'
-import Stories1 from '@/assets/images/Stories_1.png'
-import Stories2 from '@/assets/images/Stroies_2.png'
-import Stories3 from '@/assets/images/Stories_3.png'
+import { ref, defineProps } from 'vue'
 
-const isModalOpen = ref(false)
-const selectedCard = ref(null)
-const progressWidth = ref(0)
-let intervalId = null
-
-function openModal(card) {
-  selectedCard.value = card
-  isModalOpen.value = true
-  startProgress()
-}
-
-function closeModal() {
-  isModalOpen.value = false
-  selectedCard.value = null
-  resetProgress()
-}
-
-function startProgress() {
-  progressWidth.value = 0
-  intervalId = setInterval(() => {
-    if (progressWidth.value < 100) {
-      progressWidth.value += 100 / (3000 / 50)
-    } else {
-      closeModal()
-    }
-  }, 50)
-}
-
-function resetProgress() {
-  clearInterval(intervalId)
-  progressWidth.value = 0
-}
-
-function pauseProgress() {
-  clearInterval(intervalId)
-}
-
-function resumeProgress() {
-  startProgress()
-}
-
-const cards = reactive([
-  {
-    img: Stories1,
-    followers: '16,2 K',
-    play: 'white_play'
+const props = defineProps({
+  card: {
+    type: Object,
+    default: () => ({})
   },
-  {
-    img: Stories2,
-    followers: '16,2 K',
-    play: 'dark_play'
-  },
-  {
-    img: Stories3,
-    followers: '16,2 K',
-    play: 'white_play'
-  },
-  {
-    img: Stories1,
-    followers: '16,2 K',
-    play: 'white_play'
-  },
-  {
-    img: Stories1,
-    followers: '16,2 K',
-    play: 'white_play'
-  }
-])
-
-onUnmounted(() => {
-  clearInterval(intervalId)
+  isSecondCard: Boolean,
+  isLastCard: Boolean
 })
+const isModalOpen = ref(false)
+
+function openModal() {
+  isModalOpen.value = true
+}
 </script>
 <style scoped src="./SharedStories.css"></style>

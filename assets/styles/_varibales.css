@@ -3,7 +3,6 @@
   --gray: #f8f8f8;
   --light-gray: #f3f3f3;
   --dark-gray: rgba(0, 0, 0, 0.4);
-  --dark: rgba(0, 0, 0, 1);
   --blue: #3e59dd;
 
   --font-size-m: 14px;
@@ -27,4 +26,20 @@
 
 .mb-20 {
   margin-bottom: var(--gap-m);
+}
+
+.mt-20 {
+  margin-top: var(--gap-m);
+}
+
+.p-40 {
+  padding: var(--gap-xl);
+}
+
+.p-30 {
+  padding: var(--gap-l);
+}
+
+.pt-10 {
+  padding-top: var(--gap-s);
 }

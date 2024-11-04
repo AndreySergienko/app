@@ -12,10 +12,10 @@
     </div>
     <div class="tab__content">
       <div v-if="activeTab === 'Posts'">
-        <SharedPosts />
+        <ControllerPosts />
       </div>
       <div v-if="activeTab === 'Projects'">
-        <SharedProjects />
+        <ControllerProjects />
       </div>
     </div>
   </div>
@@ -23,8 +23,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import SharedPosts from '../SharedPosts/SharedPosts.vue'
-import SharedProjects from '../SharedProjects/SharedProjects.vue'
+import ControllerPosts from '~/controllers/ControllerPosts/ControllerPosts.vue'
+import ControllerProjects from '~/controllers/ControllerProjects/ControllerProjects.vue'
 
 const tabs = ['Posts', 'Projects']
 const activeTab = ref('Posts')

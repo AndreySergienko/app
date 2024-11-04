@@ -14,7 +14,7 @@
       </SharedTitle>
       <SharedText v-if="text" size="m" theme="dark">{{ text }}</SharedText>
 
-      <SharedTitle v-if="size === 'm'" size="s" theme="light" @click="emit('read-more')">
+      <SharedTitle v-if="size === 'm' || 'l'" size="s" theme="light" @click="emit('read-more')">
         Read more
       </SharedTitle>
     </div>
@@ -33,7 +33,8 @@ const emit = defineEmits<SharedCardEmits>()
 
 const classes: Partial<ComponentSizesWithElement<string>> = {
   s: 'small',
-  m: 'medium'
+  m: 'medium',
+  l: 'large'
 }
 </script>
 
@@ -49,6 +50,12 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
   padding: var(--gap-l);
 }
 
+.shared-card.large {
+  width: 670px;
+  padding: 0;
+  margin-bottom: var(--gap-m);
+}
+
 .shared-card__image {
   height: calc(160px - var(--gap-l));
   border-top: 4px solid var(--black);
@@ -57,6 +64,18 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   transition: transform linear calc(var(--duration) / 1);
+}
+
+.shared-card__image.large {
+  width: 670px;
+  height: 298px;
+  border: none;
+  transition: none;
+}
+
+.shared-card__image.large .picture {
+  width: 100%;
+  height: 100%;
 }
 
 .picture {
@@ -76,6 +95,10 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
   gap: var(--gap-m);
 }
 
+.shared-card__content.large {
+  padding: var(--gap-xl);
+}
+
 .shared-card__title {
   transition: color linear calc(var(--duration));
 }
@@ -86,5 +109,9 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 
 .shared-card:hover .shared-card__image {
   transform: scale(1.05);
+}
+
+.shared-card.large:hover .shared-card__image {
+  transform: none;
 }
 </style>

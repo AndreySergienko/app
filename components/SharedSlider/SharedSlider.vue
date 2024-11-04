@@ -1,43 +1,36 @@
 <template>
-  <div class="slider">
+  <div class="slider mt-20">
     <button v-if="!isFirstSlide" @click="prevSlide">Prev</button>
     <div class="slides-container">
       <div
-        v-for="(slide, index) in visibleSlides"
-        :key="index"
+        v-for="(slide, slideIndex) in visibleSlides"
+        :key="slideIndex"
         :style="{ transform: `translateX(${-currentIndex * 0}%)` }"
         class="slide"
       >
-        <slot :slide="slide" :index="index" />
+        <slot :slide="slide" :slide-index="slideIndex" />
       </div>
     </div>
     <button v-if="!isLastSlide" @click="nextSlide">Next</button>
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 import { ref, computed } from 'vue'
+import type { SliderProps } from './SharedSlider.types'
 
-const props = defineProps({
-  slides: {
-    type: Array,
-    required: true,
-    default: () => []
-  },
-  slidesToShow: {
-    type: Number,
-    default: 1
-  }
-})
+const props = defineProps<SliderProps>()
 
-const currentIndex = ref(0)
+const currentIndex = ref<number>(0)
 
-const totalSlides = computed(() => props.slides.length)
+const totalSlides = computed<number>(() => props.slides.length)
 
-const isFirstSlide = computed(() => currentIndex.value === 0)
-const isLastSlide = computed(() => currentIndex.value >= totalSlides.value - props.slidesToShow)
+const isFirstSlide = computed<boolean>(() => currentIndex.value === 0)
+const isLastSlide = computed<boolean>(
+  () => currentIndex.value >= totalSlides.value - props.slidesToShow
+)
 
-const visibleSlides = computed(() => {
+const visibleSlides = computed<Array<object>>(() => {
   return props.slides.slice(currentIndex.value, currentIndex.value + props.slidesToShow)
 })
 
@@ -56,7 +49,6 @@ const prevSlide = () => {
   max-width: 665px;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
 }
 
 .slides-container {
@@ -65,13 +57,13 @@ const prevSlide = () => {
   width: 500px;
   width: 100%;
   justify-content: center;
-  gap: 10px;
+  gap: var(--gap-s);
 }
 
 .slide {
   width: 200px;
   padding: 5px;
   border: 1px solid var(--dark-gray);
-  transition: transform 0.3s ease;
+  transition: transform var(--duration) ease;
 }
 </style>
