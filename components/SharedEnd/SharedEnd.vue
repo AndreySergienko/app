@@ -17,6 +17,6 @@
 .shared-end__heart {
   width: 26px;
   height: 26px;
-  margin-bottom: var(--gap-m);
+  margin-bottom: var(--gap-l);
 }
 </style>

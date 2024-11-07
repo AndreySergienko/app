@@ -1,6 +1,6 @@
 .card__story {
   display: flex;
-  gap: 15px;
+  gap: var(--gap-l);
   margin-bottom: 40px;
 }
 
@@ -17,7 +17,7 @@
   align-items: center;
   gap: 3px;
   color: white;
-  font-size: 12px;
+  font-size: var(--font-size-s);
 }
 
 .overlay {
@@ -28,7 +28,7 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
-  height: 98%;
+  height: 185px;
   display: flex;
   align-items: center;
   justify-content: center;

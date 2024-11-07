@@ -16,7 +16,6 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
 import type { SliderProps } from './SharedSlider.types'
 
 const props = defineProps<SliderProps>()

@@ -49,6 +49,6 @@ const cards = reactive([
 <style>
 .card__container {
   display: flex;
-  gap: 15px;
+  gap: var(--gap-l);
 }
 </style>

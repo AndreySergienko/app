@@ -10,14 +10,16 @@
   </div>
 </template>
 
-<script setup>
-import { ref, onMounted } from 'vue'
+<script setup lang="ts">
+const emit = defineEmits<{
+  (e: 'close'): void
+}>()
 
-const emit = defineEmits(['close'])
-const progressWidth = ref(0)
-const isMouseDown = ref(false)
+const progressWidth = ref<number>(0)
+const isMouseDown = ref<boolean>(false)
+const PROGRESSINCREMENT = 1.4 // Значение для увеличения ширины прогресс-бара
 
-let interval = null
+let interval: ReturnType<typeof setInterval> | null = null
 
 function closeModal() {
   emit('close')
@@ -25,7 +27,7 @@ function closeModal() {
 
 function handleMouseDown() {
   isMouseDown.value = true
-  clearInterval(interval)
+  clearInterval(interval!)
 }
 
 function handleMouseUp() {
@@ -35,13 +37,13 @@ function handleMouseUp() {
 
 function increaseProgress() {
   let progressValue = progressWidth.value
-  clearInterval(interval)
+  clearInterval(interval!)
   interval = setInterval(() => {
     if (!isMouseDown.value) {
-      progressValue += 1.4
+      progressValue += PROGRESSINCREMENT
       progressWidth.value = progressValue
       if (progressValue >= 70) {
-        clearInterval(interval)
+        clearInterval(interval!)
         closeModal()
       }
     }
@@ -53,7 +55,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  clearInterval(interval)
+  clearInterval(interval!)
 })
 </script>
 

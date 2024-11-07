@@ -18,18 +18,12 @@
   </SharedModal>
 </template>
 
-<script setup>
-import { ref, defineProps } from 'vue'
+<script setup lang="ts">
+import type { CardProps } from './SharedStories.types'
 
-const props = defineProps({
-  card: {
-    type: Object,
-    default: () => ({})
-  },
-  isSecondCard: Boolean,
-  isLastCard: Boolean
-})
-const isModalOpen = ref(false)
+const props = defineProps<CardProps>()
+
+const isModalOpen = ref<boolean>(false)
 
 function openModal() {
   isModalOpen.value = true

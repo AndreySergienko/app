@@ -53,7 +53,7 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 .shared-card.large {
   width: 670px;
   padding: 0;
-  margin-bottom: var(--gap-m);
+  margin-bottom: var(--gap-l);
 }
 
 .shared-card__image {
@@ -91,8 +91,8 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 }
 
 .shared-card__content.small {
-  padding-top: var(--gap-m);
-  gap: var(--gap-m);
+  padding-top: var(--gap-l);
+  gap: var(--gap-l);
 }
 
 .shared-card__content.large {

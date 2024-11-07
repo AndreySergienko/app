@@ -2,7 +2,6 @@
   <SharedProject v-for="(project, index) in projects" :key="index" :project="project" />
 </template>
 <script setup>
-import { reactive } from 'vue'
 import Projects from '~/assets/images/Projects.png'
 
 const projects = reactive([

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <SharedTab />
+    <ControllerPosts />
     <SharedSlider :slides="mySlides" :slides-to-show="2">
       <template #default="{ slide }">
         <div class="my-slide-content">

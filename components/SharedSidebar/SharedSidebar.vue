@@ -97,6 +97,7 @@ const footerInfo: FooterTextTypes[] = [
 
 <style scoped>
 .shared-sidebar {
+  position: fixed;
   max-width: 250px;
   padding: var(--gap-xl);
   border-right: 1px solid var(--light-gray);
@@ -114,7 +115,7 @@ const footerInfo: FooterTextTypes[] = [
   width: 50px;
   height: 50px;
   border-radius: 100%;
-  margin-bottom: var(--gap-m);
+  margin-bottom: var(--gap-l);
 }
 
 .shared-sidebar__title {
@@ -128,7 +129,7 @@ const footerInfo: FooterTextTypes[] = [
 .shared-sidebar__links {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-m);
+  gap: var(--gap-l);
 }
 
 .shared-sidebar__link {
@@ -144,6 +145,6 @@ const footerInfo: FooterTextTypes[] = [
 
 .ogrn {
   margin-top: var(--gap-s);
-  margin-bottom: var(--gap-m);
+  margin-bottom: var(--gap-l);
 }
 </style>

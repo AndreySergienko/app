@@ -64,7 +64,7 @@
 .project__share {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: var(--gap-l);
 }
 .project__share-icons {
   display: flex;

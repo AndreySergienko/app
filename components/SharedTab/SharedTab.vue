@@ -1,31 +1,20 @@
 <template>
   <div>
     <div class="tabs">
-      <div
+      <nuxt-link
         v-for="tab in tabs"
         :key="tab"
+        :to="tab === 'Posts' ? '/posts' : '/projects/projects'"
         :class="['tab', { active: activeTab === tab }]"
         @click="activeTab = tab"
       >
         {{ tab }}
-      </div>
-    </div>
-    <div class="tab__content">
-      <div v-if="activeTab === 'Posts'">
-        <ControllerPosts />
-      </div>
-      <div v-if="activeTab === 'Projects'">
-        <ControllerProjects />
-      </div>
+      </nuxt-link>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import ControllerPosts from '~/controllers/ControllerPosts/ControllerPosts.vue'
-import ControllerProjects from '~/controllers/ControllerProjects/ControllerProjects.vue'
-
 const tabs = ['Posts', 'Projects']
 const activeTab = ref('Posts')
 </script>
@@ -33,7 +22,6 @@ const activeTab = ref('Posts')
 <style>
 .tabs {
   display: flex;
-  margin-top: 40px;
   gap: 20px;
 }
 
@@ -43,6 +31,7 @@ const activeTab = ref('Posts')
   font-size: var(--font-size-m);
   font-weight: var(--weight-medium);
   transition: color 0.3s ease;
+  text-decoration: none;
 }
 
 .tab.active {

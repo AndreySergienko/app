@@ -7,6 +7,9 @@
       <SharedContainer>
         <ControllerStories class="stories" />
         <ControllerAnnouncements class="announcements" />
+        <div class="tabs">
+          <SharedTab />
+        </div>
         <slot />
         <SharedEnd />
       </SharedContainer>
@@ -21,6 +24,12 @@
   @media (width <= 1024px) {
     flex-direction: column;
   }
+}
+
+.tabs {
+  max-width: 680px;
+  width: 100%;
+  margin-bottom: var(--gap-l);
 }
 
 .stories,

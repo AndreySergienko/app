@@ -16,15 +16,12 @@
     </div>
   </div>
 </template>
-<script setup>
-import { defineProps } from 'vue'
+<script setup lang="ts">
+import type { ProjectProps } from './SharedProject.types'
 
-const props = defineProps({
-  project: {
-    type: Object,
-    default: () => ({})
-  }
-})
+const props = defineProps<{
+  project: ProjectProps
+}>()
 </script>
 
 <style scoped src="./SharedProject.css"></style>
