@@ -1,4 +1,6 @@
 .project-container {
+  position: absolute;
+  left: 25%;
   width: 60%;
   margin-top: 127px;
 }
@@ -40,7 +42,7 @@
   width: 580px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--gap-xxl);
   font-size: var(--font-size-s);
   color: var(--black);
   margin-bottom: 70px;
@@ -51,7 +53,7 @@
 }
 .project__imgs {
   display: flex;
-  gap: 20px;
+  gap: var(--gap-l);
 }
 .project__imgs img {
   width: 50%;
@@ -59,12 +61,12 @@
 .project__href-inner {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: var(--gap-xxl);
 }
 .project__share {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-l);
+  gap: var(--gap-m);
 }
 .project__share-icons {
   display: flex;

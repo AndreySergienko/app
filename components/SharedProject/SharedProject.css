@@ -1,8 +1,8 @@
 .projects {
   display: flex;
   flex-direction: column;
-  gap: var(--gap-l);
-  margin-bottom: var(--gap-l);
+  gap: var(--gap-xxl);
+  margin-bottom: var(--gap-xxl);
 }
 
 .projects__img {

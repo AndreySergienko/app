@@ -16,7 +16,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: var(--gap-xl);
+  gap: var(--gap-xxl);
 }
 
 .close {

@@ -1,7 +1,6 @@
 .card__story {
   display: flex;
-  gap: var(--gap-l);
-  margin-bottom: 40px;
+  gap: var(--gap-xxl);
 }
 
 .card__story-item {

@@ -49,6 +49,19 @@ const cards = reactive([
 <style>
 .card__container {
   display: flex;
-  gap: var(--gap-l);
+  gap: var(--gap-m);
+}
+
+@media (max-width: 705px) {
+  .card__container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .card__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>

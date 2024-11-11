@@ -30,4 +30,11 @@ import otherJpg from '~/assets/images/other.jpg'
   display: flex;
   gap: var(--gap-l);
 }
+
+@media (max-width: 705px) {
+  .controller {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 </style>

@@ -1,16 +1,15 @@
 <template>
   <div class="default-layout">
-    <header>
+    <header class="header">
       <SharedSidebar />
     </header>
     <main>
       <SharedContainer>
         <ControllerStories class="stories" />
         <ControllerAnnouncements class="announcements" />
-        <div class="tabs">
-          <SharedTab />
-        </div>
-        <slot />
+        <ControllerSlots class="slots">
+          <slot />
+        </ControllerSlots>
         <SharedEnd />
       </SharedContainer>
     </main>
@@ -20,9 +19,17 @@
 <style scoped>
 .default-layout {
   display: flex;
+}
 
-  @media (width <= 1024px) {
+@media (width <= 1024px) {
+  .default-layout {
     flex-direction: column;
+  }
+}
+
+@media (max-width: 960px) {
+  .default-layout {
+    align-items: center;
   }
 }
 
@@ -34,6 +41,23 @@
 
 .stories,
 .announcements {
-  margin-bottom: var(--gap-xl);
+  margin-bottom: var(--gap-xxl);
+}
+
+@media (max-width: 705px) {
+  .stories,
+  .announcements,
+  .slots {
+    width: 100vw;
+    padding: 0 25px;
+  }
+}
+
+@media (max-width: 430px) {
+  .stories,
+  .announcements,
+  .slots {
+    padding: 0 5px;
+  }
 }
 </style>

@@ -40,24 +40,25 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 
 <style scoped>
 .shared-card {
-  padding: var(--gap-xl);
+  padding: var(--gap-xxl);
   border-radius: 10px;
   background-color: var(--gray);
 }
 
 .shared-card.small {
   width: 325px;
-  padding: var(--gap-l);
+  padding: var(--gap-xxl);
 }
 
 .shared-card.large {
-  width: 670px;
+  max-width: 670px;
+  width: 100%;
   padding: 0;
   margin-bottom: var(--gap-l);
 }
 
 .shared-card__image {
-  height: calc(160px - var(--gap-l));
+  height: calc(160px - var(--gap-xxl));
   border-top: 4px solid var(--black);
   border-right: 4px solid var(--black);
   border-left: 4px solid var(--black);
@@ -67,7 +68,8 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 }
 
 .shared-card__image.large {
-  width: 670px;
+  max-width: 670px;
+  width: 100%;
   height: 298px;
   border: none;
   transition: none;
@@ -86,17 +88,18 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 .shared-card__content {
   display: flex;
   flex-direction: column;
-  padding-top: var(--gap-l);
-  gap: var(--gap-l);
+  padding-top: var(--gap-xxl);
+  gap: var(--gap-xxl);
 }
 
 .shared-card__content.small {
-  padding-top: var(--gap-l);
+  padding-top: var(--gap-xxl);
   gap: var(--gap-l);
 }
 
 .shared-card__content.large {
-  padding: var(--gap-xl);
+  padding: var(--gap-xxl);
+  gap: var(--gap-xl);
 }
 
 .shared-card__title {

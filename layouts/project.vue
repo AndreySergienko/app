@@ -52,7 +52,7 @@ const main = () => {
 .projects-layout__button {
   position: absolute;
   top: 60px;
-  left: 490px;
+  left: 25%;
   cursor: pointer;
 }
 
