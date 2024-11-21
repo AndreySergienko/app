@@ -36,6 +36,6 @@ function handleClick() {
 
 .tab__content {
   max-width: 670px;
-  margin-top: 20px;
+  margin-top: var(--gap-l);
 }
 </style>
