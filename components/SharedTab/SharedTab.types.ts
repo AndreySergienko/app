@@ -3,3 +3,7 @@ export interface ISharedTabProps {
   to: string
   active: boolean
 }
+
+export type ISharedTabEmits = {
+  updateActiveTab: (tab: string) => void
+}

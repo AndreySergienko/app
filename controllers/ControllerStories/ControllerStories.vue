@@ -12,13 +12,14 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import SharedStory from '~/components/SharedStory/SharedStory.vue'
+import type { ISharedStoryProps } from '~/components/SharedStory/SharedStory.types'
 import Stories1 from '@/assets/images/Stories_1.png'
 import Stories2 from '@/assets/images/Stroies_2.png'
 import Stories3 from '@/assets/images/Stories_3.png'
 
-const cards = reactive([
+const cards: ISharedStoryProps['card'][] = reactive([
   {
     img: Stories1,
     followers: '16,2 K',

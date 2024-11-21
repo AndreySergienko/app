@@ -4,7 +4,7 @@
       <SharedSidebar class="sidebar" />
     </header>
     <div class="projects-layout__button">
-      <button @click="main">
+      <button @click="navigateTo('/')">
         <nuxt-icon name="arrow_back" filled />
         Back
       </button>
@@ -23,23 +23,17 @@
   </div>
 </template>
 
-<script setup>
-const items = ['Promtopia', 'Control', 'Main idea', 'Challenge']
-const activeIndex = ref(0)
+<script setup lang="ts">
+const items: string[] = ['Promtopia', 'Control', 'Main idea', 'Challenge']
+const activeIndex = ref<number>(0)
 
-function setActive(index) {
+function setActive(index: number) {
   activeIndex.value = index
 
   const section = document.getElementById(`section-${index}`)
   if (section) {
     section.scrollIntoView({ behavior: 'smooth' })
   }
-}
-
-const router = useRouter()
-
-const main = () => {
-  router.push('/')
 }
 </script>
 

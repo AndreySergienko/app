@@ -10,8 +10,8 @@
     </SharedSlider>
   </div>
 </template>
-<script setup>
-const mySlides = ref([
+<script setup lang="ts">
+const mySlides = ref<string[]>([
   'Slide 1 Content',
   'Slide 2 Content',
   'Slide 3 Content',

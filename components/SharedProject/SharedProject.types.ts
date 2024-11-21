@@ -1,5 +1,5 @@
 export interface ISharedProjectProps {
-  id: string
+  id: number
   name: string
   img: string
 }

@@ -7,10 +7,10 @@
 </template>
 
 <script setup lang="ts">
-import type { ISharedTabProps } from './SharedTab.types'
+import type { ISharedTabProps, ISharedTabEmits } from './SharedTab.types'
 
 const props = defineProps<ISharedTabProps>()
-const emit = defineEmits(['updateActiveTab'])
+const emit = defineEmits<ISharedTabEmits>()
 
 const activeTab = ref('Posts')
 

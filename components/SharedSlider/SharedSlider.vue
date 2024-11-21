@@ -29,7 +29,7 @@ const isLastSlide = computed<boolean>(
   () => currentIndex.value >= totalSlides.value - props.slidesToShow
 )
 
-const visibleSlides = computed<Array<object>>(() => {
+const visibleSlides = computed<Array<string>>(() => {
   return props.slides.slice(currentIndex.value, currentIndex.value + props.slidesToShow)
 })
 

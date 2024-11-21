@@ -1,10 +1,11 @@
 <template>
   <SharedProject v-for="(project, index) in projects" :key="index" :project="project" />
 </template>
-<script setup>
+<script setup lang="ts">
 import Projects from '~/assets/images/Projects.png'
+import type { ISharedProjectProps } from '~/components/SharedProject/SharedProject.types'
 
-const projects = reactive([
+const projects = reactive<Array<ISharedProjectProps>>([
   {
     id: 1,
     img: Projects,
