@@ -1,30 +1,26 @@
 <template>
   <div>
-    <div class="tabs">
-      <nuxt-link
-        v-for="tab in tabs"
-        :key="tab"
-        :to="tab === 'Posts' ? '/posts' : '/projects/projects'"
-        :class="['tab', { active: activeTab === tab }]"
-        @click="activeTab = tab"
-      >
-        {{ tab }}
-      </nuxt-link>
-    </div>
+    <nuxt-link :to="props.to" :class="['tab', { active: props.active }]" @click="handleClick">
+      {{ props.tab }}
+    </nuxt-link>
   </div>
 </template>
 
-<script setup>
-const tabs = ['Posts', 'Projects']
+<script setup lang="ts">
+import type { ISharedTabProps } from './SharedTab.types'
+
+const props = defineProps<ISharedTabProps>()
+const emit = defineEmits(['updateActiveTab'])
+
 const activeTab = ref('Posts')
+
+function handleClick() {
+  activeTab.value = props.tab
+  emit('updateActiveTab', props.tab)
+}
 </script>
 
 <style>
-.tabs {
-  display: flex;
-  gap: 20px;
-}
-
 .tab {
   color: rgb(0 0 0 / 40%);
   cursor: pointer;

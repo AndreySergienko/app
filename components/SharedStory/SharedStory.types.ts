@@ -1,4 +1,4 @@
-export interface CardProps {
+export interface ISharedStoryProps {
   card: {
     img: string
     play: string

@@ -25,16 +25,23 @@
 import otherJpg from '~/assets/images/other.jpg'
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@use 'assets/styles/media';
+
 .controller {
   display: flex;
   gap: var(--gap-l);
 }
 
-@media (max-width: 705px) {
+@include media.media-breakpoint-down(l) {
+  .annoncements {
+    width: 100%;
+  }
+}
+
+@include media.media-breakpoint-down(sm) {
   .controller {
     flex-direction: column;
-    align-items: center;
   }
 }
 </style>

@@ -103,4 +103,4 @@ definePageMeta({
   layout: 'project'
 })
 </script>
-<style lang="css" scoped src="./[id].css"></style>
+<style lang="css" scoped src="./[id].scss"></style>

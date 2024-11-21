@@ -16,9 +16,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { SliderProps } from './SharedSlider.types'
+import type { ISharedSliderProps } from './SharedSlider.types'
 
-const props = defineProps<SliderProps>()
+const props = defineProps<ISharedSliderProps>()
 
 const currentIndex = ref<number>(0)
 

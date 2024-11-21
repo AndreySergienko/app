@@ -17,11 +17,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import type { ProjectProps } from './SharedProject.types'
+import type { ISharedProjectProps } from './SharedProject.types'
 
 const props = defineProps<{
-  project: ProjectProps
+  project: ISharedProjectProps
 }>()
 </script>
 
-<style scoped src="./SharedProject.css"></style>
+<style scoped src="./SharedProject.scss"></style>

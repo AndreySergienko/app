@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts">
-import type { CardProps } from './SharedStories.types'
+import type { ISharedStoryProps } from './SharedStory.types'
 
-const props = defineProps<CardProps>()
+const props = defineProps<ISharedStoryProps>()
 
 const isModalOpen = ref<boolean>(false)
 
@@ -29,4 +29,4 @@ function openModal() {
   isModalOpen.value = true
 }
 </script>
-<style scoped src="./SharedStories.css"></style>
+<style scoped src="./SharedStory.css"></style>

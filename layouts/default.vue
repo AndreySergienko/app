@@ -16,7 +16,8 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+@use 'assets/styles/media';
 .default-layout {
   display: flex;
 }
@@ -24,12 +25,6 @@
 @media (width <= 1024px) {
   .default-layout {
     flex-direction: column;
-  }
-}
-
-@media (max-width: 960px) {
-  .default-layout {
-    align-items: center;
   }
 }
 
@@ -44,20 +39,10 @@
   margin-bottom: var(--gap-xxl);
 }
 
-@media (max-width: 705px) {
-  .stories,
+@include media.media-breakpoint-down(l) {
   .announcements,
   .slots {
-    width: 100vw;
-    padding: 0 25px;
-  }
-}
-
-@media (max-width: 430px) {
-  .stories,
-  .announcements,
-  .slots {
-    padding: 0 5px;
+    width: 100%;
   }
 }
 </style>

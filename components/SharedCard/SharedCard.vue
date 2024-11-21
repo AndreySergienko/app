@@ -38,7 +38,9 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@use 'assets/styles/media';
+
 .shared-card {
   padding: var(--gap-xxl);
   border-radius: 10px;
@@ -58,13 +60,20 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 }
 
 .shared-card__image {
-  height: calc(160px - var(--gap-xxl));
+  height: calc(160px - var(--gap-xl));
   border-top: 4px solid var(--black);
   border-right: 4px solid var(--black);
   border-left: 4px solid var(--black);
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   transition: transform linear calc(var(--duration) / 1);
+}
+
+.shared-card__image img {
+  min-width: 237px;
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .shared-card__image.large {
@@ -78,6 +87,7 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 .shared-card__image.large .picture {
   width: 100%;
   height: 100%;
+  border-radius: 0px;
 }
 
 .picture {
@@ -116,5 +126,24 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 
 .shared-card.large:hover .shared-card__image {
   transform: none;
+}
+
+@include media.media-breakpoint-down(l) {
+  .shared-card.large {
+    max-width: 100%;
+  }
+  .shared-card__image.large {
+    max-width: 100%;
+    height: 100%;
+  }
+  .shared-card.small {
+    width: 100%;
+  }
+}
+
+@include media.media-breakpoint-down(sm) {
+  .shared-card__image img {
+    min-width: 180px;
+  }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div class="projects-layout">
     <header>
-      <SharedSidebar />
+      <SharedSidebar class="sidebar" />
     </header>
     <div class="projects-layout__button">
       <button @click="main">
@@ -43,7 +43,9 @@ const main = () => {
 }
 </script>
 
-<style>
+<style scoped lang="scss">
+@use 'assets/styles/media';
+
 .projects-layout {
   display: flex;
   gap: 250px;
@@ -76,6 +78,18 @@ const main = () => {
   flex-direction: column;
 }
 
+@include media.media-breakpoint-down(xl) {
+  .projects-layout__nav {
+    right: 100px;
+  }
+}
+
+@include media.media-breakpoint-down(md) {
+  .projects-layout__nav {
+    display: none;
+  }
+}
+
 .projects-layout__nav div {
   padding: 7px;
   border-left: 2px solid var(--dark-gray);
@@ -86,5 +100,21 @@ const main = () => {
 .projects-layout__nav div.active {
   border-left: 2px solid var(--black);
   color: var(--black);
+}
+
+@include media.media-breakpoint-down(l) {
+  .sidebar {
+    display: none;
+  }
+
+  .projects-layout__button {
+    left: 30px;
+  }
+}
+
+@include media.media-breakpoint-down(md) {
+  .projects-layout__button {
+    left: 20px;
+  }
 }
 </style>

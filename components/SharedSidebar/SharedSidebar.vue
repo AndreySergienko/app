@@ -95,4 +95,4 @@ const footerInfo: FooterTextTypes[] = [
 ]
 </script>
 
-<style scoped src="./SharedSidebar.css"></style>
+<style scoped src="./SharedSidebar.scss"></style>

@@ -2,7 +2,7 @@
   <div class="stories">
     <SharedTitle size="m" class="mb-20">Stories</SharedTitle>
     <div class="card__container">
-      <SharedStories
+      <SharedStory
         v-for="(card, index) in cards"
         :key="index"
         :card="card"
@@ -13,7 +13,7 @@
   </div>
 </template>
 <script setup>
-import SharedStories from '~/components/SharedStroies/SharedStories.vue'
+import SharedStory from '~/components/SharedStory/SharedStory.vue'
 import Stories1 from '@/assets/images/Stories_1.png'
 import Stories2 from '@/assets/images/Stroies_2.png'
 import Stories3 from '@/assets/images/Stories_3.png'
@@ -46,22 +46,18 @@ const cards = reactive([
   }
 ])
 </script>
-<style>
+<style scoped lang="scss">
+@use 'assets/styles/media';
+
 .card__container {
   display: flex;
   gap: var(--gap-m);
 }
 
-@media (max-width: 705px) {
+@include media.media-breakpoint-down(sm) {
   .card__container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-@media (max-width: 560px) {
-  .card__container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 </style>
