@@ -1,25 +1,25 @@
 <template>
   <div class="stories">
-    <SharedTitle size="m" class="mb-20">Stories</SharedTitle>
+    <SharedTitle size="m" class="stories__title">Stories</SharedTitle>
     <div class="card__container">
       <SharedStory
-        v-for="(card, index) in cards"
-        :key="index"
+        v-for="(card, id) in cards"
+        :key="id"
         :card="card"
-        :is-second-card="index === 1"
-        :is-last-card="index === cards.length - 1"
+        :is-second-card="id === 1"
+        :is-last-card="id === cards.length - 1"
       />
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import SharedStory from '~/components/SharedStory/SharedStory.vue'
-import type { ISharedStoryProps } from '~/components/SharedStory/SharedStory.types'
+import type { ISharedStoryCard } from '~/components/SharedStory/SharedStory.types'
 import Stories1 from '@/assets/images/Stories_1.png'
-import Stories2 from '@/assets/images/Stroies_2.png'
+import Stories2 from '@/assets/images/Stories_2.png'
 import Stories3 from '@/assets/images/Stories_3.png'
 
-const cards: ISharedStoryProps['card'][] = reactive([
+const cards = reactive<ISharedStoryCard[]>([
   {
     img: Stories1,
     followers: '16,2 K',
@@ -49,6 +49,10 @@ const cards: ISharedStoryProps['card'][] = reactive([
 </script>
 <style scoped lang="scss">
 @use 'assets/styles/media';
+
+.stories__title {
+  margin-bottom: var(--gap-l);
+}
 
 .card__container {
   display: flex;

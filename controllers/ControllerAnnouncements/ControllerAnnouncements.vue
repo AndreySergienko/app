@@ -1,6 +1,6 @@
 <template>
   <div class="announcements">
-    <SharedTitle size="m" class="mb-20">Announcements</SharedTitle>
+    <SharedTitle size="m" class="announcements__title">Announcements</SharedTitle>
     <div class="controller">
       <SharedCard
         size="s"
@@ -27,6 +27,10 @@ import otherJpg from '~/assets/images/other.jpg'
 
 <style scoped lang="scss">
 @use 'assets/styles/media';
+
+.announcements__title {
+  margin-bottom: var(--gap-l);
+}
 
 .controller {
   display: flex;

@@ -1,5 +1,5 @@
 <template>
-  <div class="slider mt-20">
+  <div class="slider">
     <button v-if="!isFirstSlide" @click="prevSlide">Prev</button>
     <div class="slides-container">
       <div
@@ -48,6 +48,7 @@ const prevSlide = () => {
   max-width: 665px;
   align-items: center;
   justify-content: center;
+  margin-top: var(--gap-l);
 }
 
 .slides-container {

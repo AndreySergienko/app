@@ -11,12 +11,13 @@
     </div>
     <div class="projects-layout__nav">
       <div
-        v-for="(item, index) in items"
-        :key="index"
-        :class="{ active: activeIndex === index }"
-        @click="setActive(index)"
+        v-for="(item, id) in items"
+        :key="id"
+        class="projects-layout__nav-item"
+        :class="{ active: activeIndex === item.id }"
+        @click="setActive(item.id)"
       >
-        {{ item }}
+        {{ item.name }}
       </div>
     </div>
     <slot />
@@ -24,7 +25,29 @@
 </template>
 
 <script setup lang="ts">
-const items: string[] = ['Promtopia', 'Control', 'Main idea', 'Challenge']
+interface IItem {
+  name: string
+  id: number
+}
+
+const items: IItem[] = [
+  {
+    name: 'Promtopia',
+    id: 0
+  },
+  {
+    name: 'Control',
+    id: 1
+  },
+  {
+    name: 'Main idea',
+    id: 2
+  },
+  {
+    name: 'Challenge',
+    id: 3
+  }
+]
 const activeIndex = ref<number>(0)
 
 function setActive(index: number) {
@@ -84,14 +107,14 @@ function setActive(index: number) {
   }
 }
 
-.projects-layout__nav div {
+.projects-layout__nav-item {
   padding: 7px;
   border-left: 2px solid var(--dark-gray);
   color: var(--dark-gray);
   cursor: pointer;
 }
 
-.projects-layout__nav div.active {
+.projects-layout__nav-item.active {
   border-left: 2px solid var(--black);
   color: var(--black);
 }

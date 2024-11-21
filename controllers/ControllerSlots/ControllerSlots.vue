@@ -1,14 +1,12 @@
 <template>
   <div class="slots">
-    <SharedTitle class="mb-20">
+    <SharedTitle class="slots__title">
       <div class="tabs">
         <SharedTab
           v-for="tab in tabs"
           :key="tab"
           :tab="tab"
           :to="tab === 'Posts' ? '/posts' : '/projects/projects'"
-          :active="activeTab === tab"
-          @update-active-tab="updateActiveTab"
         />
       </div>
     </SharedTitle>
@@ -19,13 +17,12 @@
 </template>
 <script setup>
 const tabs = ['Posts', 'Projects']
-const activeTab = ref('Posts')
-
-function updateActiveTab(tab) {
-  activeTab.value = tab
-}
 </script>
 <style scoped>
+.slots__title {
+  margin-bottom: var(--gap-l);
+}
+
 .tabs {
   display: flex;
   gap: var(--gap-l);

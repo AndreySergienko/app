@@ -1,23 +1,16 @@
 <template>
-  <div>
-    <nuxt-link :to="props.to" :class="['tab', { active: props.active }]" @click="handleClick">
-      {{ props.tab }}
-    </nuxt-link>
-  </div>
+  <nuxt-link :to="props.to" :class="['tab', { active: isActive }]">
+    {{ props.tab }}
+  </nuxt-link>
 </template>
 
 <script setup lang="ts">
-import type { ISharedTabProps, ISharedTabEmits } from './SharedTab.types'
+import type { ISharedTabProps } from './SharedTab.types'
 
 const props = defineProps<ISharedTabProps>()
-const emit = defineEmits<ISharedTabEmits>()
 
-const activeTab = ref('Posts')
-
-function handleClick() {
-  activeTab.value = props.tab
-  emit('updateActiveTab', props.tab)
-}
+const route = useRoute()
+const isActive = computed(() => route.path === props.to)
 </script>
 
 <style>

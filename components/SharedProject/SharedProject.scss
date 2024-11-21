@@ -10,18 +10,13 @@
 .projects__img {
   border-radius: 10px;
   background-color: var(--gray);
+  padding: var(--gap-xl);
 }
-
-@include media.media-breakpoint-down(l) {
-  .projects__img img {
-    width: 100%;
-  }
-}
-
 .projects__info {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-top: var(--gap-s);
 }
 
 .projects__link {
@@ -51,6 +46,12 @@
   font-size: var(--font-size-s);
   font-weight: var(--weight-medium);
   text-decoration: none;
+}
+
+@include media.media-breakpoint-down(l) {
+  .projects__img img {
+    width: 100%;
+  }
 }
 
 @include media.media-breakpoint-down(sm) {
