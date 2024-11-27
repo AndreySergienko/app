@@ -18,6 +18,7 @@
 
 <style scoped lang="scss">
 @use 'assets/styles/media';
+
 .default-layout {
   display: flex;
 }
@@ -44,5 +45,18 @@
   .slots {
     width: 100%;
   }
+}
+
+.tabs {
+  display: flex;
+  gap: var(--gap-m);
+}
+
+.tabs_item {
+  transition: var(--duration);
+}
+
+.tabs__item:hover {
+  color: var(--black);
 }
 </style>

@@ -1,12 +1,10 @@
 <template>
   <div :class="['shared-card', classes[size]]">
-    // Потенциально overflow: hidden
-    <div>
+    <div class="shared-card__block-image">
       <div v-if="img" :class="['shared-card__image', classes[size]]">
         <img :src="img.src" :alt="img.alt || 'picture'" class="picture" />
       </div>
     </div>
-
     <div :class="['shared-card__content', classes[size]]">
       <SharedTitle size="s" theme="light">{{ date }}</SharedTitle>
       <SharedTitle class="shared-card__title" size="m" theme="dark">
