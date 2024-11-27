@@ -14,16 +14,13 @@
   --weight-semiBld: 600;
 
   --gap-s: 10px;
-  --gap-m: 20px;
-  --gap-l: 30px;
-  --gap-xl: 40px;
+  --gap-m: 15px;
+  --gap-l: 20px;
+  --gap-xl: 30px;
+  --gap-xxl: 40px;
 
   --tablet: 1024px;
   --mobile: 360px;
 
   --duration: 0.2s;
-}
-
-.mb-20 {
-  margin-bottom: var(--gap-m);
 }

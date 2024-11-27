@@ -1,0 +1,24 @@
+$media-sm: 320px;
+$media-md: 768px;
+$media-l: 1024px;
+$media-xl: 1440px;
+
+:root {
+  $media-sm: 320px;
+  $media-md: 768px;
+  $media-l: 1024px;
+  $media-xl: 1440px;
+}
+
+$media-breakpoints: (
+  sm: $media-sm,
+  md: $media-md,
+  l: $media-l,
+  xl: $media-xl
+);
+
+@mixin media-breakpoint-down($size) {
+  @media (max-width: map-get($media-breakpoints, $size)) {
+    @content;
+  }
+}

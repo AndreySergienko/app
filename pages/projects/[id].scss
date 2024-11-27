@@ -1,0 +1,135 @@
+@use 'assets/styles/media';
+
+.project-container {
+  position: absolute;
+  left: 25%;
+  width: 60%;
+  margin-top: 127px;
+}
+
+@include media.media-breakpoint-down(l) {
+  .project-container {
+    left: 0;
+    padding: 0 var(--gap-xl);
+    width: 80%;
+  }
+}
+
+@include media.media-breakpoint-down(md) {
+  .project-container {
+    padding: 0 var(--gap-l);
+    width: 100%;
+  }
+}
+
+.project__inner {
+  margin-bottom: 70px;
+  border-bottom: 1px solid #ededed;
+}
+.project__name {
+  margin-bottom: 50px;
+  font-size: var(--font-size-m);
+}
+.project__header {
+  display: flex;
+  gap: 128px;
+  margin-bottom: 50px;
+}
+.project__role,
+.project__date,
+.project__lead {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  font-size: var(--font-size-s);
+}
+.project__role h4,
+.project__date h4,
+.project__lead h4 {
+  color: var(--dark-gray);
+}
+.project__role p,
+.project__date p,
+.project__lead p,
+.project__lead a {
+  font-weight: var(--weight-medium);
+  color: var(--black);
+}
+.project__text,
+.project__href-text {
+  width: 580px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xxl);
+  font-size: var(--font-size-s);
+  color: var(--black);
+  margin-bottom: 70px;
+}
+.project__img {
+  width: 100%;
+  margin-bottom: 70px;
+}
+.project__imgs {
+  display: flex;
+  gap: var(--gap-l);
+}
+.project__imgs img {
+  max-width: 370px;
+  width: 100%;
+}
+.project__href-inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-xxl);
+}
+.project__share {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+}
+.project__share-icons {
+  display: flex;
+  gap: 13px;
+  font-size: 30px;
+}
+
+@include media.media-breakpoint-down(md) {
+  .project__imgs {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .project__imgs img {
+    max-width: 728px;
+  }
+
+  .project__inner,
+  .project__img,
+  .project__imgs img:last-child {
+    margin-bottom: var(--gap-xxl);
+  }
+}
+
+@include media.media-breakpoint-down(sm) {
+  .project__inner .project__text,
+  .project__href-text {
+    width: 100%;
+    margin-bottom: var(--gap-xxl);
+  }
+
+  .project__header {
+    gap: 45px;
+  }
+
+  .project__img,
+  .project__imgs img {
+    width: 100%;
+    margin-bottom: var(--gap-l);
+  }
+
+  .project__role,
+  .project__date,
+  .project__lead {
+    font-size: 8px;
+  }
+}
