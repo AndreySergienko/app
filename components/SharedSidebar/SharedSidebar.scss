@@ -1,8 +1,6 @@
 @use 'assets/styles/media';
 
 .shared-sidebar {
-  position: fixed;
-  max-width: 250px;
   padding: var(--gap-xxl);
   border-right: 1px solid var(--light-gray);
 }

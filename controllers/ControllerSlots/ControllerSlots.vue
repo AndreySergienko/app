@@ -6,7 +6,7 @@
           v-for="tab in tabs"
           :key="tab"
           :tab="tab"
-          :to="tab === 'Posts' ? '/posts' : '/projects/projects'"
+          :to="tab === 'Posts' ? '/posts' : '/projects'"
         />
       </div>
     </SharedTitle>

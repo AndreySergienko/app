@@ -1,5 +1,5 @@
 <template>
-  <SharedProject v-for="(project, index) in projects" :key="index" :project="project" />
+  <SharedProject v-for="(project, id) in projects" :key="id" :project="project" />
 </template>
 <script setup lang="ts">
 import Projects from '~/assets/images/Projects.png'

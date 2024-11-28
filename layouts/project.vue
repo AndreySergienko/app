@@ -58,6 +58,30 @@ function setActive(index: number) {
     section.scrollIntoView({ behavior: 'smooth' })
   }
 }
+
+function onScroll() {
+  const sections = items.map((item) => document.getElementById(`section-${item.id}`))
+
+  sections.forEach((section, index) => {
+    if (!section) return
+
+    const rect = section.getBoundingClientRect()
+    // Проверяем, находится ли секция в зоне видимости
+    if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+      activeIndex.value = index
+    }
+  })
+}
+
+// Добавляем обработчик прокрутки
+onMounted(() => {
+  window.addEventListener('scroll', onScroll)
+})
+
+// Убираем обработчик при уничтожении компонента
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <style scoped lang="scss">

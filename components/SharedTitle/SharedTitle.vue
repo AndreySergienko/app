@@ -48,4 +48,8 @@ const { color } = useThemesText(props.theme)
   color: v-bind('hover');
   cursor: pointer;
 }
+
+.shared-title.small:hover {
+  color: var(--dark-gray);
+}
 </style>
