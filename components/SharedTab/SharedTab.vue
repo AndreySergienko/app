@@ -1,6 +1,6 @@
 <template>
-  <nuxt-link :to="props.to" :class="['tab', { active: isActive }]">
-    {{ props.tab }}
+  <nuxt-link :to="props.tab.to" class="tab" active-class="active">
+    {{ props.tab.name }}
   </nuxt-link>
 </template>
 
@@ -8,9 +8,6 @@
 import type { ISharedTabProps } from './SharedTab.types'
 
 const props = defineProps<ISharedTabProps>()
-
-const route = useRoute()
-const isActive = computed(() => route.path === props.to)
 </script>
 
 <style>

@@ -2,12 +2,7 @@
   <div class="slots">
     <SharedTitle class="slots__title">
       <div class="tabs">
-        <SharedTab
-          v-for="tab in tabs"
-          :key="tab"
-          :tab="tab"
-          :to="tab === 'Posts' ? '/posts' : '/projects'"
-        />
+        <SharedTab v-for="tab in tabs" :key="tab.name" :tab="tab" />
       </div>
     </SharedTitle>
     <div class="controller">
@@ -16,7 +11,10 @@
   </div>
 </template>
 <script setup>
-const tabs = ['Posts', 'Projects']
+const tabs = [
+  { name: 'Posts', to: '/posts' },
+  { name: 'Projects', to: '/projects' }
+]
 </script>
 <style scoped>
 .slots__title {
