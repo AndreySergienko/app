@@ -13,7 +13,7 @@
             class="shared-sidebar__link"
             v-bind="link"
           >
-            <SvgoArrow />
+            <nuxt-icon name="Arrow" filled />
             {{ link.title }}
           </SharedLink>
         </div>
@@ -37,7 +37,7 @@
           class="shared-sidebar__link"
           v-bind="link"
         >
-          <SvgoArrow class="shared-sidebar__icons" />
+          <nuxt-icon name="Arrow" class="shared-sidebar__icons" filled />
           {{ link.title }}
         </SharedLink>
         <SharedText

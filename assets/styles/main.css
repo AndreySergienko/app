@@ -1,7 +1,0 @@
-@import '_common.css';
-@import '_varibales.css';
-@import '_media.scss';
-
-html {
-  scroll-behavior: smooth;
-}
