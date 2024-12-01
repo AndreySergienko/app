@@ -1,4 +1,4 @@
 <template>
-  <div>Id</div>
+  <ControllerPosts />
 </template>
 <script setup lang="ts"></script>

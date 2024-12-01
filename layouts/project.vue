@@ -25,39 +25,57 @@
 </template>
 
 <script setup lang="ts">
+import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
+
 interface IItem {
   name: string
   id: number
 }
 
 const items: IItem[] = [
-  {
-    name: 'Promtopia',
-    id: 0
-  },
-  {
-    name: 'Control',
-    id: 1
-  },
-  {
-    name: 'Main idea',
-    id: 2
-  },
-  {
-    name: 'Challenge',
-    id: 3
-  }
+  { name: 'Promtopia', id: 0 },
+  { name: 'Control', id: 1 },
+  { name: 'Main idea', id: 2 },
+  { name: 'Challenge', id: 3 }
 ]
+
+const sectionRefs = ref<(HTMLElement | null)[]>([])
+
 const activeIndex = ref<number>(0)
 
 function setActive(index: number) {
   activeIndex.value = index
 
-  const section = document.getElementById(`section-${index}`)
+  const section = sectionRefs.value[index]
   if (section) {
     section.scrollIntoView({ behavior: 'smooth' })
   }
 }
+
+function onScroll() {
+  sectionRefs.value.forEach((section, index) => {
+    if (!section) return
+
+    const rect = section.getBoundingClientRect()
+    if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+      activeIndex.value = index
+    }
+  })
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', onScroll)
+
+  nextTick(() => {
+    sectionRefs.value = items.map(
+      (_, id) => document.querySelector(`#section-${id}`) as HTMLElement
+    )
+  })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <style scoped lang="scss">

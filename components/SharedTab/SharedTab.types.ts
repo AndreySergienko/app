@@ -1,4 +1,6 @@
 export interface ISharedTabProps {
-  tab: string
-  to: string
+  tab: {
+    name: string
+    to: string
+  }
 }

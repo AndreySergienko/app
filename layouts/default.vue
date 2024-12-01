@@ -29,10 +29,23 @@
   }
 }
 
-.tabs {
-  max-width: 680px;
-  width: 100%;
-  margin-bottom: var(--gap-l);
+.header {
+  position: fixed;
+  max-width: 250px;
+}
+
+main {
+  margin-left: 250px;
+}
+
+@include media.media-breakpoint-down(l) {
+  main {
+    margin-left: 0;
+  }
+
+  .header {
+    position: relative;
+  }
 }
 
 .stories,
@@ -45,18 +58,5 @@
   .slots {
     width: 100%;
   }
-}
-
-.tabs {
-  display: flex;
-  gap: var(--gap-m);
-}
-
-.tabs_item {
-  transition: var(--duration);
-}
-
-.tabs__item:hover {
-  color: var(--black);
 }
 </style>
