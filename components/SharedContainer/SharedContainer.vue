@@ -12,14 +12,14 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  min-width: calc(100vw - 250px);
+  min-width: calc(100vw - 290px);
   padding: var(--gap-l);
   margin: 0 auto;
 }
 
 @include media.media-breakpoint-down(xl) {
   .shared-container {
-    min-width: 100vw;
+    min-width: none;
   }
 }
 

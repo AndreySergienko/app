@@ -1,7 +1,7 @@
 <template>
   <div class="projects-layout">
-    <header>
-      <SharedSidebar class="sidebar" />
+    <header class="header">
+      <SharedSidebar />
     </header>
     <div class="projects-layout__button">
       <button @click="navigateTo('/')">
@@ -86,6 +86,10 @@ onBeforeUnmount(() => {
   gap: 250px;
 }
 
+.header {
+  position: fixed;
+}
+
 .projects-layout__button {
   position: absolute;
   top: 60px;
@@ -138,7 +142,7 @@ onBeforeUnmount(() => {
 }
 
 @include media.media-breakpoint-down(l) {
-  .sidebar {
+  .header {
     display: none;
   }
 

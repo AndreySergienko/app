@@ -8,6 +8,21 @@
   cursor: pointer;
 }
 
+.card__story-block__img {
+  overflow: hidden;
+  width: 123px;
+  height: 185px;
+  border-radius: 10px;
+}
+
+.card__story-img {
+  transition: transform linear calc(var(--duration) / 1);
+}
+
+.card__story-item:hover .card__story-img {
+  transform: scale(1.05);
+}
+
 .card__story-followers {
   position: absolute;
   bottom: 10px;
@@ -17,6 +32,11 @@
   gap: 3px;
   color: white;
   font-size: var(--font-size-s);
+  transition: opacity 0.3s ease;
+}
+
+.card__story-item:hover .card__story-followers {
+  opacity: 0;
 }
 
 .overlay {

@@ -1,6 +1,6 @@
 <template>
   <div :class="['shared-card', classes[size]]">
-    <div class="shared-card__block-image">
+    <div :class="['shared-card__block-image', classes[size]]">
       <div v-if="img" :class="['shared-card__image', classes[size]]">
         <img :src="img.src" :alt="img.alt || 'picture'" class="picture" />
       </div>
@@ -62,6 +62,12 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
   width: 100%;
   padding: 0;
   margin-bottom: var(--gap-l);
+}
+
+.shared-card__block-image.large {
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .shared-card__image {

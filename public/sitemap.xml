@@ -1,0 +1,17 @@
+<urls xmlns="">
+  <url>
+    <loc>
+      https://www.ensine.ru
+    </loc>
+  </url>
+  <url>
+    <loc>
+      https://www.ensine.ru/posts
+    </loc>
+  </url>
+  <url>
+    <loc>
+      https://www.ensine.ru/projects
+    </loc>
+  </url>
+</urls>

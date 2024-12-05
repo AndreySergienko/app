@@ -1,5 +1,14 @@
 <template>
-  <nuxt-link :to="props.tab.to" class="tab" active-class="active">
+  <nuxt-link
+    :to="props.tab.to"
+    class="tab"
+    :class="{
+      active:
+        (props.tab.to === '/posts' && (route.path === '/' || route.path === '/posts')) ||
+        route.path === props.tab.to
+    }"
+    active-class="active"
+  >
     {{ props.tab.name }}
   </nuxt-link>
 </template>
@@ -8,6 +17,7 @@
 import type { ISharedTabProps } from './SharedTab.types'
 
 const props = defineProps<ISharedTabProps>()
+const route = useRoute()
 </script>
 
 <style>
