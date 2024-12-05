@@ -17,12 +17,6 @@
   margin: 0 auto;
 }
 
-@include media.media-breakpoint-down(xl) {
-  .shared-container {
-    min-width: none;
-  }
-}
-
 @include media.media-breakpoint-down(l) {
   .shared-container {
     padding: 25px;
