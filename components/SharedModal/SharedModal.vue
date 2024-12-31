@@ -3,7 +3,7 @@
     <nuxt-icon class="close" name="close" filled @click="closeModal" />
     <div class="modal__content">
       <nuxt-icon class="modal__icon" name="prev" filled />
-      <div class="progress__bar" :style="{ width: progressWidth + '%' }"></div>
+      <div class="progress__bar" :style="{ width: progressWidth + '%' }" />
       <img class="modal__img" src="../../assets/images/ModalStories.png" alt="img" />
       <nuxt-icon class="modal__icon" name="next" filled />
     </div>

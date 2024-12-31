@@ -16,8 +16,8 @@ const props = defineProps<ISharedTabProps>()
   cursor: pointer;
   font-size: var(--font-size-m);
   font-weight: var(--weight-medium);
-  transition: color 0.3s ease;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .tab.active {

@@ -2,8 +2,8 @@
   <SharedProject v-for="(project, id) in projects" :key="id" :project="project" />
 </template>
 <script setup lang="ts">
-import Projects from '~/assets/images/Projects.png'
 import type { ISharedProjectProps } from '~/components/SharedProject/SharedProject.types'
+import Projects from '~/assets/images/Projects.png'
 
 const projects = reactive<Array<ISharedProjectProps>>([
   {

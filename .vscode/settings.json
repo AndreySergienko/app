@@ -1,8 +1,8 @@
 {
-  "stylelint.enable": true,
-  "css.validate": false,
-  "scss.validate": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
-  }
+    "source.fixAll.stylelint": "always",
+    "source.fixAll.eslint": "always",
+    "source.fixAll": "always"
+  },
+  "editor.formatOnSave": true
 }

@@ -25,8 +25,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount, nextTick } from 'vue'
-
 interface IItem {
   name: string
   id: number

@@ -1,10 +1,12 @@
 <template>
-  <p :class="['shared-text', defaultClassesForElement[props.size]]"><slot /></p>
+  <p :class="['shared-text', defaultClassesForElement[props.size]]">
+    <slot />
+  </p>
 </template>
 
 <script setup lang="ts">
-import { defaultClassesForElement } from '~/utils/component.utils'
 import type { SharedComponentThemeAndSize } from '~/types/component.types'
+import { defaultClassesForElement } from '~/utils/component.utils'
 import { useThemesText } from '~/composables/useThemesText'
 
 const props = withDefaults(defineProps<Partial<SharedComponentThemeAndSize>>(), {

@@ -54,9 +54,9 @@
 </template>
 
 <script setup lang="ts">
+import type { FooterTextTypes } from '~/components/SharedSidebar/SharedSidebar.types'
 import type { LinkType } from '~/utils/component.utils'
 import type { SharedComponentThemeAndSize } from '~/types/component.types'
-import type { FooterTextTypes } from '~/components/SharedSidebar/SharedSidebar.types'
 
 const isDesktop = true
 
