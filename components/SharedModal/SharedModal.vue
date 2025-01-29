@@ -4,7 +4,9 @@
     <div class="modal__content">
       <nuxt-icon class="modal__icon" name="prev" filled />
       <div class="progress__bar" :style="{ width: progressWidth + '%' }" />
-      <img class="modal__img" src="../../assets/images/ModalStories.png" alt="img" />
+      <div class="modal__slot">
+        <slot />
+      </div>
       <nuxt-icon class="modal__icon" name="next" filled />
     </div>
   </div>
@@ -19,44 +21,44 @@ const progressWidth = ref<number>(0)
 const isMouseDown = ref<boolean>(false)
 const PROGRESSINCREMENT = 1.4 // Значение для увеличения ширины прогресс-бара
 
-let interval: ReturnType<typeof setInterval> | null = null
-
+// let interval: ReturnType<typeof setInterval> | null = null
+//
 function closeModal() {
   emit('close')
 }
 
 function handleMouseDown() {
   isMouseDown.value = true
-  clearInterval(interval!)
+  // clearInterval(interval!)
 }
 
 function handleMouseUp() {
   isMouseDown.value = false
-  increaseProgress()
+  // increaseProgress()
 }
-
-function increaseProgress() {
-  let progressValue = progressWidth.value
-  clearInterval(interval!)
-  interval = setInterval(() => {
-    if (!isMouseDown.value) {
-      progressValue += PROGRESSINCREMENT
-      progressWidth.value = progressValue
-      if (progressValue >= 70) {
-        clearInterval(interval!)
-        closeModal()
-      }
-    }
-  }, 100)
-}
-
-onMounted(() => {
-  increaseProgress()
-})
-
-onBeforeUnmount(() => {
-  clearInterval(interval!)
-})
+//
+// function increaseProgress() {
+//   let progressValue = progressWidth.value
+//   clearInterval(interval!)
+//   interval = setInterval(() => {
+//     if (!isMouseDown.value) {
+//       progressValue += PROGRESSINCREMENT
+//       progressWidth.value = progressValue
+//       if (progressValue >= 70) {
+//         clearInterval(interval!)
+//         closeModal()
+//       }
+//     }
+//   }, 100)
+// }
+//
+// onMounted(() => {
+//   increaseProgress()
+// })
+//
+// onBeforeUnmount(() => {
+//   clearInterval(interval!)
+// })
 </script>
 
-<style scoped src="./SharedModal.css"></style>
+<style scoped src="./SharedModal.scss"></style>

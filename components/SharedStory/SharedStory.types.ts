@@ -1,12 +1,9 @@
 export interface ISharedStoryCard {
-  id?: number
+  id: number
   img: string
-  play: string
-  followers: number | string
+  isViewed: boolean;
 }
 
 export interface ISharedStoryProps {
   card: ISharedStoryCard
-  isSecondCard?: boolean
-  isLastCard?: boolean
 }

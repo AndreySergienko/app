@@ -54,7 +54,6 @@
   .shared-sidebar {
     position: relative;
     border-right: none;
-    height: 271px;
     padding: var(--gap-l);
     width: 100%;
   }
@@ -67,7 +66,7 @@
   }
   .shared-sidebar__inner {
     flex-direction: row;
-    min-height: 271px;
+    min-height: auto;
     width: 300px;
     align-items: center;
   }

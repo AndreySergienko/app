@@ -1,69 +1,74 @@
 <template>
   <div class="slider">
-    <button v-if="!isFirstSlide" @click="prevSlide">Prev</button>
-    <div class="slides-container">
-      <div
-        v-for="(slide, slideIndex) in visibleSlides"
-        :key="slideIndex"
-        :style="{ transform: `translateX(${-currentIndex * 0}%)` }"
-        class="slide"
-      >
-        <slot :slide="slide" :slide-index="slideIndex" />
-      </div>
+    <div
+      v-if="MINIMUM_SLIDE !== currentSlide"
+      @click="prevSlide" class="arrow">
+      <nuxt-icon class="slider__icon" name="prev" filled />
     </div>
-    <button v-if="!isLastSlide" @click="nextSlide">Next</button>
+    <div class="slider__content">
+      <slot name="slide" :anim="getTransform" />
+    </div>
+    <div v-if="lastSlide > currentSlide" @click="nextSlide" class="arrow arrow--next">
+      <nuxt-icon width="30" class="slider__icon" name="next" filled />
+    </div>
   </div>
 </template>
 
-<script lang="ts" setup>
-import type { ISharedSliderProps } from './SharedSlider.types'
+<script setup lang="ts">
+interface ISharedSliderProps {
+  limit?: number;
+  length: number;
+}
 
-const props = defineProps<ISharedSliderProps>()
+const props = withDefaults(defineProps<ISharedSliderProps>(), {
+  limit: 5
+})
 
-const currentIndex = ref<number>(0)
+const MINIMUM_SLIDE = 0
+const currentSlide = ref<number>(MINIMUM_SLIDE)
+const lastSlide = ref<number>(Math.floor(props.length / props.limit))
 
-const totalSlides = computed<number>(() => props.slides.length)
-
-const isFirstSlide = computed<boolean>(() => currentIndex.value === 0)
-const isLastSlide = computed<boolean>(
-  () => currentIndex.value >= totalSlides.value - props.slidesToShow
-)
-
-const visibleSlides = computed<Array<string>>(() => {
-  return props.slides.slice(currentIndex.value, currentIndex.value + props.slidesToShow)
+const getTransform = computed<string>(() => {
+  return `translateX(-${currentSlide.value * (100 / props.limit)}%)`
 })
 
 const nextSlide = () => {
-  if (!isLastSlide.value) currentIndex.value++
+  if (lastSlide.value <= currentSlide.value) return
+  currentSlide.value++
 }
 
 const prevSlide = () => {
-  if (!isFirstSlide.value) currentIndex.value--
+  if (MINIMUM_SLIDE === currentSlide.value) return
+  currentSlide.value--
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 .slider {
+  position: relative;
   display: flex;
-  max-width: 665px;
   align-items: center;
-  justify-content: center;
-  margin-top: var(--gap-l);
+  max-width: 670px;
+
+  &__content {
+    overflow: hidden;
+    width: 670px;
+  }
+
+  &__icon {
+    font-size: 30px;
+  }
 }
 
-.slides-container {
-  display: flex;
-  overflow: hidden;
-  width: 500px;
-  width: 100%;
-  justify-content: center;
-  gap: var(--gap-s);
-}
+.arrow {
+  position: absolute;
+  z-index: 111;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
 
-.slide {
-  width: 200px;
-  padding: 5px;
-  border: 1px solid var(--dark-gray);
-  transition: transform var(--duration) ease;
+  &--next {
+    right: 0;
+    transform: translateY(-50%) translateX(50%);
+  }
 }
 </style>

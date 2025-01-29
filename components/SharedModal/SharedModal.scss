@@ -8,8 +8,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: var(--dark-gray);
   z-index: 1000;
+
+  &__slot {
+    max-height: 740px;
+    max-width: 452px;
+
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .modal__content {
@@ -25,6 +33,7 @@
   top: 30px;
   right: 40px;
   cursor: pointer;
+  z-index: 99999;
 }
 
 .modal__icon {

@@ -1,0 +1,15 @@
+@use 'assets/styles/media';
+
+.stories {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+
+  &__list {
+    display: flex;
+    gap: var(--gap-m);
+    width: max-content;
+
+    transition: transform 0.4s ease-in-out;
+  }
+}

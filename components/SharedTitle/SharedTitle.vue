@@ -1,7 +1,7 @@
 <template>
   <component
     :is="components[props.size]"
-    :class="['shared-title hover', defaultClassesForElement[props.size]]"
+    :class="['shared-title', defaultClassesForElement[props.size]]"
   >
     <slot />
   </component>
