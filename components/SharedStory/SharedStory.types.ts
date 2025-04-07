@@ -1,9 +1,13 @@
 export interface ISharedStoryCard {
   id: number
   img: string
-  isViewed: boolean;
+  isViewed: boolean
 }
 
 export interface ISharedStoryProps {
   card: ISharedStoryCard
+}
+
+export interface ISharedStoryEmits {
+  (e: 'click'): void
 }

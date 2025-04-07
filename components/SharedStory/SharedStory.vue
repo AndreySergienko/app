@@ -3,6 +3,7 @@
     <div class="card__story-item">
       <img class="card__story-img" :src="card.img" :alt="alt" />
       <div v-if="!card.isViewed" class="card__story-followers">
+        {{ card.id }}
         <nuxt-icon name="white_play" filled />
       </div>
       <div v-if="card.isViewed" class="overlay">
@@ -19,10 +20,11 @@
 </template>
 
 <script setup lang="ts">
-import type {ISharedStoryProps} from './SharedStory.types'
+import type { ISharedStoryEmits, ISharedStoryProps } from './SharedStory.types'
 
 const props = defineProps<ISharedStoryProps>()
-const {card} = toRefs(props)
+defineEmits<ISharedStoryEmits>()
+const { card } = toRefs(props)
 
 const isModalOpen = ref<boolean>(false)
 

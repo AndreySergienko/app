@@ -5,8 +5,10 @@
     </header>
     <main>
       <SharedContainer>
+        <!--        <example />-->
         <ControllerStories />
         <ControllerAnnouncements />
+        <slot />
       </SharedContainer>
     </main>
   </div>

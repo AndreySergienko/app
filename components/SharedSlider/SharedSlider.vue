@@ -1,14 +1,12 @@
 <template>
   <div class="slider">
-    <div
-      v-if="MINIMUM_SLIDE !== currentSlide"
-      @click="prevSlide" class="arrow">
+    <div v-if="MINIMUM_SLIDE !== currentPage" @click="prevSlide" class="arrow">
       <nuxt-icon class="slider__icon" name="prev" filled />
     </div>
-    <div class="slider__content">
-      <slot name="slide" :anim="getTransform" />
+    <div class="slider__content" ref="slides">
+      <slot name="slide" :anim="{}" />
     </div>
-    <div v-if="lastSlide > currentSlide" @click="nextSlide" class="arrow arrow--next">
+    <div v-if="!lastPage" @click="nextSlide" class="arrow arrow--next">
       <nuxt-icon width="30" class="slider__icon" name="next" filled />
     </div>
   </div>
@@ -16,30 +14,101 @@
 
 <script setup lang="ts">
 interface ISharedSliderProps {
-  limit?: number;
-  length: number;
+  limit?: number
+  length: number
+  width?: string
 }
 
 const props = withDefaults(defineProps<ISharedSliderProps>(), {
-  limit: 5
+  limit: 5,
+  width: '675px'
 })
 
 const MINIMUM_SLIDE = 0
-const currentSlide = ref<number>(MINIMUM_SLIDE)
-const lastSlide = ref<number>(Math.floor(props.length / props.limit))
+const isMounted = ref<boolean>(false)
+const currentPage = ref<number>(MINIMUM_SLIDE)
+const currentOffset = ref<number>(0)
 
-const getTransform = computed<string>(() => {
-  return `translateX(-${currentSlide.value * (100 / props.limit)}%)`
+const maxOffset = ref<number | null>(null)
+
+const lastPage = computed<boolean>(() => currentOffset.value > (maxOffset.value || 0))
+const slides = ref<HTMLElement | null>()
+
+onMounted(() => {
+  isMounted.value = true
 })
 
+const animationFrameId = ref<null | number>(null)
+const isAnimating = ref(false)
+
+function getParametersSlide($slide: Element, gap: number) {
+  const width = $slide.getBoundingClientRect().width
+  const fullWidth = width + gap
+  return {
+    fullWidth,
+    width
+  }
+}
+
+function adaptiveData(sliderPageNew: number, slidePageOld: number) {
+  if (!slides.value) return
+  const $slideList = slides.value.children[0]
+  const gap = parseInt(getComputedStyle($slideList).gap)
+  const $slide = $slideList.children[0]
+  const { fullWidth: cardWidth } = getParametersSlide($slide, gap)
+  if (maxOffset.value === null) {
+    maxOffset.value = cardWidth * (props.length - props.limit)
+  }
+  let offset = 0
+
+  if (sliderPageNew > slidePageOld)
+    offset = Math.min(currentOffset.value + cardWidth * 2, maxOffset.value)
+  else offset = Math.max(currentOffset.value - cardWidth * 2, 0)
+
+  return animateTo(offset, $slideList)
+}
+
+const animateTo = (targetX: number, $slideList) => {
+  const startTime = performance.now()
+  const startX = currentOffset.value
+  const delta = targetX - startX
+
+  if (targetX === currentOffset.value) return
+
+  if (animationFrameId.value) return
+
+  function step(now: number) {
+    const elapsed = now - startTime
+    const progress = Math.min(elapsed / 300, 1) // от 0 до 1
+
+    // ease-in-out функция
+    const ease = 0.5 - Math.cos(progress * Math.PI) / 2
+
+    const currentX = startX + delta * ease
+    $slideList.style.transform = `translateX(-${currentX}px)`
+
+    if (progress < 1) {
+      animationFrameId.value = requestAnimationFrame(step)
+    } else {
+      currentOffset.value = targetX // зафиксировать конечное значение
+      isAnimating.value = false
+      animationFrameId.value = null
+    }
+  }
+
+  animationFrameId.value = requestAnimationFrame(step)
+}
+
+watch(currentPage, adaptiveData)
+
 const nextSlide = () => {
-  if (lastSlide.value <= currentSlide.value) return
-  currentSlide.value++
+  if (lastPage.value) return
+  currentPage.value++
 }
 
 const prevSlide = () => {
-  if (MINIMUM_SLIDE === currentSlide.value) return
-  currentSlide.value--
+  if (MINIMUM_SLIDE === currentPage.value) return
+  currentPage.value--
 }
 </script>
 
@@ -48,11 +117,11 @@ const prevSlide = () => {
   position: relative;
   display: flex;
   align-items: center;
-  max-width: 670px;
+  max-width: v-bind('props.width');
 
   &__content {
     overflow: hidden;
-    width: 670px;
+    width: 100%;
   }
 
   &__icon {
