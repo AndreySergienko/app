@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['nuxt-icons'],
+  modules: ['nuxt-icons', '@nuxt/eslint'],
   css: ['~/assets/styles/main.scss'],
   components: ['~/components', '~/controllers'],
   compatibilityDate: '2024-12-31',
