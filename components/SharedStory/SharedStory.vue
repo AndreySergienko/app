@@ -13,18 +13,18 @@
   </div>
 
   <teleport to="body">
-    <SharedModal v-if="isModalOpen" @close="isModalOpen = false">
+    <SharedStorySharedStoryModal v-if="isModalOpen" @close="isModalOpen = false">
       <img :src="card.img" :alt="alt" />
-    </SharedModal>
+    </SharedStorySharedStoryModal>
   </teleport>
 </template>
 
 <script setup lang="ts">
-import type { ISharedStoryEmits, ISharedStoryProps } from './SharedStory.types'
+import type {ISharedStoryEmits, ISharedStoryProps} from './SharedStory.types'
 
 const props = defineProps<ISharedStoryProps>()
 defineEmits<ISharedStoryEmits>()
-const { card } = toRefs(props)
+const {card} = toRefs(props)
 
 const isModalOpen = ref<boolean>(false)
 

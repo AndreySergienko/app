@@ -1,5 +1,5 @@
 <template>
-  <div class="slider">
+  <div ref="$slider" class="slider">
     <div v-if="MINIMUM_SLIDE !== currentPage" @click="prevSlide" class="arrow">
       <nuxt-icon class="slider__icon" name="prev" filled />
     </div>
@@ -13,6 +13,8 @@
 </template>
 
 <script setup lang="ts">
+import {useSlider} from "~/components/SharedSlider/useSlider"
+
 interface ISharedSliderProps {
   limit?: number
   length: number
@@ -25,21 +27,59 @@ const props = withDefaults(defineProps<ISharedSliderProps>(), {
 })
 
 const MINIMUM_SLIDE = 0
+
 const isMounted = ref<boolean>(false)
-const currentPage = ref<number>(MINIMUM_SLIDE)
-const currentOffset = ref<number>(0)
-
-const maxOffset = ref<number | null>(null)
-
-const lastPage = computed<boolean>(() => currentOffset.value > (maxOffset.value || 0))
 const slides = ref<HTMLElement | null>()
+const $slider = ref<HTMLElement | null>(null)
+const cardWidth = ref<number>(0)
+const $slideList = ref<Element>()
+
+const currentPage = ref<number>(MINIMUM_SLIDE)
+const maxOffset = ref<number>(0)
+const lastPage = computed<boolean>(() =>
+  maxOffset.value ? currentOffset.value === maxOffset.value : false)
+
+function setMove(px: number) {
+  if (!$slideList.value) return
+  console.log(px)
+  $slideList.value.style.transform = `translateX(-${px}px)`
+}
+
+const {currentOffset, animateTo, isAnimating, animationFrameId} = useSlider(setMove)
+// const {onMouseDown} = useSliderDragSpin({
+//   move: setMove,
+//   currentOffset,
+//   maxOffset
+// })
+
+function adaptiveData(sliderPageNew: number, slidePageOld: number) {
+  if (!$slideList.value) return
+  let offset = 0
+  if (sliderPageNew > slidePageOld)
+    offset = Math.min(currentOffset.value + cardWidth.value * 2, maxOffset.value)
+  else offset = Math.max(currentOffset.value - cardWidth.value * 2, 0)
+
+  return animateTo(offset)
+}
+
+watch(currentPage, adaptiveData)
+
 
 onMounted(() => {
   isMounted.value = true
 })
+onMounted(prerenderOptions)
 
-const animationFrameId = ref<null | number>(null)
-const isAnimating = ref(false)
+
+function prerenderOptions() {
+  if (!slides.value) return
+  $slideList.value = slides.value.children[0]
+  const gap = parseInt(getComputedStyle($slideList.value).gap)
+  const $slide = $slideList.value.children[0]
+  const {fullWidth} = getParametersSlide($slide, gap)
+  cardWidth.value = fullWidth
+  maxOffset.value = cardWidth.value * (props.length - props.limit)
+}
 
 function getParametersSlide($slide: Element, gap: number) {
   const width = $slide.getBoundingClientRect().width
@@ -50,64 +90,13 @@ function getParametersSlide($slide: Element, gap: number) {
   }
 }
 
-function adaptiveData(sliderPageNew: number, slidePageOld: number) {
-  if (!slides.value) return
-  const $slideList = slides.value.children[0]
-  const gap = parseInt(getComputedStyle($slideList).gap)
-  const $slide = $slideList.children[0]
-  const { fullWidth: cardWidth } = getParametersSlide($slide, gap)
-  if (maxOffset.value === null) {
-    maxOffset.value = cardWidth * (props.length - props.limit)
-  }
-  let offset = 0
-
-  if (sliderPageNew > slidePageOld)
-    offset = Math.min(currentOffset.value + cardWidth * 2, maxOffset.value)
-  else offset = Math.max(currentOffset.value - cardWidth * 2, 0)
-
-  return animateTo(offset, $slideList)
-}
-
-const animateTo = (targetX: number, $slideList) => {
-  const startTime = performance.now()
-  const startX = currentOffset.value
-  const delta = targetX - startX
-
-  if (targetX === currentOffset.value) return
-
-  if (animationFrameId.value) return
-
-  function step(now: number) {
-    const elapsed = now - startTime
-    const progress = Math.min(elapsed / 300, 1) // от 0 до 1
-
-    // ease-in-out функция
-    const ease = 0.5 - Math.cos(progress * Math.PI) / 2
-
-    const currentX = startX + delta * ease
-    $slideList.style.transform = `translateX(-${currentX}px)`
-
-    if (progress < 1) {
-      animationFrameId.value = requestAnimationFrame(step)
-    } else {
-      currentOffset.value = targetX // зафиксировать конечное значение
-      isAnimating.value = false
-      animationFrameId.value = null
-    }
-  }
-
-  animationFrameId.value = requestAnimationFrame(step)
-}
-
-watch(currentPage, adaptiveData)
-
 const nextSlide = () => {
-  if (lastPage.value) return
+  if (lastPage.value || isAnimating.value || animationFrameId.value) return
   currentPage.value++
 }
 
 const prevSlide = () => {
-  if (MINIMUM_SLIDE === currentPage.value) return
+  if (MINIMUM_SLIDE === currentPage.value || isAnimating.value || animationFrameId.value) return
   currentPage.value--
 }
 </script>

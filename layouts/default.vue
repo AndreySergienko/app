@@ -5,7 +5,6 @@
     </header>
     <main>
       <SharedContainer>
-        <!--        <example />-->
         <ControllerStories />
         <ControllerAnnouncements />
         <slot />
