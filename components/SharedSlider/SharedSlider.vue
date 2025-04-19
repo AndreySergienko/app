@@ -1,12 +1,13 @@
 <template>
   <div ref="$slider" class="slider">
-    <div v-if="MINIMUM_SLIDE !== currentPage" @click="prevSlide" class="arrow">
+    <div v-if="hasPrev" @click="prevSlide" class="arrow">
       <nuxt-icon class="slider__icon" name="prev" filled />
     </div>
     <div class="slider__content" ref="slides">
-      <slot name="slide" :anim="{}" />
+      <slot
+        name="slide" />
     </div>
-    <div v-if="!lastPage" @click="nextSlide" class="arrow arrow--next">
+    <div v-if="hasNext" @click="nextSlide" class="arrow arrow--next">
       <nuxt-icon width="30" class="slider__icon" name="next" filled />
     </div>
   </div>
@@ -41,7 +42,6 @@ const lastPage = computed<boolean>(() =>
 
 function setMove(px: number) {
   if (!$slideList.value) return
-  console.log(px)
   $slideList.value.style.transform = `translateX(-${px}px)`
 }
 
@@ -69,6 +69,9 @@ onMounted(() => {
   isMounted.value = true
 })
 onMounted(prerenderOptions)
+
+const hasPrev = computed<boolean>(() => MINIMUM_SLIDE !== currentPage.value)
+const hasNext = computed<boolean>(() => !lastPage.value)
 
 
 function prerenderOptions() {

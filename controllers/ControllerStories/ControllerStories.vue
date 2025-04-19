@@ -2,8 +2,8 @@
   <section class="stories">
     <SharedTitle size="m" class="stories__title">Stories</SharedTitle>
     <SharedSlider :length="cards.length" :style="{ width: '675px' }">
-      <template #slide="{ anim }">
-        <div class="stories__list" :style="{ transform: anim }">
+      <template #slide>
+        <div class="stories__list">
           <SharedStory
             v-for="(card, idx) in cards"
             :key="idx"
@@ -14,9 +14,22 @@
       </template>
     </SharedSlider>
   </section>
+
+  <teleport to="body">
+    <SharedModalStory
+      v-if="isModalOpen"
+      @close="isModalOpen = false"
+      :has-next="hasNext"
+      :has-prev="hasPrev"
+      @next="nextSlide"
+      @prev="prevSlide"
+    >
+      <img :src="cards[activeIdx].img" :alt="'Image'" />
+    </SharedModalStory>
+  </teleport>
 </template>
 <script setup lang="ts">
-import type { ISharedStoryCard } from '~/components/SharedStory/SharedStory.types'
+import type {ISharedStoryCard} from '~/components/SharedStory/SharedStory.types'
 import SharedStory from '~/components/SharedStory/SharedStory.vue'
 import Stories1 from '@/assets/images/Stories_1.png'
 import Stories2 from '@/assets/images/Stories_2.png'
@@ -83,15 +96,32 @@ const cards = reactive<ISharedStoryCard[]>([
     img: Stories1,
     isViewed: false
   }
-  // {
-  //   id: 13,
-  //   img: Stories1,
-  //   isViewed: false
-  // }
 ])
+const activeIdx = ref<number>(0)
+const isModalOpen = ref<boolean>(false)
 
 const updateCard = (idx: number) => {
-  cards[idx].isViewed = true
+  activeIdx.value = idx
+  isModalOpen.value = true
+}
+
+watch(activeIdx, () => {
+  cards[activeIdx.value].isViewed = true
+})
+
+const hasPrev = computed<boolean>(() => !!cards[activeIdx.value - 1])
+const hasNext = computed<boolean>(() => !!cards[activeIdx.value + 1])
+
+const nextSlide = () => {
+  if (!hasNext.value) return
+  cards[activeIdx.value].isViewed = true
+  activeIdx.value++
+}
+
+const prevSlide = () => {
+  if (!hasPrev.value) return
+  cards[activeIdx.value].isViewed = true
+  activeIdx.value--
 }
 </script>
 <style scoped lang="scss" src="./ControllerStories.scss"></style>

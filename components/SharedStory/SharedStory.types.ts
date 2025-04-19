@@ -7,7 +7,3 @@ export interface ISharedStoryCard {
 export interface ISharedStoryProps {
   card: ISharedStoryCard
 }
-
-export interface ISharedStoryEmits {
-  (e: 'click'): void
-}
