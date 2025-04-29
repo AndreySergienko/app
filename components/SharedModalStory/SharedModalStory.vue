@@ -3,8 +3,12 @@
     <nuxt-icon class="close" name="close" filled @click="$emit('close')" />
     <div class="modal__container">
       <nuxt-icon
-        v-if="hasPrev" class="modal__icon" name="prev" filled
-        @click="$emit('prev')" />
+        v-if="hasPrev"
+        class="modal__icon"
+        name="prev"
+        filled
+        @click="$emit('prev')"
+      />
       <div ref="$modalContent" class="modal__content">
         <div class="progress__wrapper">
           <div
@@ -17,16 +21,21 @@
         </div>
       </div>
       <nuxt-icon
-        class="modal__icon" name="next" v-if="hasNext" filled
-        @click="$emit('next')" />
+        class="modal__icon"
+        name="next"
+        v-if="hasNext"
+        filled
+        @click="$emit('next')"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import type {
-  ISharedModalStoryEmits, ISharedModalStoryProps
-} from "~/components/SharedModalStory/SharedModalStory.types"
+  ISharedModalStoryEmits,
+  ISharedModalStoryProps
+} from '~/components/SharedModalStory/SharedModalStory.types'
 
 const emit = defineEmits<ISharedModalStoryEmits>()
 defineProps<ISharedModalStoryProps>()
@@ -86,9 +95,11 @@ onUnmounted(() => {
 })
 
 function handleClickOutside(event: unknown) {
-  if ($modalContent.value
-    && !$modalContent.value.contains(event.target)
-    && !event.target.closest('svg')) {
+  if (
+    $modalContent.value &&
+    !$modalContent.value.contains(event.target) &&
+    !event.target.closest('svg')
+  ) {
     emit('close')
   }
 }

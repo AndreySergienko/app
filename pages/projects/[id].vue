@@ -18,72 +18,97 @@
       </div>
       <div class="project__text">
         <p>
-          Welcome to the Best ChatGPT Prompts repository! Here, you'll find a growing collection of
-          high-quality prompts designed to optimize your ChatGPT interactions across a variety of
-          fields, including marketing, education, healthcare, and beyond. These prompts are curated
-          to help you get the most quality results out of Al, spark creativity, and streamline your
+          Welcome to the Best ChatGPT Prompts repository! Here, you'll find a
+          growing collection of high-quality prompts designed to optimize your
+          ChatGPT interactions across a variety of fields, including marketing,
+          education, healthcare, and beyond. These prompts are curated to help
+          you get the most quality results out of Al, spark creativity, and
+          streamline your
         </p>
         <p>
-          Welcome to the Best ChatGPT Prompts repository! Here, you'll find a growing collection of
-          high-quality prompts designed to optimize your ChatGPT.
+          Welcome to the Best ChatGPT Prompts repository! Here, you'll find a
+          growing collection of high-quality prompts designed to optimize your
+          ChatGPT.
         </p>
       </div>
       <div class="project__href">
-        <img class="project__img" src="~/assets/images/Project__inner.png" alt="" />
+        <img
+          class="project__img"
+          src="~/assets/images/Project__inner.png"
+          alt=""
+        />
         <div class="project__href-inner">
           <h4 id="section-1" class="project__href-title">Control</h4>
           <div class="project__href-text">
             <p>
-              Welcome to the Best ChatGPT Prompts repository! Here, you'll find a growing collection
-              of high-quality prompts designed to optimize your ChatGPT interactions across a
-              variety offields, including marketing, education, healthcare, and beyond. These
-              prompts are curated to help you get the most quality results out of Al, spark
+              Welcome to the Best ChatGPT Prompts repository! Here, you'll find
+              a growing collection of high-quality prompts designed to optimize
+              your ChatGPT interactions across a variety offields, including
+              marketing, education, healthcare, and beyond. These prompts are
+              curated to help you get the most quality results out of Al, spark
               creativity, and streamline your
             </p>
             <p>
-              Welcome to the Best ChatGPT Prompts repository! Here, you'll find a growing collection
-              of high-quality prompts designed to optimize your ChatGPT.
+              Welcome to the Best ChatGPT Prompts repository! Here, you'll find
+              a growing collection of high-quality prompts designed to optimize
+              your ChatGPT.
             </p>
           </div>
         </div>
       </div>
       <div class="project__href">
-        <img class="project__img" src="~/assets/images/Project__inner.png" alt="" />
+        <img
+          class="project__img"
+          src="~/assets/images/Project__inner.png"
+          alt=""
+        />
         <div class="project__href-inner">
           <h4 id="section-2" class="project__href-title">Main idea</h4>
           <div class="project__href-text">
             <p>
-              Welcome to the Best ChatGPT Prompts repository! Here, you'll find a growing collection
-              of high-quality prompts designed to optimize your ChatGPT interactions across a
-              variety offields, including marketing, education, healthcare, and beyond. These
-              prompts are curated to help you get the most quality results out of Al, spark
+              Welcome to the Best ChatGPT Prompts repository! Here, you'll find
+              a growing collection of high-quality prompts designed to optimize
+              your ChatGPT interactions across a variety offields, including
+              marketing, education, healthcare, and beyond. These prompts are
+              curated to help you get the most quality results out of Al, spark
               creativity, and streamline your
             </p>
             <p>
-              Welcome to the Best ChatGPT Prompts repository! Here, you'll find a growing collection
-              of high-quality prompts designed to optimize your ChatGPT.
+              Welcome to the Best ChatGPT Prompts repository! Here, you'll find
+              a growing collection of high-quality prompts designed to optimize
+              your ChatGPT.
             </p>
           </div>
         </div>
       </div>
       <div class="project__href">
         <div class="project__imgs">
-          <img class="project__img" src="~/assets/images/Project__inner.png" alt="" />
-          <img class="project__img" src="~/assets/images/Project__inner.png" alt="" />
+          <img
+            class="project__img"
+            src="~/assets/images/Project__inner.png"
+            alt=""
+          />
+          <img
+            class="project__img"
+            src="~/assets/images/Project__inner.png"
+            alt=""
+          />
         </div>
         <div class="project__href-inner">
           <h4 id="section-3" class="project__href-title">Challenges</h4>
           <div class="project__href-text">
             <p>
-              Welcome to the Best ChatGPT Prompts repository! Here, you'll find a growing collection
-              of high-quality prompts designed to optimize your ChatGPT interactions across a
-              variety offields, including marketing, education, healthcare, and beyond. These
-              prompts are curated to help you get the most quality results out of Al, spark
+              Welcome to the Best ChatGPT Prompts repository! Here, you'll find
+              a growing collection of high-quality prompts designed to optimize
+              your ChatGPT interactions across a variety offields, including
+              marketing, education, healthcare, and beyond. These prompts are
+              curated to help you get the most quality results out of Al, spark
               creativity, and streamline your
             </p>
             <p>
-              Welcome to the Best ChatGPT Prompts repository! Here, you'll find a growing collection
-              of high-quality prompts designed to optimize your ChatGPT.
+              Welcome to the Best ChatGPT Prompts repository! Here, you'll find
+              a growing collection of high-quality prompts designed to optimize
+              your ChatGPT.
             </p>
           </div>
         </div>

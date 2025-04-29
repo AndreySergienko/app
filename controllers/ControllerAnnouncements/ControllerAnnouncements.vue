@@ -1,6 +1,8 @@
 <template>
   <div class="announcements">
-    <SharedTitle size="m" class="announcements__title">Announcements</SharedTitle>
+    <SharedTitle size="m" class="announcements__title"
+      >Announcements</SharedTitle
+    >
     <div class="controller">
       <SharedCard
         size="s"

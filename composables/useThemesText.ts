@@ -1,4 +1,7 @@
-import type { ComponentThemes, ComponentThemesWithElement } from '~/types/component.types'
+import type {
+  ComponentThemes,
+  ComponentThemesWithElement
+} from '~/types/component.types'
 
 export function useThemesText(theme: keyof ComponentThemes) {
   const themes: ComponentThemesWithElement<string> = {

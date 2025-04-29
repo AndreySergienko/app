@@ -10,7 +10,9 @@
           <ControllerAnnouncements />
         </div>
         <div class="default-layout__tab">
-          <SharedTab :class="{active: route.path === '/'}" to="posts">Posts</SharedTab>
+          <SharedTab :class="{ active: route.path === '/' }" to="posts"
+            >Posts</SharedTab
+          >
           <SharedTab to="projects">Project</SharedTab>
         </div>
         <slot />

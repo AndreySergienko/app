@@ -9,10 +9,13 @@ import type { SharedComponentThemeAndSize } from '~/types/component.types'
 import { defaultClassesForElement } from '~/utils/component.utils'
 import { useThemesText } from '~/composables/useThemesText'
 
-const props = withDefaults(defineProps<Partial<SharedComponentThemeAndSize>>(), {
-  theme: 'dark',
-  size: 's'
-})
+const props = withDefaults(
+  defineProps<Partial<SharedComponentThemeAndSize>>(),
+  {
+    theme: 'dark',
+    size: 's'
+  }
+)
 
 const { color } = useThemesText(props.theme)
 </script>

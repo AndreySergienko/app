@@ -15,10 +15,13 @@ import type {
 import { defaultClassesForElement } from '~/utils/component.utils'
 import { useThemesText } from '~/composables/useThemesText'
 
-const props = withDefaults(defineProps<Partial<SharedComponentThemeAndSize>>(), {
-  theme: 'dark',
-  size: 's'
-})
+const props = withDefaults(
+  defineProps<Partial<SharedComponentThemeAndSize>>(),
+  {
+    theme: 'dark',
+    size: 's'
+  }
+)
 
 const components: ComponentSizesWithElement<string> = {
   s: 'h3',

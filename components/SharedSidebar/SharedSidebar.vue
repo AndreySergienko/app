@@ -2,9 +2,17 @@
   <nav class="shared-sidebar">
     <div class="shared-sidebar__inner">
       <div>
-        <img class="shared-sidebar__img" src="~/assets/images/avatar.jpg" alt="Andrey Sergienko" />
-        <SharedTitle class="shared-sidebar__title" size="m">Andrey Sergienko</SharedTitle>
-        <SharedText class="shared-sidebar__text" size="m">Frontend Head, Project Lead</SharedText>
+        <img
+          class="shared-sidebar__img"
+          src="~/assets/images/avatar.jpg"
+          alt="Andrey Sergienko"
+        />
+        <SharedTitle class="shared-sidebar__title" size="m"
+          >Andrey Sergienko</SharedTitle
+        >
+        <SharedText class="shared-sidebar__text" size="m"
+          >Frontend Head, Project Lead</SharedText
+        >
 
         <div class="shared-sidebar__links">
           <SharedLink

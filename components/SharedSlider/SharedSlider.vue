@@ -4,8 +4,7 @@
       <nuxt-icon class="slider__icon" name="prev" filled />
     </div>
     <div class="slider__content" ref="slides">
-      <slot
-        name="slide" />
+      <slot name="slide" />
     </div>
     <div v-if="hasNext" @click="nextSlide" class="arrow arrow--next">
       <nuxt-icon width="30" class="slider__icon" name="next" filled />
@@ -14,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import {useSlider} from "~/components/SharedSlider/useSlider"
+import { useSlider } from '~/components/SharedSlider/useSlider'
 
 interface ISharedSliderProps {
   limit?: number
@@ -38,14 +37,16 @@ const $slideList = ref<Element>()
 const currentPage = ref<number>(MINIMUM_SLIDE)
 const maxOffset = ref<number>(0)
 const lastPage = computed<boolean>(() =>
-  maxOffset.value ? currentOffset.value === maxOffset.value : false)
+  maxOffset.value ? currentOffset.value === maxOffset.value : false
+)
 
 function setMove(px: number) {
   if (!$slideList.value) return
   $slideList.value.style.transform = `translateX(-${px}px)`
 }
 
-const {currentOffset, animateTo, isAnimating, animationFrameId} = useSlider(setMove)
+const { currentOffset, animateTo, isAnimating, animationFrameId } =
+  useSlider(setMove)
 // const {onMouseDown} = useSliderDragSpin({
 //   move: setMove,
 //   currentOffset,
@@ -56,14 +57,16 @@ function adaptiveData(sliderPageNew: number, slidePageOld: number) {
   if (!$slideList.value) return
   let offset = 0
   if (sliderPageNew > slidePageOld)
-    offset = Math.min(currentOffset.value + cardWidth.value * 2, maxOffset.value)
+    offset = Math.min(
+      currentOffset.value + cardWidth.value * 2,
+      maxOffset.value
+    )
   else offset = Math.max(currentOffset.value - cardWidth.value * 2, 0)
 
   return animateTo(offset)
 }
 
 watch(currentPage, adaptiveData)
-
 
 onMounted(() => {
   isMounted.value = true
@@ -73,13 +76,12 @@ onMounted(prerenderOptions)
 const hasPrev = computed<boolean>(() => MINIMUM_SLIDE !== currentPage.value)
 const hasNext = computed<boolean>(() => !lastPage.value)
 
-
 function prerenderOptions() {
   if (!slides.value) return
   $slideList.value = slides.value.children[0]
   const gap = parseInt(getComputedStyle($slideList.value).gap)
   const $slide = $slideList.value.children[0]
-  const {fullWidth} = getParametersSlide($slide, gap)
+  const { fullWidth } = getParametersSlide($slide, gap)
   cardWidth.value = fullWidth
   maxOffset.value = cardWidth.value * (props.length - props.limit)
 }
@@ -99,7 +101,12 @@ const nextSlide = () => {
 }
 
 const prevSlide = () => {
-  if (MINIMUM_SLIDE === currentPage.value || isAnimating.value || animationFrameId.value) return
+  if (
+    MINIMUM_SLIDE === currentPage.value ||
+    isAnimating.value ||
+    animationFrameId.value
+  )
+    return
   currentPage.value--
 }
 </script>

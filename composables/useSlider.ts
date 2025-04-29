@@ -1,2 +1,1 @@
-export function useSlider() {
-}
+export function useSlider() {}

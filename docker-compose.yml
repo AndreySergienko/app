@@ -6,7 +6,7 @@ services:
       context: .
       dockerfile: docker/Dockerfile.${BUILD_TYPE}
     ports:
-      - "${PORT}:${PORT}"
+      - '${PORT}:${PORT}'
     environment:
       NODE_ENV: production
     container_name: nuxt-${BUILD_TYPE}

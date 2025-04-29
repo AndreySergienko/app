@@ -29,6 +29,17 @@ export default <QualifiedRules>{
   'type-enum': [
     RuleConfigSeverity.Error,
     'always',
-    ['build', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test']
+    [
+      'build',
+      'ci',
+      'docs',
+      'feat',
+      'fix',
+      'perf',
+      'refactor',
+      'revert',
+      'style',
+      'test'
+    ]
   ]
 }
