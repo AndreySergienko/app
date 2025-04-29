@@ -4,5 +4,5 @@ export default defineNuxtConfig({
   modules: ['nuxt-icons', '@nuxt/eslint'],
   css: ['~/assets/styles/main.scss'],
   components: ['~/components', '~/controllers'],
-  compatibilityDate: '2024-12-31',
+  compatibilityDate: '2024-12-31'
 })
