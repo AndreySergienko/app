@@ -12,14 +12,14 @@
       </SharedTitle>
       <SharedText v-if="$slots.text" size="m" theme="dark"><slot name="text" /></SharedText>
 
-<!--      <SharedTitle-->
-<!--        v-if="size === 'm' || size === 'l'"-->
-<!--        size="s"-->
-<!--        theme="light"-->
-<!--        @click="emit('read-more')"-->
-<!--      >-->
-<!--        Read more-->
-<!--      </SharedTitle>-->
+      <!--      <SharedTitle-->
+      <!--        v-if="size === 'm' || size === 'l'"-->
+      <!--        size="s"-->
+      <!--        theme="light"-->
+      <!--        @click="emit('read-more')"-->
+      <!--      >-->
+      <!--        Read more-->
+      <!--      </SharedTitle>-->
     </div>
   </div>
 </template>
@@ -32,7 +32,7 @@ withDefaults(defineProps<Partial<SharedCardProps>>(), {
   size: 'm'
 })
 
-const emit = defineEmits<SharedCardEmits>()
+defineEmits<SharedCardEmits>()
 
 const classes: Partial<ComponentSizesWithElement<string>> = {
   s: 'small',
