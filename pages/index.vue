@@ -1,1 +1,3 @@
-<template>d</template>
+<template>
+  <ControllerPosts />
+</template>

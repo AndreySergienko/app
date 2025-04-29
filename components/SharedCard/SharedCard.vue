@@ -8,18 +8,18 @@
     <div :class="['shared-card__content', classes[size]]">
       <SharedTitle size="s" theme="light">{{ date }}</SharedTitle>
       <SharedTitle class="shared-card__title" size="m" theme="dark">
-        {{ title }}
+        <slot name="title" />
       </SharedTitle>
-      <SharedText v-if="text" size="m" theme="dark">{{ text }}</SharedText>
+      <SharedText v-if="$slots.text" size="m" theme="dark"><slot name="text" /></SharedText>
 
-      <SharedTitle
-        v-if="size === 'm' || size === 'l'"
-        size="s"
-        theme="light"
-        @click="emit('read-more')"
-      >
-        Read more
-      </SharedTitle>
+<!--      <SharedTitle-->
+<!--        v-if="size === 'm' || size === 'l'"-->
+<!--        size="s"-->
+<!--        theme="light"-->
+<!--        @click="emit('read-more')"-->
+<!--      >-->
+<!--        Read more-->
+<!--      </SharedTitle>-->
     </div>
   </div>
 </template>

@@ -1,13 +1,12 @@
 <template>
-  <nuxt-link :to="props.tab.to" class="tab" active-class="active">
-    {{ props.tab.name }}
+  <nuxt-link :to="to" class="tab" active-class="active">
+    <slot />
   </nuxt-link>
 </template>
 
 <script setup lang="ts">
 import type { ISharedTabProps } from './SharedTab.types'
-
-const props = defineProps<ISharedTabProps>()
+defineProps<ISharedTabProps>()
 </script>
 
 <style>
