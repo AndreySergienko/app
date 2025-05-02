@@ -38,7 +38,7 @@ import type {
 } from '~/components/SharedModalStory/SharedModalStory.types'
 
 const emit = defineEmits<ISharedModalStoryEmits>()
-defineProps<ISharedModalStoryProps>()
+const props = defineProps<ISharedModalStoryProps>()
 
 const progressWidth = ref<number>(0)
 const isStop = ref<boolean>(false)
@@ -51,6 +51,16 @@ const $modalContent = ref<HTMLElement | null>(null)
 
 function close() {
   if (rafId.value) cancelAnimationFrame(rafId.value)
+
+  document.removeEventListener('mousedown', onMouseDown)
+  document.removeEventListener('mouseup', onMouseUp)
+  document.removeEventListener('keydown', handlerEsc)
+}
+
+function clearProgress() {
+  pausedAt.value = 0
+  startTime.value = performance.now()
+  rafId.value = requestAnimationFrame(step)
 }
 
 function step(timestamp: number) {
@@ -60,10 +70,16 @@ function step(timestamp: number) {
 
   if (elapsed < DURATION) {
     rafId.value = requestAnimationFrame(step)
+  } else if (props.hasNext) {
+    emit('next')
+    clearProgress()
   } else {
     requestAnimationFrame(() => close())
-    emit('next')
   }
+}
+
+function handlerEsc(e: KeyboardEvent) {
+  if (e.code === 'Escape') emit('close')
 }
 
 onMounted(() => {
@@ -72,6 +88,7 @@ onMounted(() => {
 
   document.addEventListener('mousedown', onMouseDown)
   document.addEventListener('mouseup', onMouseUp)
+  document.addEventListener('keydown', handlerEsc)
 })
 
 function onMouseDown() {
@@ -89,9 +106,6 @@ function onMouseUp() {
 
 onUnmounted(() => {
   close()
-
-  document.removeEventListener('mousedown', onMouseDown)
-  document.removeEventListener('mouseup', onMouseUp)
 })
 
 function handleClickOutside(event: unknown) {

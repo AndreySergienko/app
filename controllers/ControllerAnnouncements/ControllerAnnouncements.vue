@@ -4,19 +4,25 @@
       >Announcements</SharedTitle
     >
     <div class="controller">
-      <SharedCard
+      <SharedAnnouncement
         size="s"
         :img="{ src: otherJpg, alt: 'book' }"
         date="September 30, 2024"
-        title="ON-DEVELOPER: New Ad Platform to Fulfill Your Needs"
-      />
+      >
+        <template #title
+          >ON-DEVELOPER: New Ad Platform to Fulfill Your Needs</template
+        >
+      </SharedAnnouncement>
 
-      <SharedCard
+      <SharedAnnouncement
         size="s"
         :img="{ src: otherJpg, alt: 'book' }"
         date="September 30, 2024"
-        title="ON-DEVELOPER: New Ad Platform to Fulfill Your Needs"
-      />
+      >
+        <template #title
+          >ON-DEVELOPER: New Ad Platform to Fulfill Your Needs</template
+        >
+      </SharedAnnouncement>
     </div>
   </div>
 </template>

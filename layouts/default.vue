@@ -32,7 +32,7 @@ const route = useRoute()
   display: flex;
 
   &__announcements {
-    margin-top: var(--gap-l);
+    margin-top: var(--gap-xxl);
     margin-bottom: var(--gap-xxl);
   }
 

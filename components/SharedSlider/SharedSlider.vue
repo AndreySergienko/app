@@ -116,7 +116,6 @@ const prevSlide = () => {
   position: relative;
   display: flex;
   align-items: center;
-  max-width: v-bind('props.width');
 
   &__content {
     overflow: hidden;

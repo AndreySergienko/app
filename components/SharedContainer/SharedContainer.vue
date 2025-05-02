@@ -8,10 +8,8 @@
 @use 'assets/styles/media';
 
 .shared-container {
-  display: flex;
-  flex-direction: column;
   width: 100%;
-  min-width: calc(100vw - 250px);
+  max-width: 715px;
   padding: var(--gap-l);
   margin: 0 auto;
 }
