@@ -49,7 +49,7 @@ import otherJpg from '~/assets/images/other.jpg'
   }
 }
 
-@include media.media-breakpoint-down(sm) {
+@include media.media-breakpoint-down(md) {
   .controller {
     flex-direction: column;
   }

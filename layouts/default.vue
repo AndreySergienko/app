@@ -3,7 +3,7 @@
     <header class="header">
       <SharedSidebar />
     </header>
-    <main>
+    <main class="default-layout__container">
       <SharedContainer>
         <ControllerStories />
         <div class="default-layout__announcements">
@@ -16,6 +16,8 @@
           <SharedTab to="projects">Project</SharedTab>
         </div>
         <slot />
+
+        <SharedEnd />
       </SharedContainer>
     </main>
   </div>
@@ -30,6 +32,10 @@ const route = useRoute()
 
 .default-layout {
   display: flex;
+
+  &__container {
+    width: 100%;
+  }
 
   &__announcements {
     margin-top: var(--gap-xxl);

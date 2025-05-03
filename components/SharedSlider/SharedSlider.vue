@@ -16,14 +16,12 @@
 import { useSlider } from '~/components/SharedSlider/useSlider'
 
 interface ISharedSliderProps {
-  limit?: number
   length: number
-  width?: string
+  maxWidth?: string
 }
 
 const props = withDefaults(defineProps<ISharedSliderProps>(), {
-  limit: 5,
-  width: '675px'
+  maxWidth: '675px'
 })
 
 const MINIMUM_SLIDE = 0
@@ -83,7 +81,16 @@ function prerenderOptions() {
   const $slide = $slideList.value.children[0]
   const { fullWidth } = getParametersSlide($slide, gap)
   cardWidth.value = fullWidth
-  maxOffset.value = cardWidth.value * (props.length - props.limit)
+  const limit = calculateLimit(cardWidth.value)
+  maxOffset.value = cardWidth.value * (props.length - limit)
+}
+
+function calculateLimit(cardWidth: number): number {
+  if ($slider.value) {
+    return $slider.value.getBoundingClientRect().width / cardWidth
+  }
+
+  return 1
 }
 
 function getParametersSlide($slide: Element, gap: number) {

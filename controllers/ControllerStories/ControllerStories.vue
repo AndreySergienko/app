@@ -1,7 +1,7 @@
 <template>
   <section class="stories">
     <SharedTitle size="m" class="stories__title">Stories</SharedTitle>
-    <SharedSlider :length="cards.length" :style="{ width: '675px' }">
+    <SharedSlider :length="cards.length" :style="{ maxWidth: '675px' }">
       <template #slide>
         <div class="stories__list">
           <SharedStory
