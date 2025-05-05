@@ -42,9 +42,8 @@
 </template>
 
 <script setup lang="ts">
+import type { LinkType, SharedComponentThemeAndSize } from '~/types/component.types'
 import type { FooterTextTypes } from '~/components/SharedSidebar/SharedSidebar.types'
-import type { LinkType } from '~/utils/component.utils'
-import type { SharedComponentThemeAndSize } from '~/types/component.types'
 
 const links: LinkType[] = [
   {
@@ -76,7 +75,7 @@ const footerInfo: FooterTextTypes[] = [
     text: 'ОГРН: 777374778'
   },
   {
-    text: '© 2024, IE Andrey Sergienko'
+    text: `© ${new Date().getFullYear()}, IE Andrey Sergienko`
   }
 ]
 </script>

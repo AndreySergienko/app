@@ -32,3 +32,11 @@ export interface SharedComponentThemeAndSize
     SharedComponentWithSize {
   hover?: keyof ComponentThemes
 }
+
+export type LinkType = {
+  to?: string
+  target?: '_blank' | 'self'
+  title: string
+  href?: string
+}
+

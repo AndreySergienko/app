@@ -1,7 +1,7 @@
 <template>
   <section class="stories">
     <SharedTitle size="m" class="stories__title">Stories</SharedTitle>
-    <SharedSlider :length="cards.length" :style="{ maxWidth: '675px' }">
+    <SharedSlider :length="cards.length">
       <template #slide>
         <div class="stories__list">
           <SharedStory
@@ -18,83 +18,30 @@
   <teleport to="body">
     <SharedModalStory
       v-if="isModalOpen"
-      @close="isModalOpen = false"
+      @close="close"
       :has-next="hasNext"
       :has-prev="hasPrev"
       @next="nextSlide"
       @prev="prevSlide"
     >
       <img :src="cards[activeIdx].img" :alt="'Image'" />
+      <template v-if="cards[activeIdx].text" #text>{{ cards[activeIdx].text }}</template>
     </SharedModalStory>
   </teleport>
 </template>
 <script setup lang="ts">
+import DevelopmentSite from '@/assets/images/stories/development-site.webp'
+import DevelopmentSitePreview from '@/assets/images/stories/development-site-preview.webp'
 import type { ISharedStoryCard } from '~/components/SharedStory/SharedStory.types'
 import SharedStory from '~/components/SharedStory/SharedStory.vue'
-import Stories1 from '@/assets/images/Stories_1.png'
-import Stories2 from '@/assets/images/Stories_2.png'
-import Stories3 from '@/assets/images/Stories_3.png'
 
 const cards = reactive<ISharedStoryCard[]>([
   {
     id: 1,
-    img: Stories1,
-    isViewed: false
-  },
-  {
-    id: 2,
-    img: Stories2,
-    isViewed: true
-  },
-  {
-    id: 3,
-    img: Stories3,
-    isViewed: false
-  },
-  {
-    id: 4,
-    img: Stories1,
-    isViewed: false
-  },
-  {
-    id: 5,
-    img: Stories1,
-    isViewed: false
-  },
-  {
-    id: 6,
-    img: Stories1,
-    isViewed: false
-  },
-  {
-    id: 7,
-    img: Stories1,
-    isViewed: false
-  },
-  {
-    id: 8,
-    img: Stories2,
-    isViewed: true
-  },
-  {
-    id: 9,
-    img: Stories3,
-    isViewed: false
-  },
-  {
-    id: 10,
-    img: Stories1,
-    isViewed: false
-  },
-  {
-    id: 11,
-    img: Stories1,
-    isViewed: false
-  },
-  {
-    id: 12,
-    img: Stories1,
-    isViewed: false
+    img: DevelopmentSite,
+    isViewed: false,
+    preview: DevelopmentSitePreview,
+    text: 'Hi! This is project release! 🎉😅‍💻🧠'
   }
 ])
 const activeIdx = ref<number>(0)
@@ -122,6 +69,12 @@ const prevSlide = () => {
   if (!hasPrev.value) return
   cards[activeIdx.value].isViewed = true
   activeIdx.value--
+}
+
+const close = () => {
+  cards[activeIdx.value].isViewed = true
+  activeIdx.value = 0
+  isModalOpen.value = false
 }
 </script>
 <style scoped lang="scss" src="./ControllerStories.scss"></style>
