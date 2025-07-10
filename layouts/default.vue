@@ -3,17 +3,20 @@
     <header class="header">
       <SharedSidebar />
     </header>
-    <main>
-      <SharedContainer>
-        <!--        <ControllerStories />-->
-        <ControllerAnnouncements />
+    <SharedContainer>
+      <!--        <ControllerStories />-->
+      <ControllerAnnouncements />
+      <div>
         <div class="tabs">
           <SharedTab to="/posts" :is-active="isActivePostsTab">Posts</SharedTab>
           <SharedTab to="/projects">Project</SharedTab>
         </div>
+      </div>
+
+      <main>
         <slot />
-      </SharedContainer>
-    </main>
+      </main>
+    </SharedContainer>
   </div>
 </template>
 
@@ -35,7 +38,9 @@ const isActivePostsTab = computed(() => route.path === '/')
 
 .tabs {
   display: flex;
-  gap: var(--gap-s);
-  margin-bottom: var(--gap-s);
+  gap: var(--gap-l);
+  margin-bottom: var(--gap-l);
+  margin-top: var(--gap-xxl);
+  justify-content: flex-start;
 }
 </style>

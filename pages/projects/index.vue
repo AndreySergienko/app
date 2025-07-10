@@ -1,7 +1,3 @@
 <template>
-  <div>
-    <ControllerProjects />
-  </div>
+  <ControllerProjects />
 </template>
-<script setup lang="ts">
-</script>

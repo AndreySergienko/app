@@ -4,22 +4,4 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-@use 'assets/styles/media';
-
-.shared-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-width: calc(100vw - 250px);
-  padding: var(--gap-l);
-  margin: 0 auto;
-}
-
-@include media.media-breakpoint-down(l) {
-  .shared-container {
-    padding: var(--gap-l);
-    align-items: flex-start;
-  }
-}
-</style>
+<style scoped lang="scss" src="./SharedContainer.scss"></style>

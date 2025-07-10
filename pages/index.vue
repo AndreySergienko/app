@@ -1,7 +1,3 @@
 <template>
-  <div>
-    <ControllerPosts />
-  </div>
+  <ControllerPosts />
 </template>
-<script setup lang="ts">
-</script>

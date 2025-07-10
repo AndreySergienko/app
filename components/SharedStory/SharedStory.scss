@@ -1,11 +1,11 @@
 .card {
   &__story {
-    width: 123px;
-    max-height: 185px;
+    width: 12.3rem;
+    max-height: 18.5rem;
 
     overflow: hidden;
 
-    border-radius: 10px;
+    border-radius: 1rem;
 
     display: flex;
     gap: var(--gap-xxl);
@@ -23,11 +23,11 @@
 
     &-followers {
       position: absolute;
-      bottom: 10px;
-      left: 9px;
+      bottom: 1rem;
+      left: .9rem;
       display: flex;
       align-items: center;
-      gap: 3px;
+      gap: .3rem;
       color: white;
       font-size: var(--font-size-s);
 
@@ -49,8 +49,8 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  height: 185px;
+  border-radius: 1rem;
+  height: 18.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,6 +59,6 @@
   z-index: 1;
 
   &-text {
-    font-size: 12px;
+    font-size: 1.2rem;
   }
 }
