@@ -31,10 +31,10 @@ interface IItem {
 }
 
 const items: IItem[] = [
-  { name: 'Promtopia', id: 0 },
-  { name: 'Control', id: 1 },
-  { name: 'Main idea', id: 2 },
-  { name: 'Challenge', id: 3 }
+  {name: 'Promtopia', id: 0},
+  {name: 'Control', id: 1},
+  {name: 'Main idea', id: 2},
+  {name: 'Challenge', id: 3}
 ]
 
 const sectionRefs = ref<(HTMLElement | null)[]>([])
@@ -46,7 +46,7 @@ function setActive(index: number) {
 
   const section = sectionRefs.value[index]
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' })
+    section.scrollIntoView({behavior: 'smooth'})
   }
 }
 
@@ -61,19 +61,19 @@ function onScroll() {
   })
 }
 
-onMounted(() => {
-  window.addEventListener('scroll', onScroll)
-
-  nextTick(() => {
-    sectionRefs.value = items.map(
-      (_, id) => document.querySelector(`#section-${id}`) as HTMLElement
-    )
-  })
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll)
-})
+// onMounted(() => {
+//   window.addEventListener('scroll', onScroll)
+//
+//   nextTick(() => {
+//     sectionRefs.value = items.map(
+//       (_, id) => document.querySelector(`#section-${id}`) as HTMLElement
+//     )
+//   })
+// })
+//
+// onBeforeUnmount(() => {
+//   window.removeEventListener('scroll', onScroll)
+// })
 </script>
 
 <style scoped lang="scss">

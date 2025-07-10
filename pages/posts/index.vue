@@ -1,4 +1,7 @@
 <template>
-  <ControllerPosts />
+  <div>
+    <ControllerPosts />
+  </div>
 </template>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+</script>

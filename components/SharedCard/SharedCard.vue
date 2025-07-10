@@ -1,9 +1,7 @@
 <template>
   <div :class="['shared-card', classes[size]]">
-    <div class="shared-card__block-image">
-      <div v-if="img" :class="['shared-card__image', classes[size]]">
-        <img :src="img.src" :alt="img.alt || 'picture'" class="picture" />
-      </div>
+    <div :class="['shared-card__block-image', classes[size]]">
+      <img v-if="img" :src="img.src" :alt="img.alt || 'picture'" class="shared-card__image" />
     </div>
     <div :class="['shared-card__content', classes[size]]">
       <SharedTitle size="s" theme="light">{{ date }}</SharedTitle>
@@ -12,21 +10,21 @@
       </SharedTitle>
       <SharedText v-if="text" size="m" theme="dark">{{ text }}</SharedText>
 
-      <SharedTitle
-        v-if="size === 'm' || size === 'l'"
-        size="s"
-        theme="light"
-        @click="emit('read-more')"
-      >
-        Read more
-      </SharedTitle>
+      <!--      <SharedTitle-->
+      <!--          v-if="size === 'm' || size === 'l'"-->
+      <!--          size="s"-->
+      <!--          theme="light"-->
+      <!--          @click="emit('read-more')"-->
+      <!--      >-->
+      <!--        Read more-->
+      <!--      </SharedTitle>-->
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import type { SharedCardEmits, SharedCardProps } from '~/components/SharedCard/SharedCard.types'
-import type { ComponentSizesWithElement } from '~/types/component.types'
+import type {SharedCardEmits, SharedCardProps} from '~/components/SharedCard/SharedCard.types'
+import type {ComponentSizesWithElement} from '~/types/component.types'
 
 withDefaults(defineProps<Partial<SharedCardProps>>(), {
   size: 'm'
@@ -46,15 +44,15 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 
 .shared-card {
   position: relative;
-  padding: var(--gap-xxl);
   border-radius: 10px;
   background-color: var(--gray);
   overflow: hidden;
+
+  cursor: pointer;
 }
 
 .shared-card.small {
   width: 325px;
-  padding: var(--gap-xxl);
 }
 
 .shared-card.large {
@@ -64,50 +62,46 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
   margin-bottom: var(--gap-l);
 }
 
-.shared-card__image {
-  height: calc(160px - var(--gap-xl));
-  border-top: 4px solid var(--black);
-  border-right: 4px solid var(--black);
-  border-left: 4px solid var(--black);
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  transition: transform linear calc(var(--duration) / 1);
+.shared-card__block-image {
+  height: 300px;
   overflow: hidden;
+
+  position: relative;
 }
 
-.shared-card__image img {
-  min-width: 237px;
-  width: 100%;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+.shared-card__block-image.small {
+  height: 160px;
+  padding-right: var(--gap-xl);
+  padding-left: var(--gap-xl);
+  padding-top: var(--gap-xl);
 }
 
-.shared-card__image.large {
-  max-width: 670px;
-  width: 100%;
-  height: 298px;
-  border: none;
-}
-
-.shared-card__image.large .picture {
+.shared-card__image {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+  transition: transform cubic-bezier(.22, .52, .79, .48) var(--duration);
 }
 
-.picture {
-  width: calc(325px - 60px);
-  height: 130px;
+.shared-card__block-image.small .shared-card__image {
+  border: 5px solid black;
+  position: relative;
+  bottom: -5px;
 }
 
 .shared-card__content {
   display: flex;
   flex-direction: column;
-  padding-top: var(--gap-xxl);
   gap: var(--gap-xxl);
+  padding: var(--gap-xxl);
 }
 
 .shared-card__content.small {
-  padding-top: var(--gap-xl);
+  padding: var(--gap-xl);
   gap: var(--gap-l);
 }
 
@@ -125,14 +119,14 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 }
 
 .shared-card:hover .shared-card__image {
-  transform: scale(1.05);
+  transform: scale(1.09);
 }
 
 @include media.media-breakpoint-down(l) {
   .shared-card.large {
     max-width: 100%;
   }
-  .shared-card__image.large {
+  .shared-card__overlay.large {
     max-width: 100%;
     height: 100%;
   }
@@ -142,7 +136,7 @@ const classes: Partial<ComponentSizesWithElement<string>> = {
 }
 
 @include media.media-breakpoint-down(sm) {
-  .shared-card__image img {
+  .shared-card__overlay img {
     min-width: 180px;
   }
 }

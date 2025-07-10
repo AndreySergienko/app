@@ -22,6 +22,7 @@
             to keep things simple, I'd write it with a library I knew very well: React."
   />
 </template>
-<script setup>
+
+<script setup lang="ts">
 import Post from '@/assets/images/Post.png'
 </script>
