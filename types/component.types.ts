@@ -26,3 +26,10 @@ export interface SharedComponentThemeAndSize
     SharedComponentWithSize {
   hover?: keyof ComponentThemes
 }
+
+export type SharedImageType = {
+  src: string
+  srcset?: string
+  alt: string
+  isLazy?: boolean
+}

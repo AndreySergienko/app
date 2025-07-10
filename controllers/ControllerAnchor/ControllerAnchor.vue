@@ -1,11 +1,11 @@
 <template>
   <ClientOnly v-if="$route.meta.anchors">
-    <div class="anchors">
+    <div class="anchors" ref="anchors">
       <span class="line" />
       <span class="line-active" />
       <SharedLink
-        :href="`#${anchor.link}`"
         v-for="(anchor, idx) in $route.meta.anchors"
+        :href="`#${anchor.link}`"
         :key="anchor.link"
         class="anchors__link"
         @click="animateTo(idx)"
@@ -17,12 +17,17 @@
 </template>
 
 <script setup lang="ts">
-const HEIGHT_BLOCK = 2
 const top = ref<string>('0')
+const anchors = ref<HTMLElement>()
+
+const route = useRoute()
 
 const animateTo = (idx: number) => {
+  if (!anchors.value) return
+  const heightItem =
+    Math.ceil(anchors.value.getBoundingClientRect().height / route.meta.anchors.length) / 10 + 0.2
   if (idx === 0) top.value = '0'
-  else top.value = idx * HEIGHT_BLOCK + 'rem'
+  else top.value = idx * heightItem + 'rem'
 }
 </script>
 

@@ -8,7 +8,7 @@
         <nuxt-icon name="arrow_back" filled />
         Back
       </button>
-      <h1 class="project-layout__title">{{ $route.meta.title }}</h1>
+      <h1 class="project-layout__title" v-html="$route.meta.title" />
       <ControllerDescription />
 
       <slot />
@@ -50,6 +50,10 @@
     right: 20rem;
     top: 15rem;
     z-index: 1;
+  }
+
+  &__title {
+    font-size: 2.4rem;
   }
 
   @include media.media-breakpoint-down(l) {

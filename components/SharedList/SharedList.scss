@@ -1,0 +1,30 @@
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+
+  &__item {
+    opacity: 0;
+    transform: translateY(10px);
+
+    &.fade-in-up {
+      /* Каждому элементу своя задержка */
+      animation-fill-mode: both;
+    }
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

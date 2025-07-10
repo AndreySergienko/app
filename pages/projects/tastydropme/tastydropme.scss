@@ -1,0 +1,60 @@
+.drop {
+  letter-spacing: 0.03rem;
+
+  &__section {
+    margin: var(--gap-xxl) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap-l);
+  }
+
+  &__redesign {
+    margin-left: 2rem;
+
+    &:deep(li) {
+      list-style: circle;
+    }
+  }
+
+  &__phrase {
+    background: linear-gradient(135deg, #4c117c, #9e3baf, #ff3f7d, #ffd54d, #3bd8e8);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  &__text {
+    background: linear-gradient(135deg, #4c117c, #9e3baf, #ff3f7d, #ffd54d, #3bd8e8);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: gradientShift 8s ease infinite;
+  }
+
+  &__text-wrapper {
+    background: linear-gradient(180deg, #0d0719 0%, #1e0e33 100%);
+    padding: 2rem;
+    border-radius: 1.2rem;
+  }
+}
+
+.note-gradient {
+  position: relative;
+  background-color: var(--gray);
+  color: var(--black);
+  padding: 1rem 1.2rem 1rem 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  border-radius: 0.6rem;
+  overflow: hidden;
+}
+
+.note-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px; /* ширина "бордера" */
+  height: 100%;
+  background: linear-gradient(135deg, #4c117c, #ff3f7d, #3bd8e8);
+  border-radius: 4px 0 0 4px;
+}
