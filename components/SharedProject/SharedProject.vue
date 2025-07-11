@@ -10,15 +10,18 @@
         </span>
         <div class="project__professions">
           <span
-              class="project__profession" v-for="professional in project.professionals"
-              :key="professional">{{ professional }}</span>
+            class="project__profession"
+            v-for="professional in project.professionals"
+            :key="professional"
+            >{{ professional }}</span
+          >
         </div>
       </div>
     </div>
   </nuxt-link>
 </template>
 <script setup lang="ts">
-import type {ISharedProjectProps} from './SharedProject.types'
+import type { ISharedProjectProps } from './SharedProject.types'
 
 defineProps<{
   project: ISharedProjectProps

@@ -3,8 +3,12 @@
     <nuxt-icon class="close" name="close" filled @click="$emit('close')" />
     <div class="modal__container">
       <nuxt-icon
-        v-if="hasPrev" class="modal__icon" name="prev" filled
-        @click="$emit('prev')" />
+        v-if="hasPrev"
+        class="modal__icon"
+        name="prev"
+        filled
+        @click="$emit('prev')"
+      />
       <div ref="$modalContent" class="modal__content">
         <div class="progress__wrapper">
           <div
@@ -17,19 +21,24 @@
         </div>
       </div>
       <nuxt-icon
-        class="modal__icon" name="next" v-if="hasNext" filled
-        @click="$emit('next')" />
+        class="modal__icon"
+        name="next"
+        v-if="hasNext"
+        filled
+        @click="$emit('next')"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import type {
-  ISharedModalStoryEmits, ISharedModalStoryProps
-} from "~/components/SharedModalStory/SharedModalStory.types"
+  ISharedModalStoryEmits,
+  ISharedModalStoryProps
+} from '~/components/SharedModalStory/SharedModalStory.types'
 
 const emit = defineEmits<ISharedModalStoryEmits>()
-defineProps<ISharedModalStoryProps>()
+const props = defineProps<ISharedModalStoryProps>()
 
 const progressWidth = ref<number>(0)
 const isStop = ref<boolean>(false)
@@ -42,6 +51,16 @@ const $modalContent = ref<HTMLElement | null>(null)
 
 function close() {
   if (rafId.value) cancelAnimationFrame(rafId.value)
+
+  document.removeEventListener('mousedown', onMouseDown)
+  document.removeEventListener('mouseup', onMouseUp)
+  document.removeEventListener('keydown', handlerEsc)
+}
+
+function clearProgress() {
+  pausedAt.value = 0
+  startTime.value = performance.now()
+  rafId.value = requestAnimationFrame(step)
 }
 
 function step(timestamp: number) {
@@ -51,10 +70,16 @@ function step(timestamp: number) {
 
   if (elapsed < DURATION) {
     rafId.value = requestAnimationFrame(step)
+  } else if (props.hasNext) {
+    emit('next')
+    clearProgress()
   } else {
     requestAnimationFrame(() => close())
-    emit('next')
   }
+}
+
+function handlerEsc(e: KeyboardEvent) {
+  if (e.code === 'Escape') emit('close')
 }
 
 onMounted(() => {
@@ -63,6 +88,7 @@ onMounted(() => {
 
   document.addEventListener('mousedown', onMouseDown)
   document.addEventListener('mouseup', onMouseUp)
+  document.addEventListener('keydown', handlerEsc)
 })
 
 function onMouseDown() {
@@ -80,15 +106,14 @@ function onMouseUp() {
 
 onUnmounted(() => {
   close()
-
-  document.removeEventListener('mousedown', onMouseDown)
-  document.removeEventListener('mouseup', onMouseUp)
 })
 
 function handleClickOutside(event: unknown) {
-  if ($modalContent.value
-    && !$modalContent.value.contains(event.target)
-    && !event.target.closest('svg')) {
+  if (
+    $modalContent.value &&
+    !$modalContent.value.contains(event.target) &&
+    !event.target.closest('svg')
+  ) {
     emit('close')
   }
 }

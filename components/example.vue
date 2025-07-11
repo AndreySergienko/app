@@ -75,14 +75,14 @@ onMounted(() => {
 }
 
 .card {
+  display: flex;
   min-width: 135px;
   height: 200px;
-  margin-right: 10px;
-  background: #ddd;
-  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
   border-radius: 8px;
+  margin-right: 10px;
+  background: #ddd;
+  font-size: 24px;
 }
 </style>

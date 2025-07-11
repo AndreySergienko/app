@@ -1,7 +1,7 @@
 <template>
   <section class="stories">
     <SharedTitle size="m" class="stories__title">Stories</SharedTitle>
-    <SharedSlider :length="cards.length" :style="{ width: '675px' }">
+    <SharedSlider :length="cards.length" :style="{ maxWidth: '675px' }">
       <template #slide>
         <div class="stories__list">
           <SharedStory
@@ -29,7 +29,7 @@
   </teleport>
 </template>
 <script setup lang="ts">
-import type {ISharedStoryCard} from '~/components/SharedStory/SharedStory.types'
+import type { ISharedStoryCard } from '~/components/SharedStory/SharedStory.types'
 import SharedStory from '~/components/SharedStory/SharedStory.vue'
 import Stories1 from '@/assets/images/Stories_1.png'
 import Stories2 from '@/assets/images/Stories_2.png'

@@ -1,20 +1,28 @@
 <template>
   <div class="announcements">
-    <SharedTitle size="m" class="announcements__title">Announcements</SharedTitle>
+    <SharedTitle size="m" class="announcements__title"
+      >Announcements</SharedTitle
+    >
     <div class="controller">
-      <SharedCard
+      <SharedAnnouncement
         size="s"
         :img="{ src: otherJpg, alt: 'book' }"
         date="September 30, 2024"
-        title="ON-DEVELOPER: New Ad Platform to Fulfill Your Needs"
-      />
+      >
+        <template #title
+          >ON-DEVELOPER: New Ad Platform to Fulfill Your Needs</template
+        >
+      </SharedAnnouncement>
 
-      <SharedCard
+      <SharedAnnouncement
         size="s"
         :img="{ src: otherJpg, alt: 'book' }"
         date="September 30, 2024"
-        title="ON-DEVELOPER: New Ad Platform to Fulfill Your Needs"
-      />
+      >
+        <template #title
+          >ON-DEVELOPER: New Ad Platform to Fulfill Your Needs</template
+        >
+      </SharedAnnouncement>
     </div>
   </div>
 </template>
@@ -41,7 +49,7 @@ import otherJpg from '~/assets/images/other.jpg'
   }
 }
 
-@include media.media-breakpoint-down(sm) {
+@include media.media-breakpoint-down(md) {
   .controller {
     flex-direction: column;
   }

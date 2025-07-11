@@ -7,7 +7,6 @@ export interface ISharedModalStoryEmits {
 }
 
 export interface ISharedModalStoryProps {
-  hasPrev: boolean;
-  hasNext: boolean;
-
+  hasPrev: boolean
+  hasNext: boolean
 }

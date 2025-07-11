@@ -19,7 +19,6 @@ const emit = defineEmits<{
 function closeModal() {
   emit('close')
 }
-
 </script>
 
 <style scoped src="./SharedModal.scss"></style>

@@ -4,7 +4,7 @@
   </section>
 </template>
 <script setup lang="ts">
-import type {ISharedProjectProps} from '~/components/SharedProject/SharedProject.types'
+import type { ISharedProjectProps } from '~/components/SharedProject/SharedProject.types'
 import TastyDropPreview from '~/assets/images/projects/tastydrop-preview.png'
 
 const projects = reactive<Array<ISharedProjectProps>>([

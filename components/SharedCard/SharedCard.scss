@@ -41,7 +41,7 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 
-    transition: transform cubic-bezier(.22, .52, .79, .48) var(--duration);
+    transition: transform cubic-bezier(0.22, 0.52, 0.79, 0.48) var(--duration);
   }
 
   &__block-image.small &__image {

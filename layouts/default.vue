@@ -31,6 +31,21 @@ const isActivePostsTab = computed(() => route.path === '/')
 .default-layout {
   display: flex;
 
+  &__container {
+    width: 100%;
+  }
+
+  &__announcements {
+    margin-top: var(--gap-xxl);
+    margin-bottom: var(--gap-xxl);
+  }
+
+  &__tab {
+    display: flex;
+    gap: var(--gap-l);
+    margin-bottom: var(--gap-l);
+  }
+
   @include media.media-breakpoint-down(l) {
     flex-direction: column;
   }

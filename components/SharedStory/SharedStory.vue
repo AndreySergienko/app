@@ -14,13 +14,12 @@
 </template>
 
 <script setup lang="ts">
-import type {ISharedStoryProps} from './SharedStory.types'
+import type { ISharedStoryProps } from './SharedStory.types'
 
 const props = defineProps<ISharedStoryProps>()
-const {card} = toRefs(props)
+const { card } = toRefs(props)
 
 const alt = computed<string>(() => `stories-${card.value.id}`)
-
 </script>
 
 <style scoped src="./SharedStory.scss"></style>

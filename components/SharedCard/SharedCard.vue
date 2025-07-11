@@ -6,9 +6,9 @@
     <div :class="['shared-card__content', classes[size]]">
       <SharedTitle size="s" theme="light">{{ date }}</SharedTitle>
       <SharedTitle class="shared-card__title" size="m" theme="dark">
-        {{ title }}
+        <slot name="title" />
       </SharedTitle>
-      <SharedText v-if="text" size="m" theme="dark">{{ text }}</SharedText>
+      <SharedText v-if="$slots.text" size="m" theme="dark"><slot name="text" /></SharedText>
 
       <!--      <SharedTitle-->
       <!--          v-if="size === 'm' || size === 'l'"-->
@@ -23,16 +23,15 @@
 </template>
 
 <script lang="ts" setup>
-import type {SharedCardEmits, SharedCardProps} from '~/components/SharedCard/SharedCard.types'
-import type {ComponentSizesWithElement} from '~/types/component.types'
+import type { SharedCardProps } from '~/components/SharedCard/SharedCard.types'
+import type { ComponentSizesWithElement } from '~/types/component.types'
 
 withDefaults(defineProps<Partial<SharedCardProps>>(), {
   size: 'm'
 })
 // const emit = defineEmits<SharedCardEmits>()
 
-const classes: Partial<ComponentSizesWithElement<string>> = {
-  s: 'small',
+const classes: Partial<Omit<ComponentSizesWithElement<string>, 's'>> = {
   m: 'medium',
   l: 'large'
 }
