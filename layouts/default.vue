@@ -3,20 +3,24 @@
     <header class="header">
       <SharedSidebar />
     </header>
-    <SharedContainer>
-      <!-- <ControllerStories /> -->
-      <ControllerAnnouncements />
-      <div>
-        <div class="tabs">
-          <SharedTab to="/posts" :is-active="isActivePostsTab">Posts</SharedTab>
-          <SharedTab to="/projects">Project</SharedTab>
+    <div class="default-layout__inner">
+      <SharedContainer>
+        <!-- <ControllerStories /> -->
+        <ControllerAnnouncements />
+        <div>
+          <div class="tabs">
+            <SharedTab to="/posts" :is-active="isActivePostsTab">Posts</SharedTab>
+            <SharedTab to="/projects">Project</SharedTab>
+          </div>
         </div>
-      </div>
 
-      <main>
-        <slot />
-      </main>
-    </SharedContainer>
+        <main>
+          <slot />
+        </main>
+
+        <SharedEnd />
+      </SharedContainer>
+    </div>
   </div>
 </template>
 
@@ -30,6 +34,15 @@ const isActivePostsTab = computed(() => route.path === '/')
 
 .default-layout {
   display: flex;
+
+  &__inner {
+    padding-left: 24rem;
+    width: 100%;
+
+    @include media.media-breakpoint-down(l) {
+      padding-left: 0;
+    }
+  }
 
   &__container {
     width: 100%;

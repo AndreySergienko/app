@@ -2,17 +2,15 @@
   <nav class="shared-sidebar">
     <div class="shared-sidebar__inner">
       <div>
-        <img
-          class="shared-sidebar__img"
-          src="~/assets/images/avatar.jpg"
-          alt="Andrey Sergienko"
-        />
-        <SharedTitle class="shared-sidebar__title" size="m"
-          >Andrey Sergienko</SharedTitle
-        >
-        <SharedText class="shared-sidebar__text" size="m"
-          >Frontend Head, Project Lead</SharedText
-        >
+        <nuxt-link href="/" class="shared-sidebar__btn-main">
+          <img
+            class="shared-sidebar__img"
+            src="~/assets/images/avatar.jpg"
+            alt="Andrey Sergienko"
+          />
+          <SharedTitle class="shared-sidebar__title" size="m">Andrey Sergienko</SharedTitle>
+          <SharedText class="shared-sidebar__text" size="m">Frontend Head, Project Lead</SharedText>
+        </nuxt-link>
 
         <div class="shared-sidebar__links">
           <SharedLink
@@ -76,7 +74,7 @@ const footerInfo: FooterTextTypes[] = [
     text: 'ОГРН: 777374778'
   },
   {
-    text: '© 2024, IE Andrey Sergienko'
+    text: '© 2025, IE Andrey Sergienko'
   }
 ]
 </script>

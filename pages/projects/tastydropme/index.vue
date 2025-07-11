@@ -15,17 +15,17 @@
         документации.</SharedText
       >
       <SharedList
-        ref="listRoot"
+        ref="listBenfits"
         class="drop__benefits"
         :items="items"
-        :has-visible="hasIntersected"
+        :has-visible="!!interestedList[0]"
       >
         <template #default="{ item }">
           <SharedText size="m">{{ item }}</SharedText>
         </template>
       </SharedList>
 
-      <WidgetImageAnimation :src="MainPage" />
+      <WidgetImageAnimation :src="MainPage" alt="Скриншот главной" />
     </section>
 
     <section id="redesign" class="drop__section">
@@ -38,7 +38,12 @@
         скорость.</SharedText
       >
 
-      <SharedList ref="listRoot" class="drop__redesign" :items="redesignItems" :has-visible="true">
+      <SharedList
+        ref="listProcess"
+        class="drop__redesign"
+        :items="redesignItems"
+        :has-visible="!!interestedList[1]"
+      >
         <template #default="{ item }">
           <SharedText size="m">{{ item }}</SharedText>
         </template>
@@ -49,7 +54,7 @@
         масштабирование.</SharedText
       >
 
-      <WidgetImageAnimation :src="MissionPage" />
+      <WidgetImageAnimation :src="MissionPage" alt="Скриншот главной" />
     </section>
 
     <section id="process" class="drop__section">
@@ -72,7 +77,7 @@
         Worker</SharedText
       >
 
-      <WidgetImageAnimation :src="BattlesPage" />
+      <WidgetImageAnimation :src="BattlesPage" alt="Скриншот кейс батлов" />
     </section>
 
     <section id="commands" class="drop__section">
@@ -85,7 +90,12 @@
         ответственности, поддержку документации.</SharedText
       >
 
-      <SharedList ref="listRoot" class="drop__redesign" :items="processesItems" :has-visible="true">
+      <SharedList
+        ref="listRedesign"
+        class="drop__redesign"
+        :items="processesItems"
+        :has-visible="!!interestedList[2]"
+      >
         <template #default="{ item }">
           <SharedText size="m">{{ item }}</SharedText>
         </template>
@@ -100,31 +110,48 @@ import MissionPage from '~/assets/images/projects/tastydrop/mission-page.png'
 import BattlesPage from '~/assets/images/projects/tastydrop/battles-page.png'
 import { items, processesItems, redesignItems } from './tastydropme.data'
 
-const listRoot = ref(null)
-const hasIntersected = ref(false)
+const listBenfits = ref()
+const listProcess = ref()
+const listRedesign = ref()
+const interestedList = ref([])
 
 let observer
 
-onMounted(() => {
-  const $root = listRoot.value?.listRoot
+const initObserver = (lists) => {
   observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {
-        hasIntersected.value = true
-        observer.disconnect()
+        interestedList.value.push(entry)
+        if (interestedList.value.length > lists.length) {
+          observer.disconnect()
+        }
       }
     },
     { threshold: 0.2 }
   )
-  if ($root) {
-    observer.observe($root)
-  }
+}
+
+onMounted(() => {
+  const $benefits = listBenfits.value?.listRoot
+  const $process = listProcess.value?.listRoot
+  const $redesign = listRedesign.value?.listRoot
+  const lists = [$benefits, $process, $redesign]
+  initObserver(lists)
+  lists.forEach((el) => observer.observe(el))
 })
 
 onUnmounted(() => {
   observer?.disconnect()
 })
 
+useHead({
+  meta: [
+    {
+      property: 'og:image',
+      content: '/og-image-tasty.png'
+    }
+  ]
+})
 definePageMeta({
   layout: 'project',
   anchors: [
@@ -141,7 +168,7 @@ definePageMeta({
     { text: 'Team Lead / Tech Lead / Developer' },
     {
       link: 'https://tastydrop.com',
-      text: 'tastyDropMe'
+      text: 'tasty-drop.xx'
     }
   ],
   title:

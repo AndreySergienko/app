@@ -3,16 +3,19 @@
     <header>
       <SharedSidebar class="sidebar" />
     </header>
-    <SharedContainer class="project-layout__wrapper">
-      <button class="project-layout__button" @click="$router.back()">
-        <nuxt-icon name="arrow_back" filled />
-        Back
-      </button>
-      <h1 class="project-layout__title" v-html="$route.meta.title" />
-      <ControllerDescription />
+    <div class="project-layout__inner">
+      <SharedContainer class="project-layout__wrapper">
+        <button class="project-layout__button" @click="$router.back()">
+          <nuxt-icon name="arrow_back" filled />
+          Back
+        </button>
+        <h1 class="project-layout__title" v-html="$route.meta.title" />
+        <ControllerDescription />
 
-      <slot />
-    </SharedContainer>
+        <slot />
+        <SharedShare />
+      </SharedContainer>
+    </div>
     <div class="project-layout__anchors">
       <ControllerAnchor />
     </div>
@@ -24,6 +27,15 @@
 
 .project-layout {
   display: flex;
+
+  &__inner {
+    padding-left: 24rem;
+    width: 100%;
+
+    @include media.media-breakpoint-down(l) {
+      padding-left: 0;
+    }
+  }
 
   &__wrapper {
     display: flex;
@@ -50,6 +62,15 @@
     right: 20rem;
     top: 15rem;
     z-index: 1;
+
+    @include media.media-breakpoint-down(xl) {
+      top: 7rem;
+      right: 10rem;
+    }
+
+    @include media.media-breakpoint-down(l) {
+      display: none;
+    }
   }
 
   &__title {
@@ -60,6 +81,11 @@
     flex-direction: column;
   }
 }
+// .project__share-icons {
+//   display: flex;
+//   gap: 1.3rem;
+//   font-size: var(--font-size-xxl);
+// }
 
 //@include media.media-breakpoint-down(xl) {
 //  .projects-layout__nav {

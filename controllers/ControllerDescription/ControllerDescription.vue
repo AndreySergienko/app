@@ -23,6 +23,7 @@
 .description {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 
   &__project__subtitle {
     font-size: var(--font-size-s);
