@@ -4,7 +4,7 @@
       <SharedSidebar />
     </header>
     <SharedContainer>
-      <!--        <ControllerStories />-->
+      <!-- <ControllerStories /> -->
       <ControllerAnnouncements />
       <div>
         <div class="tabs">

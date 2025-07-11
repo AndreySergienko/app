@@ -1,7 +1,12 @@
 <template>
   <div :class="['shared-card', classes[size]]">
     <div :class="['shared-card__block-image', classes[size]]">
-      <img v-if="img" :src="img.src" :alt="img.alt || 'picture'" class="shared-card__image" />
+      <img
+        v-if="img"
+        :src="(img.src as string) || ''"
+        :alt="img.alt || 'picture'"
+        class="shared-card__image"
+      />
     </div>
     <div :class="['shared-card__content', classes[size]]">
       <SharedTitle size="s" theme="light">{{ date }}</SharedTitle>
@@ -31,7 +36,8 @@ withDefaults(defineProps<Partial<SharedCardProps>>(), {
 })
 // const emit = defineEmits<SharedCardEmits>()
 
-const classes: Partial<Omit<ComponentSizesWithElement<string>, 's'>> = {
+const classes: Partial<ComponentSizesWithElement<string>> = {
+  s: '',
   m: 'medium',
   l: 'large'
 }
