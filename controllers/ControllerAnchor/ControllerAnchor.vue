@@ -35,7 +35,11 @@ const animateTo = (idx: number) => {
   if (!anchors.value) return
 
   const heightItem =
-    Math.ceil(anchors.value.getBoundingClientRect().height / route.meta.anchors.length) / 10 + 0.2
+    Math.ceil(
+      anchors.value.getBoundingClientRect().height / route.meta.anchors.length
+    ) /
+      10 +
+    0.2
   if (idx === 0) top.value = '0'
   else top.value = idx * heightItem + 'rem'
 }
@@ -54,7 +58,9 @@ onMounted(() => {
       }
 
       activeId.value = visibleEntry.target.id
-      const idx = route.meta.anchors.findIndex(({ link }) => link === activeId.value)
+      const idx = route.meta.anchors.findIndex(
+        ({ link }) => link === activeId.value
+      )
       animateTo(idx)
     },
     {

@@ -1,3 +1,5 @@
+@use 'assets/styles/media';
+
 .anchors {
   $top: 0;
   display: flex;
@@ -5,6 +7,20 @@
   gap: var(--gap-s);
 
   position: relative;
+
+  &__menu {
+    display: block;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+
+  &__close {
+    position: absolute;
+    bottom: -3rem;
+    right: 0;
+    color: var(--black);
+    cursor: pointer;
+  }
 
   & .line,
   & .line-active {

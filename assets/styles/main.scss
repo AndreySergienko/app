@@ -1,8 +1,15 @@
 @use '_common.scss';
 @use '_varibales.scss';
 @use '_media.scss';
+@use '_animation.scss';
 
 html {
   scroll-behavior: smooth;
   font-size: 10px;
+}
+
+@include media.media-breakpoint-down(md) {
+  html {
+    font-size: 8px;
+  }
 }

@@ -41,6 +41,14 @@
     display: flex;
     flex-direction: column;
     gap: var(--gap-xxl);
+
+    @include media.media-breakpoint-down(l) {
+      gap: var(--gap-xl);
+    }
+
+    @include media.media-breakpoint-down(md) {
+      gap: var(--gap-l);
+    }
   }
 
   &__button {

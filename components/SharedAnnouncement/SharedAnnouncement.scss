@@ -2,8 +2,9 @@
 
 .shared-announcement {
   position: relative;
-  width: 325px;
-  border-radius: 10px;
+  width: 32.5rem;
+  flex-shrink: 0;
+  border-radius: 1rem;
   background-color: var(--gray);
   overflow: hidden;
 
@@ -39,7 +40,6 @@
   &__content {
     display: flex;
     flex-direction: column;
-    //padding-top: var(--gap-xl);
     padding: var(--gap-xxl);
     gap: var(--gap-l);
   }
@@ -55,16 +55,9 @@
   &:hover &__image {
     transform: scale(1.05);
   }
-}
 
-@include media.media-breakpoint-down(l) {
-  .shared-card {
+  @include media.media-breakpoint-down(md) {
     width: 100%;
-  }
-}
-
-@include media.media-breakpoint-down(sm) {
-  .shared-card__image img {
-    min-width: 180px;
+    // max-width: 32.5rem;
   }
 }

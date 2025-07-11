@@ -1,9 +1,9 @@
 <template>
-  <div class="announcements">
-    <SharedTitle size="m" class="announcements__title"
+  <div class="announcements-controller">
+    <SharedTitle size="m" class="announcements-controller__title"
       >Announcements</SharedTitle
     >
-    <div class="controller">
+    <div class="announcements-controller__wrapper">
       <SharedAnnouncement
         size="s"
         :img="{ src: otherJpg, alt: 'book' }"
@@ -34,24 +34,20 @@ import otherJpg from '~/assets/images/other.jpg'
 <style scoped lang="scss">
 @use 'assets/styles/media';
 
-.announcements__title {
-  margin-bottom: var(--gap-l);
-}
+.announcements-controller {
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--gap-l);
+    justify-content: space-between;
 
-.controller {
-  display: flex;
-  gap: var(--gap-l);
-}
-
-@include media.media-breakpoint-down(l) {
-  .annoncements {
-    width: 100%;
+    @include media.media-breakpoint-down(md) {
+      justify-content: center;
+    }
   }
-}
 
-@include media.media-breakpoint-down(md) {
-  .controller {
-    flex-direction: column;
+  &__title {
+    margin-bottom: var(--gap-l);
   }
 }
 </style>

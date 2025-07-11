@@ -1,6 +1,4 @@
-.fade-in-up {
-  animation: fadeInUp 0.5s ease forwards;
-}
+@use 'assets/styles/animation';
 
 .list {
   display: flex;
@@ -15,16 +13,5 @@
       /* Каждому элементу своя задержка */
       animation-fill-mode: both;
     }
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

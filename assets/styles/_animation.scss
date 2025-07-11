@@ -1,0 +1,29 @@
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.fade-out-down {
+  animation: fadeOutDown 0.2s ease forwards;
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px) translateX(5px);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
