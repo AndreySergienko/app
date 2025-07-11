@@ -16,7 +16,10 @@ export default defineNuxtConfig({
         },
 
         { property: 'og:title', content: 'Andrey Sergienko - website' },
-        { property: 'og:description', content: 'Современные сайты и веб-приложения под ключ' },
+        {
+          property: 'og:description',
+          content: 'Современные сайты и веб-приложения под ключ'
+        },
         { property: 'og:type', content: 'website' }
         // { property: 'og:url', content: 'https://yourdomain.com' },
         // { property: 'og:image', content: 'https://yourdomain.com/images/preview.jpg' }

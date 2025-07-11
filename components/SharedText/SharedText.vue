@@ -5,9 +5,9 @@
 </template>
 
 <script setup lang="ts">
-import type {SharedComponentThemeAndSize} from '~/types/component.types'
-import {defaultClassesForElement} from '~/utils/component.utils'
-import {useThemesText} from '~/composables/useThemesText'
+import type { SharedComponentThemeAndSize } from '~/types/component.types'
+import { defaultClassesForElement } from '~/utils/component.utils'
+import { useThemesText } from '~/composables/useThemesText'
 
 const props = withDefaults(
   defineProps<Partial<SharedComponentThemeAndSize>>(),
@@ -17,7 +17,7 @@ const props = withDefaults(
   }
 )
 
-const {color} = useThemesText(props.theme)
+const { color } = useThemesText(props.theme)
 </script>
 
 <style scoped lang="scss">

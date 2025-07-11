@@ -1,5 +1,9 @@
 <template>
-  <nuxt-link :to="props.to" :class="{ tab: true, active: isActive }" active-class="active">
+  <nuxt-link
+    :to="props.to"
+    :class="{ tab: true, active: isActive }"
+    active-class="active"
+  >
     <slot />
   </nuxt-link>
 </template>

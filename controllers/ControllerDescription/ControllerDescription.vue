@@ -1,5 +1,8 @@
 <template>
-  <div v-if="Array.isArray($route.meta.info)" class="project__description description">
+  <div
+    v-if="Array.isArray($route.meta.info)"
+    class="project__description description"
+  >
     <div class="description__container">
       <h4 class="description__subtitle">Publish date</h4>
       <h3 class="description__title">{{ $route.meta.info[0]?.text }}</h3>
@@ -13,7 +16,9 @@
     <div class="description__container" v-if="$route.meta.info[2]">
       <h4 class="description__subtitle">Links</h4>
       <h3 class="description__title">
-        <a target="_blank" :href="$route.meta.info[2]?.link">{{ $route.meta.info[2]?.text }}</a>
+        <a target="_blank" :href="$route.meta.info[2]?.link">{{
+          $route.meta.info[2]?.text
+        }}</a>
       </h3>
     </div>
   </div>

@@ -1,6 +1,10 @@
 <template>
   <section class="projects">
-    <SharedProject v-for="(project, id) in projects" :key="id" :project="project" />
+    <SharedProject
+      v-for="(project, id) in projects"
+      :key="id"
+      :project="project"
+    />
   </section>
 </template>
 <script setup lang="ts">

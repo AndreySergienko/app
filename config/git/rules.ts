@@ -1,4 +1,5 @@
-import { type QualifiedRules, RuleConfigSeverity } from '@commitlint/types'
+import { RuleConfigSeverity } from '@commitlint/types'
+import type { QualifiedRules } from '@commitlint/types'
 
 export default <QualifiedRules>{
   // Тело коммита должно начинаться с пустой строки

@@ -1,7 +1,7 @@
 <template>
   <component
-      :is="components[props.size]"
-      :class="['shared-title', defaultClassesForElement[props.size]]"
+    :is="components[props.size]"
+    :class="['shared-title', defaultClassesForElement[props.size]]"
   >
     <slot />
   </component>
@@ -12,8 +12,8 @@ import type {
   ComponentSizesWithElement,
   SharedComponentThemeAndSize
 } from '~/types/component.types'
-import {defaultClassesForElement} from '~/utils/component.utils'
-import {useThemesText} from '~/composables/useThemesText'
+import { defaultClassesForElement } from '~/utils/component.utils'
+import { useThemesText } from '~/composables/useThemesText'
 
 const props = withDefaults(
   defineProps<Partial<SharedComponentThemeAndSize>>(),
@@ -29,7 +29,7 @@ const components: ComponentSizesWithElement<string> = {
   l: 'h1'
 }
 
-const {color} = useThemesText(props.theme)
+const { color } = useThemesText(props.theme)
 </script>
 
 <style scoped lang="scss">
@@ -55,5 +55,4 @@ const {color} = useThemesText(props.theme)
     color: var(--dark-gray);
   }
 }
-
 </style>

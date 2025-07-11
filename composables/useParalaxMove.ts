@@ -1,4 +1,7 @@
-export function useParalaxMove(container: Ref<HTMLElement | null>, img: Ref<HTMLElement | null>) {
+export function useParalaxMove(
+  container: Ref<HTMLElement | null>,
+  img: Ref<HTMLElement | null>
+) {
   function _move(e: MouseEvent) {
     const rect = container.value!.getBoundingClientRect()
     const x = e.clientX - rect.left
@@ -12,8 +15,10 @@ export function useParalaxMove(container: Ref<HTMLElement | null>, img: Ref<HTML
     img.value!.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`
   }
 
-  const _addMouseMove = () => container.value!.addEventListener('mousemove', _move)
-  const _addMouseLeave = () => container.value!.addEventListener('mouseleave', _transform)
+  const _addMouseMove = () =>
+    container.value!.addEventListener('mousemove', _move)
+  const _addMouseLeave = () =>
+    container.value!.addEventListener('mouseleave', _transform)
 
   const addListener = () => {
     if (!container.value || !img.value) return
