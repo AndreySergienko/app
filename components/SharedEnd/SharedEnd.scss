@@ -1,0 +1,17 @@
+.shared-end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: var(--gap-xxl) auto 0;
+}
+
+.shared-end__heart {
+  font-size: 2.6rem;
+  margin-bottom: var(--gap-xxl);
+}
+
+.shared-end__footer {
+  padding: var(--gap-xxl) 0;
+  font-size: var(--font-size-xs);
+  font-weight: var(--weight-regular);
+}

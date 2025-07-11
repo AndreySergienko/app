@@ -1,23 +1,28 @@
 @use 'assets/styles/media';
 
 .project {
-  display: flex;
-  flex-direction: column;
-  gap: var(--gap-xxl);
-  margin-bottom: var(--gap-xxl);
+  text-decoration: none;
+  max-width: 67rem;
+  max-height: 46rem;
 
-  &__img {
-    border-radius: 10px;
-    background-color: var(--gray);
-    padding: var(--gap-xl);
+  $root: &;
 
-    & img {
-      transition: transform var(--duration) linear;
-    }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
   }
 
-  &:hover img {
-    transform: scale(1.1);
+  &__wrapper-image {
+    padding: var(--gap-xxl);
+    border-radius: 1rem;
+    background-color: var(--gray);
+    overflow: hidden;
+  }
+
+  &__image {
+    max-width: 100%;
+    object-fit: cover;
+    transition: transform linear var(--duration);
   }
 
   &__info {
@@ -25,44 +30,45 @@
     align-items: center;
     justify-content: space-between;
     padding-top: var(--gap-s);
-  }
-
-  &__footer {
-    display: flex;
-    gap: var(--gap-s);
-  }
-
-  &__item {
-    padding: 7px;
-    border-radius: 3px;
-    background-color: var(--gray);
-    color: rgb(0 0 0 / 50%);
-    font-size: var(--font-size-s);
-    font-weight: var(--weight-regular);
     text-decoration: none;
-    transition: color var(--duration) ease;
   }
 
-  &__item:hover {
-    color: var(--black);
-  }
-
-  &__name {
+  &__title {
     color: var(--black);
     font-size: var(--font-size-s);
     font-weight: var(--weight-medium);
     text-decoration: none;
   }
-}
 
-@include media.media-breakpoint-down(l) {
-  .projects__img img {
-    width: 100%;
+  &__professions {
+    display: flex;
+    gap: var(--gap-s);
+  }
+
+  &__profession {
+    font-size: var(--font-size-s);
+    font-weight: var(--weight-regular);
+    text-decoration: none;
+    transition: color var(--duration) ease;
+    background-color: var(--gray);
+    color: rgb(0 0 0 / 50%);
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+
+    &:hover {
+      color: var(--black);
+    }
+  }
+
+  &:hover {
+    #{$root}__image {
+      transform: scale(1.07);
+    }
   }
 }
 
 @include media.media-breakpoint-down(sm) {
-  .projects__name {
-    font-size: 8px;
+  .project__title {
+    font-size: 0.8rem;
   }
 }

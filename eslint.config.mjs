@@ -98,23 +98,6 @@ const vueRules = {
   'vue/require-explicit-emits': ['off']
 }
 
-const importConfig = {
-  'no-restricted-imports': ['error'],
-  'sort-imports': [
-    'error',
-    {
-      ignoreCase: false,
-      ignoreDeclarationSort: false,
-      ignoreMemberSort: false,
-      memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
-      allowSeparatedGroups: false
-    }
-  ],
-  'import/order': ['error'],
-  'import/no-extraneous-dependencies': ['error'],
-  'import/no-useless-path-segments': ['error', { noUselessIndex: true }]
-}
-
 const typescriptConfig = {
   '@typescript-eslint/no-explicit-any': ['off'],
   '@typescript-eslint/no-dynamic-delete': 'off',
@@ -143,19 +126,7 @@ export default withNuxt({
     'no-trailing-spaces': ['error'],
     'eol-last': ['error', 'always'],
     ...vueRules,
-    ...importConfig,
-    ...typescriptConfig,
-
-    /** Temp */
-    treatUndefinedAsUnspecified: 'off',
-    'class-methods-use-this': 'off',
-    'prefer-rest-params': 'off',
-
-    /** 1186 problems | temp commented **/
-    'max-lines': ['warn', 200],
-    'max-len': ['error', 100],
-
-    'max-classes-per-file': ['error', 1]
+    ...typescriptConfig
   },
   ignores: [
     'node_modules',

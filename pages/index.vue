@@ -1,3 +1,3 @@
 <template>
-  <ControllerPosts />
+  <div><ControllerPosts /></div>
 </template>

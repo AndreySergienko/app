@@ -33,10 +33,16 @@ export interface SharedComponentThemeAndSize
   hover?: keyof ComponentThemes
 }
 
+export type SharedImageType = {
+  src: string
+  srcset?: string
+  alt: string
+  isLazy?: boolean
+}
+
 export type LinkType = {
   to?: string
   target?: '_blank' | 'self'
   title: string
   href?: string
 }
-

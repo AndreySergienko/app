@@ -32,27 +32,27 @@ const components: ComponentSizesWithElement<string> = {
 const { color } = useThemesText(props.theme)
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .shared-title {
   color: v-bind('color');
   font-weight: var(--weight-medium);
-}
 
-.shared-title.small {
-  font-size: var(--font-size-s);
-}
+  &.small {
+    font-size: var(--font-size-s);
+  }
 
-.shared-title.medium {
-  font-size: var(--font-size-m);
-  line-height: 150%;
-}
+  &.medium {
+    font-size: var(--font-size-m);
+    line-height: 150%;
+  }
 
-.shared-title.hover:hover {
-  color: v-bind('hover');
-  cursor: pointer;
-}
+  &.hover:hover {
+    color: v-bind('hover');
+    cursor: pointer;
+  }
 
-.shared-title.small:hover {
-  color: var(--dark-gray);
+  &.small:hover {
+    color: var(--dark-gray);
+  }
 }
 </style>

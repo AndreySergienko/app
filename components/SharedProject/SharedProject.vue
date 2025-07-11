@@ -1,28 +1,35 @@
 <template>
-  <div class="project">
-    <div class="project__container">
-      <div class="project__img">
-        <img :src="img" alt="Projects" />
+  <nuxt-link :to="`/projects/${project.id}`" class="project">
+    <div class="project__wrapper">
+      <div class="project__wrapper-image">
+        <img
+          class="project__image"
+          :src="project.img"
+          :alt="`${project.title}-image`"
+        />
       </div>
       <div class="project__info">
-        <nuxt-link :to="`/projects/${id}`" class="project__name">
-          {{ name }}
-        </nuxt-link>
-        <ul class="project__footer" v-if="projectItems.length">
-          <li v-for="item in projectItems" :key="item" class="project__item">
-            {{ item }}
-          </li>
-        </ul>
+        <span class="project__title">
+          {{ project.title }}
+        </span>
+        <div class="project__professions">
+          <span
+            class="project__profession"
+            v-for="professional in project.professionals"
+            :key="professional"
+            >{{ professional }}</span
+          >
+        </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 <script setup lang="ts">
-import type { SharedProjectProps } from './SharedProject.types'
+import type { ISharedProjectProps } from './SharedProject.types'
 
-withDefaults(defineProps<SharedProjectProps>(), {
-  projectItems: () => []
-})
+defineProps<{
+  project: ISharedProjectProps
+}>()
 </script>
 
 <style scoped src="./SharedProject.scss"></style>

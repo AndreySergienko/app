@@ -1,6 +1,6 @@
-export interface SharedProjectProps {
-  id: number
-  name: string
+export interface ISharedProjectProps {
+  id: string
+  title: string
   img: string
-  projectItems?: string[]
+  professionals: string[]
 }

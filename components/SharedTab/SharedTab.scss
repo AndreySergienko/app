@@ -1,0 +1,17 @@
+.tab {
+  color: rgb(0 0 0 / 40%);
+  cursor: pointer;
+  font-size: var(--font-size-m);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: color 0.3s ease;
+
+  &.active {
+    color: rgb(0 0 0 / 100%);
+  }
+
+  &__content {
+    width: 100%;
+    margin-top: var(--gap-l);
+  }
+}

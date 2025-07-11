@@ -1,26 +1,33 @@
 @use 'assets/styles/media';
 
 .shared-sidebar {
-  padding: var(--gap-xxl);
+  position: fixed;
+
   border-right: 1px solid var(--light-gray);
-  height: 100%;
+  padding: var(--gap-xxl);
+
+  &__container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
   &__inner {
     display: flex;
     height: 100%;
+    min-height: calc(100vh - 8rem);
     flex-direction: column;
     justify-content: space-between;
   }
 
-  &__footer {
-    margin-top: auto;
-  }
-
   &__img {
-    width: 50px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
     border-radius: 100%;
     margin-bottom: var(--gap-m);
+  }
+
+  &__footer {
+    margin-top: auto;
   }
 
   &__title {
@@ -40,12 +47,16 @@
   &__link {
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 0.5rem;
 
     &:deep(svg) {
-      width: 8px;
-      height: 8px;
+      width: 0.8rem;
+      height: 0.8rem;
     }
+  }
+
+  &__btn-main {
+    text-decoration: none;
   }
 }
 
@@ -54,25 +65,85 @@
   margin-bottom: var(--gap-xxl);
 }
 
+@include media.media-breakpoint-down(xl) {
+  .shared-sidebar {
+    padding: var(--gap-l);
+  }
+}
+
 @include media.media-breakpoint-down(l) {
   .shared-sidebar {
     position: relative;
     border-right: none;
-    padding: var(--gap-l);
     width: 100%;
 
-    &__footer &:last-child {
-      display: none;
+    display: flex;
+    justify-content: center;
+
+    &::before {
+      position: absolute;
+      width: 100%;
+      height: 0.2rem;
+      content: '';
+      bottom: 0;
+      background-color: var(--gray);
     }
 
     &__footer {
-      align-self: flex-end;
+      margin-top: auto;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap-l);
+      justify-content: flex-end;
     }
+
+    &__btn-main {
+      display: flex;
+    }
+
+    &__description {
+      display: flex;
+      flex-direction: column;
+      margin-left: var(--gap-s);
+      justify-content: space-between;
+    }
+
+    .ogrn {
+      margin: 0;
+    }
+
     &__inner {
       flex-direction: row;
       min-height: auto;
-      width: 300px;
+      width: 100%;
       align-items: center;
+    }
+
+    &__text {
+      margin-bottom: var(--gap-m);
+    }
+
+    &__links {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+}
+
+@include media.media-breakpoint-down(md) {
+  .shared-sidebar {
+    &__inner {
+      flex-direction: column;
+    }
+
+    &__footer {
+      margin-top: var(--gap-s);
+      text-align: center;
+      gap: var(--gap-s);
+      // flex-direction: row;
     }
   }
 }

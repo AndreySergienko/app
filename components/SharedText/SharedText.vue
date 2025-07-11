@@ -20,17 +20,17 @@ const props = withDefaults(
 const { color } = useThemesText(props.theme)
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .shared-text {
   color: v-bind('color');
   font-weight: var(--weight-regular);
-}
 
-.shared-text.small {
-  font-size: var(--font-size-xs);
-}
+  &.small {
+    font-size: var(--font-size-xs);
+  }
 
-.shared-text.medium {
-  font-size: var(--font-size-s);
+  &.medium {
+    font-size: var(--font-size-s);
+  }
 }
 </style>

@@ -3,28 +3,32 @@
     <header class="header">
       <SharedSidebar />
     </header>
-    <main class="default-layout__container">
+    <div class="default-layout__inner">
       <SharedContainer>
-        <ControllerStories />
-        <div class="default-layout__announcements">
-          <ControllerAnnouncements />
+        <!-- <ControllerStories /> -->
+        <ControllerAnnouncements />
+        <div>
+          <div class="tabs">
+            <SharedTab to="/posts" :is-active="isActivePostsTab"
+              >Posts</SharedTab
+            >
+            <SharedTab to="/projects">Project</SharedTab>
+          </div>
         </div>
-        <div class="default-layout__tab">
-          <SharedTab :class="{ active: route.path === '/' }" to="posts"
-            >Posts</SharedTab
-          >
-          <SharedTab to="projects">Project</SharedTab>
-        </div>
-        <slot />
+
+        <main>
+          <slot />
+        </main>
 
         <SharedEnd />
       </SharedContainer>
-    </main>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 const route = useRoute()
+const isActivePostsTab = computed(() => route.path === '/')
 </script>
 
 <style scoped lang="scss">
@@ -32,6 +36,15 @@ const route = useRoute()
 
 .default-layout {
   display: flex;
+
+  &__inner {
+    padding-left: 24rem;
+    width: 100%;
+
+    @include media.media-breakpoint-down(l) {
+      padding-left: 0;
+    }
+  }
 
   &__container {
     width: 100%;
@@ -51,5 +64,13 @@ const route = useRoute()
   @include media.media-breakpoint-down(l) {
     flex-direction: column;
   }
+}
+
+.tabs {
+  display: flex;
+  gap: var(--gap-l);
+  margin-bottom: var(--gap-l);
+  margin-top: var(--gap-xxl);
+  justify-content: flex-start;
 }
 </style>
