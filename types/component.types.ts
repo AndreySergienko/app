@@ -39,3 +39,10 @@ export type SharedImageType = {
   alt: string
   isLazy?: boolean
 }
+
+export type LinkType = {
+  to?: string
+  target?: '_blank' | 'self'
+  title: string
+  href?: string
+}

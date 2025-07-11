@@ -34,9 +34,9 @@ const $slideList = ref<Element>()
 
 const currentPage = ref<number>(MINIMUM_SLIDE)
 const maxOffset = ref<number>(0)
-const lastPage = computed<boolean>(() =>
-  maxOffset.value ? currentOffset.value === maxOffset.value : false
-)
+const lastPage = computed<boolean>(() => {
+  return maxOffset.value > 0 ? currentOffset.value === maxOffset.value : true
+})
 
 function setMove(px: number) {
   if (!$slideList.value) return

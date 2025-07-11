@@ -9,9 +9,9 @@
         :img="{ src: otherJpg, alt: 'book' }"
         date="September 30, 2024"
       >
-        <template #title
-          >ON-DEVELOPER: New Ad Platform to Fulfill Your Needs</template
-        >
+        <template #title>
+          ON-DEVELOPER: New Ad Platform to Fulfill Your Needs
+        </template>
       </SharedAnnouncement>
 
       <SharedAnnouncement
@@ -19,8 +19,9 @@
         :img="{ src: otherJpg, alt: 'book' }"
         date="September 30, 2024"
       >
-        <template #title
-          >ON-DEVELOPER: New Ad Platform to Fulfill Your Needs</template
+        <template #title>
+          ON-DEVELOPER: New Ad Platform to Fulfill Your Needs
+        </template
         >
       </SharedAnnouncement>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="card__story">
     <div class="card__story-item">
-      <img class="card__story-img" :src="card.img" :alt="alt" />
+      <img class="card__story-img" :src="card.preview || card.img" :alt="alt" />
       <div v-if="!card.isViewed" class="card__story-followers">
         {{ card.id }}
         <nuxt-icon name="white_play" filled />

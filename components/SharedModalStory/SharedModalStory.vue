@@ -18,6 +18,9 @@
         </div>
         <div class="modal__slot">
           <slot />
+          <div v-if="$slots.text" class="modal__text">
+            <slot name="text" />
+          </div>
         </div>
       </div>
       <nuxt-icon

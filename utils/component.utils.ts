@@ -5,10 +5,3 @@ export const defaultClassesForElement: ComponentSizesWithElement<string> = {
   m: 'medium',
   l: 'large'
 }
-
-export type LinkType = {
-  to?: string
-  target?: '_blank' | 'self'
-  title: string
-  href?: string
-}
