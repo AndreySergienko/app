@@ -1,6 +1,6 @@
 <template>
   <ClientOnly v-if="$route.meta.anchors">
-    <div class="anchors" ref="anchors">
+    <div v-if="$route?.meta?.anchors" class="anchors" ref="anchors">
       <span class="line" />
       <span class="line-active" />
       <SharedLink
