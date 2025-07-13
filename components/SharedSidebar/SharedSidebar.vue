@@ -38,6 +38,7 @@
             :key="item.text"
             :class="{ ogrn: idx === 1 }"
             v-bind="themeFooter"
+            size="s"
           >
             {{ item.text }}
           </SharedText>
@@ -48,7 +49,10 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType, SharedComponentThemeAndSize } from '~/types/component.types'
+import type {
+  LinkType,
+  SharedComponentThemeAndSize
+} from '~/types/component.types'
 import type { FooterTextTypes } from '~/components/SharedSidebar/SharedSidebar.types'
 
 const links: LinkType[] = [

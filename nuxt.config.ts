@@ -20,11 +20,11 @@ export default defineNuxtConfig({
           property: 'og:description',
           content: 'Современные сайты и веб-приложения под ключ'
         },
-        { property: 'og:type', content: 'website' }
-        // { property: 'og:url', content: 'https://yourdomain.com' },
-        // { property: 'og:image', content: 'https://yourdomain.com/images/preview.jpg' }
-      ]
-      // link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://ensine.ru' },
+        { property: 'og:image', content: '/og-image.png' }
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     }
   }
 })

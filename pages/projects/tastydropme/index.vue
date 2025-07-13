@@ -25,7 +25,11 @@
         </template>
       </SharedList>
 
-      <WidgetImageAnimation :src="MainPage" alt="Скриншот главной" />
+      <WidgetImageAnimation
+        :src="MainPagePng"
+        :srcset="MainPageWebp"
+        alt="Скриншот главной"
+      />
     </section>
 
     <section id="redesign" class="drop__section">
@@ -57,7 +61,11 @@
         ориентируясь на масштабирование.</SharedText
       >
 
-      <WidgetImageAnimation :src="MissionPage" alt="Скриншот главной" />
+      <WidgetImageAnimation
+        :src="MissionPagePng"
+        :srcset="MissionPageWebp"
+        alt="Скриншот главной"
+      />
     </section>
 
     <section id="process" class="drop__section">
@@ -81,7 +89,11 @@
         без использования Worker</SharedText
       >
 
-      <WidgetImageAnimation :src="BattlesPage" alt="Скриншот кейс батлов" />
+      <WidgetImageAnimation
+        :src="BattlesPagePng"
+        :srcset="BattlesPageWebp"
+        alt="Скриншот кейс батлов"
+      />
     </section>
 
     <section id="commands" class="drop__section">
@@ -110,9 +122,13 @@
 </template>
 <script setup>
 import SharedTitle from '~/components/SharedTitle/SharedTitle.vue'
-import MainPage from '~/assets/images/projects/tastydrop/main-page.png'
-import MissionPage from '~/assets/images/projects/tastydrop/mission-page.png'
-import BattlesPage from '~/assets/images/projects/tastydrop/battles-page.png'
+import MainPagePng from '~/assets/images/projects/tastydrop/main-page.png'
+import MainPageWebp from '~/assets/images/projects/tastydrop/main-page.webp'
+import MissionPagePng from '~/assets/images/projects/tastydrop/mission-page.png'
+import MissionPageWebp from '~/assets/images/projects/tastydrop/mission-page.webp'
+import BattlesPagePng from '~/assets/images/projects/tastydrop/battles-page.png'
+import BattlesPageWebp from '~/assets/images/projects/tastydrop/battles-page.webp'
+
 import { items, processesItems, redesignItems } from './tastydropme.data'
 
 const listBenfits = ref()

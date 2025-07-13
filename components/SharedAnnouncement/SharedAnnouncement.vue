@@ -2,12 +2,17 @@
   <div class="shared-announcement">
     <div class="shared-announcement__block-image">
       <div v-if="img" class="shared-announcement__image">
-        <img :src="img.src" :alt="img.alt || 'picture'" class="picture" />
+        <img
+          :src="img.src as string"
+          :srcset="(img.srcSet as string) || ''"
+          :alt="img.alt || 'picture'"
+          class="picture"
+        />
       </div>
     </div>
     <div class="shared-announcement__content">
       <SharedTitle size="s" theme="light">{{ date }}</SharedTitle>
-      <SharedTitle class="shared-announcement__title" size="m" theme="dark">
+      <SharedTitle class="shared-announcement__title" size="s" theme="dark">
         <slot name="title" />
       </SharedTitle>
       <SharedText v-if="$slots.text" size="m" theme="dark"

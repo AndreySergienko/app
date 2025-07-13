@@ -1,9 +1,9 @@
 <template>
-  <div ref="$slider" class="slider">
+  <div ref="$slider" class="slider" @mousedown="onMouseDown">
     <div v-if="hasPrev" @click="prevSlide" class="arrow">
       <nuxt-icon class="slider__icon" name="prev" filled />
     </div>
-    <div class="slider__content" ref="slides">
+    <div class="slider__content" ref="$sliderWrapper">
       <slot name="slide" />
     </div>
     <div v-if="hasNext" @click="nextSlide" class="arrow arrow--next">
@@ -13,46 +13,54 @@
 </template>
 
 <script setup lang="ts">
-import { useSlider } from '~/components/SharedSlider/useSlider'
+import { useSlider } from './useSlider'
+import { useSliderDragSpin } from './useSliderDragSpin'
 
 interface ISharedSliderProps {
   length: number
+  gap?: string
   maxWidth?: string
 }
 
 const props = withDefaults(defineProps<ISharedSliderProps>(), {
-  maxWidth: '675px'
+  maxWidth: '67.5rem',
+  gap: '2rem'
 })
 
 const MINIMUM_SLIDE = 0
 
 const isMounted = ref<boolean>(false)
-const slides = ref<HTMLElement | null>()
+const $sliderWrapper = ref<HTMLElement | null>()
 const $slider = ref<HTMLElement | null>(null)
 const cardWidth = ref<number>(0)
-const $slideList = ref<Element>()
 
+const scrollLeft = ref<number>(0)
 const currentPage = ref<number>(MINIMUM_SLIDE)
 const maxOffset = ref<number>(0)
-const lastPage = computed<boolean>(() => {
-  return maxOffset.value > 0 ? currentOffset.value === maxOffset.value : true
-})
 
-function setMove(px: number) {
-  if (!$slideList.value) return
-  $slideList.value.style.transform = `translateX(-${px}px)`
+const updateScroll = (value: number) => {
+  if (!$sliderWrapper.value) return
+  $sliderWrapper.value.scrollLeft = value
+  scrollLeft.value = $sliderWrapper.value.scrollLeft
 }
 
-const { currentOffset, animateTo, isAnimating, animationFrameId } =
-  useSlider(setMove)
-// const {onMouseDown} = useSliderDragSpin({
-//   move: setMove,
-//   currentOffset,
-//   maxOffset
-// })
+const { currentOffset, animateTo } = useSlider(
+  $sliderWrapper as Ref<HTMLElement>,
+  updateScroll
+)
+
+const { onMouseDown, initWheel, removeWheel } = useSliderDragSpin({
+  sliderList: $sliderWrapper as Ref<HTMLElement>,
+  slider: $slider as Ref<HTMLElement>,
+  updateScroll
+})
+
+onMounted(initWheel)
+
+onUnmounted(removeWheel)
 
 function adaptiveData(sliderPageNew: number, slidePageOld: number) {
-  if (!$slideList.value) return
+  if (!$sliderWrapper.value) return
   let offset = 0
   if (sliderPageNew > slidePageOld)
     offset = Math.min(
@@ -71,15 +79,21 @@ onMounted(() => {
 })
 onMounted(prerenderOptions)
 
-const hasPrev = computed<boolean>(() => MINIMUM_SLIDE !== currentPage.value)
-const hasNext = computed<boolean>(() => !lastPage.value)
+const hasPrev = computed<boolean>(() => scrollLeft.value !== 0)
+const hasNext = computed<boolean>(() => {
+  if (!$sliderWrapper.value) return false
+  return (
+    scrollLeft.value + $sliderWrapper.value?.clientWidth <
+    $sliderWrapper.value?.scrollWidth
+  )
+})
 
 function prerenderOptions() {
-  if (!slides.value) return
-  $slideList.value = slides.value.children[0]
-  const gap = parseInt(getComputedStyle($slideList.value).gap)
-  const $slide = $slideList.value.children[0]
-  const { fullWidth } = getParametersSlide($slide, gap)
+  if (!$sliderWrapper.value) return
+  const slide = $sliderWrapper.value.children[0]
+  $sliderWrapper.value.style.transition = 'transform .1s ease'
+  const gap = parseInt(getComputedStyle($sliderWrapper.value).gap)
+  const { fullWidth } = getParametersSlide(slide, gap)
   cardWidth.value = fullWidth
   const limit = calculateLimit(cardWidth.value)
   maxOffset.value = cardWidth.value * (props.length - limit)
@@ -103,17 +117,12 @@ function getParametersSlide($slide: Element, gap: number) {
 }
 
 const nextSlide = () => {
-  if (lastPage.value || isAnimating.value || animationFrameId.value) return
+  if (!hasNext.value) return
   currentPage.value++
 }
 
 const prevSlide = () => {
-  if (
-    MINIMUM_SLIDE === currentPage.value ||
-    isAnimating.value ||
-    animationFrameId.value
-  )
-    return
+  if (!hasPrev.value) return
   currentPage.value--
 }
 </script>
@@ -125,20 +134,26 @@ const prevSlide = () => {
   align-items: center;
 
   &__content {
+    display: flex;
+    gap: v-bind('gap');
     overflow: hidden;
     width: 100%;
   }
 
   &__icon {
-    font-size: 30px;
+    font-size: 3rem;
   }
 }
 
 .arrow {
+  pointer-events: auto;
+  cursor: pointer;
   position: absolute;
   z-index: 111;
   top: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transform: translateY(-50%) translateX(-50%);
+  border-radius: 50%;
 
   &--next {
     right: 0;

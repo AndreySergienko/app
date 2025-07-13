@@ -1,15 +1,19 @@
-export function useSlider(move: (value: number) => void) {
+export function useSlider(
+  $slides: Ref<HTMLElement | null>,
+  updateScroll: (value: number) => void
+) {
   const currentOffset = ref<number>(0)
   const animationFrameId = ref<null | number>(null)
   const isAnimating = ref(false)
 
   const animateTo = (targetX: number) => {
+    if (!$slides.value) return
     const startTime = performance.now()
-    const startX = currentOffset.value
+    const slider = $slides.value as HTMLElement
+    const startX = slider.scrollLeft
     const delta = targetX - startX
 
-    if (targetX === currentOffset.value) return
-
+    if (delta === 0) return
     if (animationFrameId.value) return
 
     function step(now: number) {
@@ -19,12 +23,12 @@ export function useSlider(move: (value: number) => void) {
       const ease = 0.5 - Math.cos(progress * Math.PI) / 2
 
       const currentX = startX + delta * ease
-      move(currentX)
-
+      updateScroll(currentX)
       currentOffset.value = targetX
       if (progress < 1) {
         animationFrameId.value = requestAnimationFrame(step)
       } else {
+        updateScroll(targetX)
         isAnimating.value = false
         animationFrameId.value = null
       }
@@ -35,8 +39,6 @@ export function useSlider(move: (value: number) => void) {
 
   return {
     animateTo,
-    isAnimating,
-    animationFrameId,
     currentOffset
   }
 }

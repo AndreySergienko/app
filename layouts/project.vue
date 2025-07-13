@@ -67,16 +67,16 @@
 
   &__anchors {
     position: fixed;
-    right: 20rem;
-    top: 15rem;
+    right: 15rem;
+    top: 10rem;
     z-index: 1;
 
-    @include media.media-breakpoint-down(xl) {
-      top: 7rem;
-      right: 10rem;
-    }
+    // @include media.media-breakpoint-down(xl) {
+    //   top: 7rem;
+    //   right: 10rem;
+    // }
 
-    @include media.media-breakpoint-down(l) {
+    @include media.media-breakpoint-down(xl) {
       display: none;
     }
   }
