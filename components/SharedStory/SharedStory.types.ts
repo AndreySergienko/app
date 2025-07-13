@@ -3,7 +3,7 @@ export interface ISharedStoryCard {
   img: string
   preview?: string
   isViewed: boolean
-  text?: string;
+  text?: string
 }
 
 export interface ISharedStoryProps {

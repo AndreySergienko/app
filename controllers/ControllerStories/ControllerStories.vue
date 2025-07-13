@@ -25,7 +25,9 @@
       @prev="prevSlide"
     >
       <img :src="cards[activeIdx].img" :alt="'Image'" />
-      <template v-if="cards[activeIdx].text" #text>{{ cards[activeIdx].text }}</template>
+      <template v-if="cards[activeIdx].text" #text>{{
+        cards[activeIdx].text
+      }}</template>
     </SharedModalStory>
   </teleport>
 </template>

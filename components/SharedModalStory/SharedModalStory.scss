@@ -57,7 +57,11 @@
     padding: var(--gap-m);
     color: var(--light-gray);
     border-radius: 10px;
-    background-color: color-mix(in srgb, var(--dark-gray) 80%, var(--light-gray) 20%);
+    background-color: color-mix(
+      in srgb,
+      var(--dark-gray) 80%,
+      var(--light-gray) 20%
+    );
   }
 
   &__icon {
