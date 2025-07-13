@@ -1,21 +1,41 @@
 <template>
-  <div class="announcements">
-    <SharedTitle size="m" class="announcements__title">Announcements</SharedTitle>
-    <div class="controller">
-      <SharedCard
-        size="s"
-        :img="{ src: otherJpg, alt: 'book' }"
-        date="September 30, 2024"
-        title="ON-DEVELOPER: New Ad Platform to Fulfill Your Needs"
-      />
+  <div class="announcements-controller">
+    <SharedTitle size="m" class="announcements-controller__title"
+      >Announcements</SharedTitle
+    >
+    <SharedSlider
+      :length="3"
+      gap="var(--gap-l)"
+      class="announcements-controller__wrapper"
+    >
+      <template #slide>
+        <SharedAnnouncement
+          size="s"
+          :img="{ src: otherJpg, alt: 'book' }"
+          date="Август 01, 2025"
+        >
+          <template #title> ON-DEVELOPER: Площадка для рекламы </template>
+        </SharedAnnouncement>
 
-      <SharedCard
-        size="s"
-        :img="{ src: otherJpg, alt: 'book' }"
-        date="September 30, 2024"
-        title="ON-DEVELOPER: New Ad Platform to Fulfill Your Needs"
-      />
-    </div>
+        <SharedAnnouncement
+          size="s"
+          :img="{ src: otherJpg, alt: 'book' }"
+          date="Сентябрь 01, 2025"
+        >
+          <template #title> ETERNA: Сайт для сериала Eterna </template>
+        </SharedAnnouncement>
+
+        <SharedAnnouncement
+          size="s"
+          :img="{ src: otherJpg, alt: 'book' }"
+          date="Сентябрь 01, 2025"
+        >
+          <template #title
+            >TENDER-SITNO: Тендерная площадка для агрохолдинга Sitno
+          </template>
+        </SharedAnnouncement>
+      </template>
+    </SharedSlider>
   </div>
 </template>
 
@@ -26,24 +46,11 @@ import otherJpg from '~/assets/images/other.jpg'
 <style scoped lang="scss">
 @use 'assets/styles/media';
 
-.announcements__title {
-  margin-bottom: var(--gap-l);
-}
+.announcements-controller {
+  width: 100%;
 
-.controller {
-  display: flex;
-  gap: var(--gap-l);
-}
-
-@include media.media-breakpoint-down(l) {
-  .annoncements {
-    width: 100%;
-  }
-}
-
-@include media.media-breakpoint-down(sm) {
-  .controller {
-    flex-direction: column;
+  &__title {
+    margin-bottom: var(--gap-l);
   }
 }
 </style>

@@ -1,0 +1,56 @@
+# Log files
+npm-debug.log*
+pnpm-debug.log*
+
+# Envs
+.env
+*.env
+.env.local
+
+# Logs
+*.log
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylint cache
+.stylelintcache
+
+# Optional cache files
+.cache
+
+# Optional .output files
+.output
+
+# Nitro output
+.nitro
+
+# nuxt.js build output
+.nuxt
+
+
+# IDE / Editor
+.idea
+
+# macOS
+.DS_Store
+
+# Editor directories and files
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.git
+
+dist

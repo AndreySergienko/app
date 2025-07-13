@@ -1,7 +1,7 @@
 <template>
   <component
     :is="components[props.size]"
-    :class="['shared-title hover', defaultClassesForElement[props.size]]"
+    :class="['shared-title', defaultClassesForElement[props.size]]"
   >
     <slot />
   </component>
@@ -15,10 +15,13 @@ import type {
 import { defaultClassesForElement } from '~/utils/component.utils'
 import { useThemesText } from '~/composables/useThemesText'
 
-const props = withDefaults(defineProps<Partial<SharedComponentThemeAndSize>>(), {
-  theme: 'dark',
-  size: 's'
-})
+const props = withDefaults(
+  defineProps<Partial<SharedComponentThemeAndSize>>(),
+  {
+    theme: 'dark',
+    size: 's'
+  }
+)
 
 const components: ComponentSizesWithElement<string> = {
   s: 'h3',
@@ -29,27 +32,27 @@ const components: ComponentSizesWithElement<string> = {
 const { color } = useThemesText(props.theme)
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .shared-title {
   color: v-bind('color');
   font-weight: var(--weight-medium);
-}
 
-.shared-title.small {
-  font-size: var(--font-size-s);
-}
+  &.small {
+    font-size: var(--font-size-s);
+  }
 
-.shared-title.medium {
-  font-size: var(--font-size-m);
-  line-height: 150%;
-}
+  &.medium {
+    font-size: var(--font-size-m);
+    line-height: 150%;
+  }
 
-.shared-title.hover:hover {
-  color: v-bind('hover');
-  cursor: pointer;
-}
+  &.hover:hover {
+    color: v-bind('hover');
+    cursor: pointer;
+  }
 
-.shared-title.small:hover {
-  color: var(--dark-gray);
+  &.small:hover {
+    color: var(--dark-gray);
+  }
 }
 </style>

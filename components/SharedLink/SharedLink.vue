@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import type { LinkType } from '~/utils/component.utils'
+import type { LinkType } from '~/types/component.types'
 
 defineProps<Omit<LinkType, 'title'>>()
 </script>

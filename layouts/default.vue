@@ -3,60 +3,74 @@
     <header class="header">
       <SharedSidebar />
     </header>
-    <main>
+    <div class="default-layout__inner">
       <SharedContainer>
-        <ControllerStories class="stories" />
-        <ControllerAnnouncements class="announcements" />
-        <ControllerSlots class="slots">
+        <!-- <ControllerStories /> -->
+        <ControllerAnnouncements />
+        <div>
+          <div class="tabs">
+            <SharedTab to="/posts" :is-active="isActivePostsTab"
+              >Posts</SharedTab
+            >
+            <SharedTab to="/projects">Project</SharedTab>
+          </div>
+        </div>
+
+        <main>
           <slot />
-        </ControllerSlots>
+        </main>
+
         <SharedEnd />
       </SharedContainer>
-    </main>
+    </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const route = useRoute()
+const isActivePostsTab = computed(() => route.path === '/')
+</script>
 
 <style scoped lang="scss">
 @use 'assets/styles/media';
 
 .default-layout {
   display: flex;
-}
 
-@media (width <= 1024px) {
-  .default-layout {
+  &__inner {
+    padding-left: 24rem;
+    width: 100%;
+
+    @include media.media-breakpoint-down(l) {
+      padding-left: 0;
+    }
+  }
+
+  &__container {
+    width: 100%;
+  }
+
+  &__announcements {
+    margin-top: var(--gap-xxl);
+    margin-bottom: var(--gap-xxl);
+  }
+
+  &__tab {
+    display: flex;
+    gap: var(--gap-l);
+    margin-bottom: var(--gap-l);
+  }
+
+  @include media.media-breakpoint-down(l) {
     flex-direction: column;
   }
 }
 
-.header {
-  position: fixed;
-  max-width: 250px;
-}
-
-main {
-  margin-left: 250px;
-}
-
-@include media.media-breakpoint-down(l) {
-  main {
-    margin-left: 0;
-  }
-
-  .header {
-    position: relative;
-  }
-}
-
-.stories,
-.announcements {
-  margin-bottom: var(--gap-xxl);
-}
-
-@include media.media-breakpoint-down(l) {
-  .announcements,
-  .slots {
-    width: 100%;
-  }
+.tabs {
+  display: flex;
+  gap: var(--gap-l);
+  margin-bottom: var(--gap-l);
+  margin-top: var(--gap-xxl);
+  justify-content: flex-start;
 }
 </style>

@@ -1,0 +1,42 @@
+.gradient-frame {
+  padding: 0.6rem;
+  border-radius: 1.6rem;
+  background: linear-gradient(135deg, #4c117c, #ff3f7d, #3bd8e8);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite;
+  box-shadow: 0 0 1.5rem rgba(255, 63, 125, 0.4);
+
+  & img {
+    max-width: 100%;
+  }
+}
+
+.parallax-container {
+  perspective: 80rem;
+  transform-style: preserve-3d;
+  display: inline-block;
+  transition: transform 0.2s ease;
+  border-radius: 1.2rem;
+  overflow: hidden;
+}
+
+.parallax-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.2s ease;
+  will-change: transform;
+  border-radius: 1.2rem;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

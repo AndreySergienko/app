@@ -1,0 +1,17 @@
+@use 'assets/styles/animation';
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-l);
+
+  &__item {
+    opacity: 0;
+    transform: translateY(10px);
+
+    &.fade-in-up {
+      /* Каждому элементу своя задержка */
+      animation-fill-mode: both;
+    }
+  }
+}

@@ -1,8 +1,30 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxt/eslint', '@nuxtjs/stylelint-module', 'nuxt-icons'],
+  modules: ['nuxt-icons', '@nuxt/eslint'],
   css: ['~/assets/styles/main.scss'],
   components: ['~/components', '~/controllers'],
-  compatibilityDate: '2024-12-31'
+  compatibilityDate: '2024-12-31',
+  app: {
+    head: {
+      title: 'Andrey Sergienko - website',
+      meta: [
+        {
+          name: 'description',
+          content:
+            'Андрей Сергиенко — фронтенд-разработчик. Веб разработка с использованием современных технологий под ключ.'
+        },
+
+        { property: 'og:title', content: 'Andrey Sergienko - website' },
+        {
+          property: 'og:description',
+          content: 'Современные сайты и веб-приложения под ключ'
+        },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://ensine.ru' },
+        { property: 'og:image', content: '/og-image.png' }
+      ],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    }
+  }
 })

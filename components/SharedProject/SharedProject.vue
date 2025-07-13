@@ -1,25 +1,33 @@
 <template>
-  <div class="projects">
-    <div>
-      <div class="projects__img">
-        <img :src="project.img" alt="Projects" />
+  <nuxt-link :to="`/projects/${project.id}`" class="project">
+    <div class="project__wrapper">
+      <div class="project__wrapper-image">
+        <img
+          class="project__image"
+          :src="project.img"
+          :alt="`${project.title}-image`"
+        />
       </div>
-      <div class="projects__info">
-        <nuxt-link :to="`/projects/${props.project.id}`" class="projects__name">
-          {{ props.project.name }}
-        </nuxt-link>
-        <div class="projects__link">
-          <a class="projects__lead" href="#">Project Lead</a>
-          <a class="projects__dev" href="#">Development</a>
+      <div class="project__info">
+        <span class="project__title">
+          {{ project.title }}
+        </span>
+        <div class="project__professions">
+          <span
+            class="project__profession"
+            v-for="professional in project.professionals"
+            :key="professional"
+            >{{ professional }}</span
+          >
         </div>
       </div>
     </div>
-  </div>
+  </nuxt-link>
 </template>
 <script setup lang="ts">
 import type { ISharedProjectProps } from './SharedProject.types'
 
-const props = defineProps<{
+defineProps<{
   project: ISharedProjectProps
 }>()
 </script>

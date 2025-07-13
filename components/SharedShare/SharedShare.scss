@@ -1,0 +1,29 @@
+@use 'assets/styles/media';
+
+.share {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-m);
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: -3rem;
+    width: 100%;
+    height: 0.2rem;
+    background-color: var(--gray);
+  }
+
+  &__container {
+    display: flex;
+    gap: var(--gap-s);
+  }
+
+  &:deep(svg) {
+    cursor: pointer;
+    font-size: 3rem;
+  }
+}

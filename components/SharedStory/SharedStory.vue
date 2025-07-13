@@ -1,32 +1,25 @@
 <template>
-  <div class="card__story" @click="openModal">
+  <div class="card__story">
     <div class="card__story-item">
-      <img :src="props.card.img" alt="img" />
-      <div class="card__story-followers">
-        <nuxt-icon :name="props.card.play" filled />
-        <div :style="{ color: props.isSecondCard ? 'black' : 'white' }">
-          {{ props.card.followers }}
-        </div>
+      <img class="card__story-img" :src="card.preview || card.img" :alt="alt" />
+      <div v-if="!card.isViewed" class="card__story-followers">
+        {{ card.id }}
+        <nuxt-icon name="white_play" filled />
       </div>
-      <div v-if="props.isLastCard" class="overlay">
+      <div v-if="card.isViewed" class="overlay">
         <span class="overlay-text">Просмотрено</span>
       </div>
     </div>
   </div>
-  <SharedModal v-if="isModalOpen" @close="isModalOpen = false">
-    <p>Контент модального окна</p>
-  </SharedModal>
 </template>
 
 <script setup lang="ts">
 import type { ISharedStoryProps } from './SharedStory.types'
 
 const props = defineProps<ISharedStoryProps>()
+const { card } = toRefs(props)
 
-const isModalOpen = ref<boolean>(false)
-
-function openModal() {
-  isModalOpen.value = true
-}
+const alt = computed<string>(() => `stories-${card.value.id}`)
 </script>
-<style scoped src="./SharedStory.css"></style>
+
+<style scoped src="./SharedStory.scss"></style>

@@ -1,0 +1,27 @@
+@use 'assets/styles/media';
+
+.shared-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  //min-width: calc(100vw - 250px);
+  max-width: 71rem;
+  padding: var(--gap-l);
+  margin: 0 auto;
+}
+
+@include media.media-breakpoint-down(l) {
+  .shared-container {
+    max-width: 70rem;
+    padding: var(--gap-m);
+    align-items: flex-start;
+  }
+}
+
+@include media.media-breakpoint-down(md) {
+  .shared-container {
+    max-width: 69rem;
+    padding: var(--gap-s);
+    align-items: flex-start;
+  }
+}

@@ -1,0 +1,64 @@
+.card {
+  &__story {
+    width: 12.3rem;
+    max-height: 18.5rem;
+
+    overflow: hidden;
+
+    border-radius: 1rem;
+
+    display: flex;
+    gap: var(--gap-xxl);
+
+    &-item {
+      position: relative;
+      cursor: pointer;
+
+      &:hover {
+        .card__story-img {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &-followers {
+      position: absolute;
+      bottom: 1rem;
+      left: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      color: white;
+      font-size: var(--font-size-s);
+
+      padding: calc(var(--gap-s) / 2);
+      background: var(--dark-gray);
+      border-radius: 20%;
+    }
+
+    &-img {
+      transition: var(--duration);
+    }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 1rem;
+  height: 18.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5em;
+  z-index: 1;
+
+  &-text {
+    font-size: 1.2rem;
+  }
+}

@@ -1,4 +1,5 @@
-import { type QualifiedRules, RuleConfigSeverity } from '@commitlint/types'
+import { RuleConfigSeverity } from '@commitlint/types'
+import type { QualifiedRules } from '@commitlint/types'
 
 export default <QualifiedRules>{
   // Тело коммита должно начинаться с пустой строки
@@ -29,6 +30,17 @@ export default <QualifiedRules>{
   'type-enum': [
     RuleConfigSeverity.Error,
     'always',
-    ['build', 'ci', 'docs', 'feat', 'fix', 'perf', 'refactor', 'revert', 'style', 'test']
+    [
+      'build',
+      'ci',
+      'docs',
+      'feat',
+      'fix',
+      'perf',
+      'refactor',
+      'revert',
+      'style',
+      'test'
+    ]
   ]
 }

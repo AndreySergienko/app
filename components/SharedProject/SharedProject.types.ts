@@ -1,5 +1,7 @@
 export interface ISharedProjectProps {
-  id: number
-  name: string
+  id: string
+  title: string
   img: string
+  imgSet?: string
+  professionals: string[]
 }

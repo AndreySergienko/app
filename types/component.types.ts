@@ -4,7 +4,10 @@ export type ComponentSizes = {
   l: string
 }
 
-export type ComponentSizesWithElement<ElementType> = Record<keyof ComponentSizes, ElementType>
+export type ComponentSizesWithElement<ElementType> = Record<
+  keyof ComponentSizes,
+  ElementType
+>
 
 export interface SharedComponentWithSize {
   size: keyof ComponentSizes
@@ -15,7 +18,10 @@ export type ComponentThemes = {
   dark: string
 }
 
-export type ComponentThemesWithElement<ElementType> = Record<keyof ComponentThemes, ElementType>
+export type ComponentThemesWithElement<ElementType> = Record<
+  keyof ComponentThemes,
+  ElementType
+>
 
 export interface SharedComponentWithTheme {
   theme: keyof ComponentThemes
@@ -25,4 +31,18 @@ export interface SharedComponentThemeAndSize
   extends SharedComponentWithTheme,
     SharedComponentWithSize {
   hover?: keyof ComponentThemes
+}
+
+export type SharedImageType = {
+  src: string
+  srcset?: string
+  alt: string
+  isLazy?: boolean
+}
+
+export type LinkType = {
+  to?: string
+  target?: '_blank' | 'self'
+  title: string
+  href?: string
 }

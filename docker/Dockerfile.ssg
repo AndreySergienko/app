@@ -1,0 +1,22 @@
+FROM node:22-alpine3.20 AS build
+
+COPY ../package.json package-lock.json /app/
+WORKDIR /app
+
+RUN echo "📦 Устанавливаем зависимости..." && npm ci
+
+COPY .. .
+
+RUN echo "📁 Содержимое /app перед генерацией:" && ls -la
+
+RUN echo "🚀 Генерируем Nuxt 3 сайт..." && npm run generate
+
+RUN echo "📁 Содержимое .output после генерации:" && ls -la .output
+RUN echo "📁 Содержимое .output/public:" && ls -la .output/public
+
+FROM nginx:alpine
+
+COPY --from=build /app/.output/public /usr/share/nginx/html
+
+RUN echo "🚀 Раздача статики на port: 80..."
+EXPOSE 80

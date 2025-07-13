@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  nuxt-app:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.${BUILD_TYPE}
+    ports:
+      - '${PORT}:${PORT}'
+    environment:
+      NODE_ENV: production
+    container_name: nuxt-${BUILD_TYPE}
