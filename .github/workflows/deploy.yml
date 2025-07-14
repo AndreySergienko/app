@@ -2,7 +2,7 @@ name: Deploy Sergienko Website
 on:
   push:
     branches:
-      - masin
+      - main
 
 jobs:
   build-and-deploy:
