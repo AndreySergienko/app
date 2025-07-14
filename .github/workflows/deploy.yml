@@ -18,8 +18,20 @@ jobs:
         with:
           node-version: '22' # или твоя версия
 
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            node_modules
+            .nuxt
+            .output
+          key: ${{ runner.os }}-nuxt-${{ hashFiles('package-lock.json') }}
+
       - name: Install dependencies
         run: npm install
+
+      - name: Clean previous builds
+        run: rm -rf .output .nuxt
 
       - name: Build project
         run: npm run generate
