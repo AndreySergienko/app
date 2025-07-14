@@ -13,7 +13,7 @@
 
 <script setup lang="ts">
 defineProps<{
-  items: object[]
+  items: unknown[]
   hasVisible: boolean
 }>()
 

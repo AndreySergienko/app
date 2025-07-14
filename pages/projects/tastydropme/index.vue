@@ -120,7 +120,7 @@
     </section>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import SharedTitle from '~/components/SharedTitle/SharedTitle.vue'
 import MainPagePng from '~/assets/images/projects/tastydrop/main-page.png'
 import MainPageWebp from '~/assets/images/projects/tastydrop/main-page.webp'
@@ -129,16 +129,20 @@ import MissionPageWebp from '~/assets/images/projects/tastydrop/mission-page.web
 import BattlesPagePng from '~/assets/images/projects/tastydrop/battles-page.png'
 import BattlesPageWebp from '~/assets/images/projects/tastydrop/battles-page.webp'
 
-import { items, processesItems, redesignItems } from './tastydropme.data'
+import {
+  items,
+  processesItems,
+  redesignItems
+} from '~/utils/tastydropme.data'
 
 const listBenfits = ref()
 const listProcess = ref()
 const listRedesign = ref()
-const interestedList = ref([])
+const interestedList = ref<IntersectionObserverEntry[]>([])
 
-let observer
+let observer: IntersectionObserver
 
-const initObserver = (lists) => {
+const initObserver = (lists: any) => {
   observer = new IntersectionObserver(
     ([entry]) => {
       if (entry.isIntersecting) {

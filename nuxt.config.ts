@@ -1,6 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  ssr: false,
+  ssr: true,
+  nitro: {
+    preset: 'static'
+  },
   devtools: { enabled: true },
   modules: ['nuxt-icons', '@nuxt/eslint'],
   css: ['~/assets/styles/main.scss'],
