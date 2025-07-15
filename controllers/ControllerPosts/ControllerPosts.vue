@@ -6,11 +6,7 @@
       landscapes that stretch far and wide. Hiking through these natural wonders
       offers an escape to the serene and untouched corners of the earth. Each
       step taken on a mountain trail is a step closer to discovering the
-      breathtaking beauty of the wild. Surrounded by the fresh, crisp air and
-      the tranquil sounds of nature, hikers find a unique peace and a profound
-      connection to the earth. Mountains challenge and inspire, urging us to
-      explore further, climb higher, and appreciate the natural world in its
-      grandest form...
+      breathtaking beauty of the wild.
     </template>
   </SharedCard>
 </template>
