@@ -40,7 +40,7 @@ jobs:
         run: npm run generate
 
       - name: Verify files
-        run: ls -R .output/public
+        run: ls -R .output/public/
 
       - name: Deploy to Server via SSH
         uses: appleboy/scp-action@v0.1.4
@@ -50,3 +50,6 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: '.output/public/**/*'
           target: ${{ secrets.DESTINATION }}
+        script: |
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/authorized_keys
