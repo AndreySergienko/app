@@ -129,11 +129,7 @@ import MissionPageWebp from '~/assets/images/projects/tastydrop/mission-page.web
 import BattlesPagePng from '~/assets/images/projects/tastydrop/battles-page.png'
 import BattlesPageWebp from '~/assets/images/projects/tastydrop/battles-page.webp'
 
-import {
-  items,
-  processesItems,
-  redesignItems
-} from '~/utils/tastydropme.data'
+import { items, processesItems, redesignItems } from '~/utils/tastydropme.data'
 
 const listBenfits = ref()
 const listProcess = ref()
