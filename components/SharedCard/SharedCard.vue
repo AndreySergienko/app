@@ -4,8 +4,8 @@
       <img
         v-if="img"
         :src="(img.src as string) || ''"
+        :srcset="(img.srcSet as string) || ''"
         :alt="img.alt || 'picture'"
-        loading="lazy"
         class="shared-card__image"
       />
     </div>

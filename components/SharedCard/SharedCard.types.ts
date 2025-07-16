@@ -6,6 +6,7 @@ export interface SharedCardEmits {
 
 interface Image {
   src: string | Component
+  srcSet?: string | Component
   alt: string
 }
 

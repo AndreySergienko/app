@@ -1,6 +1,10 @@
 <template>
   <LazyBody />
-  <SharedCard size="l" :img="{ src: Post, alt: 'post' }" date="Июль 30, 2025">
+  <SharedCard
+    size="l"
+    :img="{ src: PostPng, srcSet: PostWebp, alt: 'post' }"
+    date="Июль 30, 2025"
+  >
     <template #title>Знакомство</template>
     <template #text>
       Nature's mountains stand as majestic monuments, towering over the
@@ -13,5 +17,6 @@
 </template>
 
 <script setup lang="ts">
-import Post from '@/assets/images/Post.png'
+import PostPng from '@/assets/images/Post.png'
+import PostWebp from '@/assets/images/Post.webp'
 </script>
