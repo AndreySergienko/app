@@ -135,6 +135,7 @@ export default withNuxt({
     '.nuxt',
     'stylelint.config.mjs',
     'prettier.config.mjs',
-    'eslint.config.mjs'
+    'eslint.config.mjs',
+    '.github'
   ]
 })
