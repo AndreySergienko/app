@@ -1,5 +1,5 @@
 User-Agent: *
-Disallow: /
+Disallow:
 
 Sitemap: https://www.ensine.ru/sitemap.xml 
 
