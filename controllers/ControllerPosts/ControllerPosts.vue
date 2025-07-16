@@ -1,4 +1,5 @@
 <template>
+  <LazyBody />
   <SharedCard size="l" :img="{ src: Post, alt: 'post' }" date="Июль 30, 2025">
     <template #title>Знакомство</template>
     <template #text>
