@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22' # или твоя версия
+          node-version: '22'
 
       - name: Cache dependencies
         uses: actions/cache@v3
@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: |
           npm cache clean --force
-          rm -rf node_modules package-lock.json
+          rm -rf node_modules
           npm install
 
       - name: Clean previous builds
