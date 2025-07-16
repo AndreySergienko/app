@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-12-31',
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'ru'
+      },
       title: 'Andrey Sergienko - website',
       meta: [
         {
