@@ -6,6 +6,7 @@
         :src="(img.src as string) || ''"
         :srcset="(img.srcSet as string) || ''"
         :alt="img.alt || 'picture'"
+        fetchpriority="high"
         class="shared-card__image"
       />
     </div>
