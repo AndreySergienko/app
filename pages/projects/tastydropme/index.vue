@@ -26,8 +26,7 @@
       </SharedList>
 
       <WidgetImageAnimation
-        :src="MainPagePng"
-        :srcset="MainPageWebp"
+        src="/projects/tastydrop/main-page.webp"
         alt="Скриншот главной"
       />
     </section>
@@ -62,8 +61,7 @@
       >
 
       <WidgetImageAnimation
-        :src="MissionPagePng"
-        :srcset="MissionPageWebp"
+        src="/projects/tastydrop/mission-page.webp"
         alt="Скриншот главной"
       />
     </section>
@@ -90,8 +88,7 @@
       >
 
       <WidgetImageAnimation
-        :src="BattlesPagePng"
-        :srcset="BattlesPageWebp"
+        src="/projects/tastydrop/battles-page.webp"
         alt="Скриншот кейс батлов"
       />
     </section>
@@ -121,14 +118,6 @@
   </div>
 </template>
 <script setup lang="ts">
-import SharedTitle from '~/components/SharedTitle/SharedTitle.vue'
-import MainPagePng from '~/assets/images/projects/tastydrop/main-page.png'
-import MainPageWebp from '~/assets/images/projects/tastydrop/main-page.webp'
-import MissionPagePng from '~/assets/images/projects/tastydrop/mission-page.png'
-import MissionPageWebp from '~/assets/images/projects/tastydrop/mission-page.webp'
-import BattlesPagePng from '~/assets/images/projects/tastydrop/battles-page.png'
-import BattlesPageWebp from '~/assets/images/projects/tastydrop/battles-page.webp'
-
 import { items, processesItems, redesignItems } from '~/utils/tastydropme.data'
 
 const listBenfits = ref()

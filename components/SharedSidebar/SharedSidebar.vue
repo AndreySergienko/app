@@ -4,9 +4,9 @@
       <div class="shared-sidebar__inner">
         <div>
           <nuxt-link href="/" class="shared-sidebar__btn-main">
-            <img
+            <NuxtImg
               class="shared-sidebar__img"
-              src="~/assets/images/avatar.jpg"
+              src="/avatar.jpg"
               alt="Andrey Sergienko"
             />
             <div class="shared-sidebar__description">

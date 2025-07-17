@@ -2,7 +2,7 @@
   <nuxt-link :to="`/projects/${project.id}`" class="project">
     <div class="project__wrapper">
       <div class="project__wrapper-image">
-        <img
+        <NuxtImg
           class="project__image"
           :src="project.img"
           :alt="`${project.title}-image`"

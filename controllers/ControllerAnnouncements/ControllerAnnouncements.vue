@@ -11,7 +11,7 @@
       <template #slide>
         <SharedAnnouncement
           size="s"
-          :img="{ src: otherJpg, alt: 'book' }"
+          :img="{ src: '/other.jpg', alt: 'book' }"
           date="Август 01, 2025"
         >
           <template #title> ON-DEVELOPER: Площадка для рекламы </template>
@@ -19,7 +19,7 @@
 
         <SharedAnnouncement
           size="s"
-          :img="{ src: otherJpg, alt: 'book' }"
+          :img="{ src: '/other.jpg', alt: 'book' }"
           date="Сентябрь 01, 2025"
         >
           <template #title> ETERNA: Сайт для сериала Eterna </template>
@@ -27,7 +27,7 @@
 
         <SharedAnnouncement
           size="s"
-          :img="{ src: otherJpg, alt: 'book' }"
+          :img="{ src: '/other.jpg', alt: 'book' }"
           date="Сентябрь 01, 2025"
         >
           <template #title
@@ -38,10 +38,6 @@
     </SharedSlider>
   </div>
 </template>
-
-<script setup>
-import otherJpg from '~/assets/images/other.jpg'
-</script>
 
 <style scoped lang="scss">
 @use 'assets/styles/media';

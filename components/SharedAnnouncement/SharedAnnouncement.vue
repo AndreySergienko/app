@@ -2,9 +2,8 @@
   <div class="shared-announcement">
     <div class="shared-announcement__block-image">
       <div v-if="img" class="shared-announcement__image">
-        <img
+        <NuxtImg
           :src="img.src as string"
-          :srcset="(img.srcSet as string) || ''"
           :alt="img.alt || 'picture'"
           class="picture"
         />

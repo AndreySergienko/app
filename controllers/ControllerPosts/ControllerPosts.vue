@@ -1,8 +1,7 @@
 <template>
-  <LazyBody />
   <SharedCard
     size="l"
-    :img="{ src: PostPng, srcSet: PostWebp, alt: 'post' }"
+    :img="{ src: '/post.webp', alt: 'post' }"
     date="Июль 30, 2025"
   >
     <template #title>Знакомство</template>
@@ -15,8 +14,3 @@
     </template>
   </SharedCard>
 </template>
-
-<script setup lang="ts">
-import PostPng from '@/assets/images/Post.png'
-import PostWebp from '@/assets/images/Post.webp'
-</script>

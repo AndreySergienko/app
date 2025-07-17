@@ -4,8 +4,12 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'static'
   },
+  image: {
+    provider: 'ipx',
+    dir: 'public/images'
+  },
   devtools: { enabled: true },
-  modules: ['nuxt-icons', '@nuxt/eslint'],
+  modules: ['nuxt-icons', '@nuxt/eslint', '@nuxt/image'],
   css: ['~/assets/styles/main.scss'],
   components: ['~/components', '~/controllers'],
   compatibilityDate: '2024-12-31',

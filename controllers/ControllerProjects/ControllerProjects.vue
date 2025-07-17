@@ -9,12 +9,11 @@
 </template>
 <script setup lang="ts">
 import type { ISharedProjectProps } from '~/components/SharedProject/SharedProject.types'
-import TastyDropPreviewPng from '~/assets/images/projects/tastydrop/tastydrop-preview.png'
 
 const projects = reactive<Array<ISharedProjectProps>>([
   {
     id: 'tastydropme',
-    img: TastyDropPreviewPng,
+    img: '/projects/tastydrop/tastydrop-preview.png',
     title: 'TastyDrop',
     professionals: ['Team Lead', 'Tech Lead', 'Senior developer']
   }

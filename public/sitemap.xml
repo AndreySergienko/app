@@ -1,20 +1,20 @@
 <urls xmlns="">
   <url>
     <loc>
-      https://www.ensine.ru
+      https://ensine.ru
     </loc>
   </url>
   <url>
     <loc>
-      https://www.ensine.ru/posts
+      https://ensine.ru/posts
     </loc>
   </url>
   <url>
     <loc>
-      https://www.ensine.ru/projects
+      https://ensine.ru/projects
     </loc>
   </url>
    <url>
-    <loc>https://www.ensine.ru/project/tastydrpome</loc>
+    <loc>https://ensine.ru/project/tastydrpome</loc>
   </url>
 </urls>

@@ -18,6 +18,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@nuxt/image": "^1.10.0",
     "nuxt": "^3.17.6"
   },
   "devDependencies": {

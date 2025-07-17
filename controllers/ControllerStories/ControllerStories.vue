@@ -32,17 +32,17 @@
   </teleport>
 </template>
 <script setup lang="ts">
-import DevelopmentSite from '@/assets/images/stories/development-site.webp'
-import DevelopmentSitePreview from '@/assets/images/stories/development-site-preview.webp'
+// import DevelopmentSite from '@/assets/images/stories/development-site.webp'
+// import DevelopmentSitePreview from '@/assets/images/stories/development-site-preview.webp'
 import type { ISharedStoryCard } from '~/components/SharedStory/SharedStory.types'
 import SharedStory from '~/components/SharedStory/SharedStory.vue'
 
 const cards = reactive<ISharedStoryCard[]>([
   {
     id: 1,
-    img: DevelopmentSite,
+    img: 'DevelopmentSite',
     isViewed: false,
-    preview: DevelopmentSitePreview,
+    preview: 'DevelopmentSitePreview',
     text: 'Hi! This is project release! 🎉😅‍💻🧠'
   }
 ])

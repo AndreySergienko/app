@@ -21,6 +21,7 @@
 
   &__image {
     max-width: 100%;
+    width: 100%;
     object-fit: cover;
     transition: transform linear var(--duration);
   }

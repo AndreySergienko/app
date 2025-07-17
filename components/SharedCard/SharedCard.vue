@@ -1,12 +1,11 @@
 <template>
   <div :class="['shared-card', classes[size]]">
     <div :class="['shared-card__block-image', classes[size]]">
-      <img
+      <NuxtImg
         v-if="img"
-        :src="(img.src as string) || ''"
-        :srcset="(img.srcSet as string) || ''"
+        :src="img.src as string"
         :alt="img.alt || 'picture'"
-        fetchpriority="high"
+        loading="eager"
         class="shared-card__image"
       />
     </div>
