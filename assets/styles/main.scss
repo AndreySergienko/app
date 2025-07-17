@@ -2,10 +2,15 @@
 @use '_varibales.scss';
 @use '_media.scss';
 @use '_animation.scss';
+@use '_fonts.scss';
 
 html {
   scroll-behavior: smooth;
   font-size: 10px;
+}
+
+body {
+  font-family: 'Inter';
 }
 
 @include media.media-breakpoint-down(md) {
