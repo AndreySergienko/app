@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`/projects/${project.id}`" class="project">
+  <nuxt-link :to="`/projects/${project.id}/`" class="project">
     <div class="project__wrapper">
       <div class="project__wrapper-image">
         <NuxtImg
