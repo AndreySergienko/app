@@ -81,7 +81,7 @@ export function useSliderDragSpinMobile({
     const now = performance.now()
     const dx = x - lastX
     const dt = now - lastTime || 1
-    velocity = -dx / dt // Инвертируем направление (внимание!)
+    velocity = dx / dt
     lastX = x
     lastTime = now
   }
