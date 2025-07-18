@@ -1,7 +1,7 @@
 <template>
-  <p :class="['shared-text', defaultClassesForElement[props.size]]">
+  <div :class="['shared-text', defaultClassesForElement[props.size]]">
     <slot />
-  </p>
+  </div>
 </template>
 
 <script setup lang="ts">

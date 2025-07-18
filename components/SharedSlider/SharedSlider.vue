@@ -95,10 +95,13 @@ onMounted(prerenderOptions)
 const hasPrev = computed<boolean>(() => scrollLeft.value !== 0)
 const hasNext = computed<boolean>(() => {
   if (!$sliderWrapper.value) return false
-  return (
-    scrollLeft.value + $sliderWrapper.value?.clientWidth <
-    $sliderWrapper.value?.scrollWidth
+  const epsilon = 2
+  const scrolled = Math.ceil(
+    scrollLeft.value + $sliderWrapper.value.clientWidth
   )
+  const total = Math.ceil($sliderWrapper.value.scrollWidth)
+
+  return scrolled + epsilon < total
 })
 
 function prerenderOptions() {
