@@ -9,11 +9,21 @@
   background-color: var(--gray);
   overflow: hidden;
 
+  @include media.media-breakpoint-down(md) {
+    height: auto;
+  }
+
   &__block-image {
     overflow: hidden;
     padding-top: var(--gap-xl);
     padding-right: var(--gap-xl);
     padding-left: var(--gap-xl);
+
+    @include media.media-breakpoint-down(md) {
+      padding-top: var(--gap-l);
+      padding-right: var(--gap-xl);
+      padding-left: var(--gap-xl);
+    }
   }
 
   &__image {
