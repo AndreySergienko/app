@@ -13,8 +13,9 @@
 </template>
 
 <script setup lang="ts">
-import { useSlider } from './useSlider'
-import { useSliderDragSpin } from './useSliderDragSpin'
+import { useSlider } from './composables/useSlider'
+import { useSliderDragSpin } from './composables/useSliderDragSpin'
+import { useSliderDragSpinMobile } from './composables/useSliderDragSpinMobile'
 
 interface ISharedSliderProps {
   length: number
@@ -55,9 +56,21 @@ const { onMouseDown, initWheel, removeWheel } = useSliderDragSpin({
   updateScroll
 })
 
-onMounted(initWheel)
+const { initMobileScroll, removeMobileScroll } = useSliderDragSpinMobile({
+  sliderList: $sliderWrapper as Ref<HTMLElement>,
+  slider: $slider as Ref<HTMLElement>,
+  updateScroll
+})
 
-onUnmounted(removeWheel)
+onMounted(() => {
+  initWheel()
+  initMobileScroll()
+})
+
+onUnmounted(() => {
+  removeWheel()
+  removeMobileScroll()
+})
 
 function adaptiveData(sliderPageNew: number, slidePageOld: number) {
   if (!$sliderWrapper.value) return

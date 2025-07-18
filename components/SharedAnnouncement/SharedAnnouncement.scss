@@ -14,6 +14,12 @@
     padding-top: var(--gap-xl);
     padding-right: var(--gap-xl);
     padding-left: var(--gap-xl);
+
+    @include media.media-breakpoint-down(md) {
+      padding-top: var(--gap-l);
+      padding-right: var(--gap-l);
+      padding-left: var(--gap-l);
+    }
   }
 
   &__image {
@@ -43,6 +49,11 @@
     flex-direction: column;
     padding: var(--gap-xxl);
     gap: var(--gap-l);
+
+    @include media.media-breakpoint-down(md) {
+      padding: var(--gap-l);
+      gap: var(--gap-s);
+    }
   }
 
   &__title {

@@ -62,12 +62,13 @@
     }
 
     &.large {
-      padding: var(--gap-xxl);
-      gap: var(--gap-xl);
+      padding: var(--gap-xl);
+      gap: var(--gap-l);
     }
   }
 
   &__title {
+    color: var(--dark);
     transition: color linear calc(var(--duration));
   }
 

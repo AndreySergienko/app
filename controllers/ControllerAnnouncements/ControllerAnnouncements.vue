@@ -39,14 +39,4 @@
   </div>
 </template>
 
-<style scoped lang="scss">
-@use 'assets/styles/media';
-
-.announcements-controller {
-  width: 100%;
-
-  &__title {
-    margin-bottom: var(--gap-l);
-  }
-}
-</style>
+<style scoped lang="scss" src="./ControllerAnnouncements.scss"></style>
