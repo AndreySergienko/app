@@ -56,7 +56,6 @@ export function useSliderDragSpinMobile({
 
     counterScrollLeft = sliderList.value!.scrollLeft
     velocity = 0
-    // counterScrollLeft = sliderList.value!.scrollLeft
   }
 
   function onTouchDown() {
