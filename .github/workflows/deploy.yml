@@ -23,8 +23,6 @@ jobs:
         with:
           path: |
             node_modules
-            .nuxt
-            .output
           key: ${{ runner.os }}-nuxt-${{ hashFiles('package-lock.json') }}
 
       - name: Install dependencies
