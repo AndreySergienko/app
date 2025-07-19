@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link :to="`/projects/${project.id}`" class="project">
+  <nuxt-link :to="`/projects/${project.id}/`" class="project">
     <div class="project__wrapper">
       <div class="project__wrapper-image">
-        <img
+        <NuxtImg
           class="project__image"
           :src="project.img"
           :alt="`${project.title}-image`"
@@ -17,8 +17,9 @@
             class="project__profession"
             v-for="professional in project.professionals"
             :key="professional"
-            >{{ professional }}</span
           >
+            {{ professional }}
+          </span>
         </div>
       </div>
     </div>

@@ -4,18 +4,18 @@
       <div class="shared-sidebar__inner">
         <div>
           <nuxt-link href="/" class="shared-sidebar__btn-main">
-            <img
+            <NuxtImg
               class="shared-sidebar__img"
-              src="~/assets/images/avatar.jpg"
+              src="/avatar.jpg"
               alt="Andrey Sergienko"
             />
             <div class="shared-sidebar__description">
-              <SharedTitle class="shared-sidebar__title" size="m"
-                >Andrey Sergienko</SharedTitle
-              >
-              <SharedText class="shared-sidebar__text" size="m"
-                >Frontend Head, Project Lead</SharedText
-              >
+              <SharedTitle class="shared-sidebar__title" size="m">
+                Andrey Sergienko
+              </SharedTitle>
+              <SharedText class="shared-sidebar__text" size="m">
+                Frontend Head, Project Lead
+              </SharedText>
             </div>
           </nuxt-link>
 
@@ -26,7 +26,7 @@
               class="shared-sidebar__link"
               v-bind="link"
             >
-              <nuxt-icon name="Arrow" filled />
+              <nuxt-icon name="arrow" filled />
               {{ link.title }}
             </SharedLink>
           </div>

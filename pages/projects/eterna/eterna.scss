@@ -1,0 +1,45 @@
+@use 'assets/styles/media';
+
+.eterna {
+  &__chart {
+    height: 32rem;
+    max-width: 100%;
+  }
+
+  &__btn {
+    --color-border: #6a1c1f;
+    --color-label: #6a1c1f;
+    --color-text: #4b3a2d;
+    --bg-color: #fdf9f2;
+
+    padding: 0.2rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    cursor: pointer;
+    user-select: none;
+
+    transition:
+      color 0.3s ease,
+      border-color 0.3s ease;
+
+    &:hover {
+      color: var(--color-label);
+      border-color: var(--color-label);
+    }
+
+    .arrow {
+      display: inline-block;
+      font-weight: 900;
+      font-size: 1.3rem;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover .arrow {
+      transform: translateX(5px);
+    }
+  }
+}

@@ -1,8 +1,8 @@
 <template>
   <div class="shared-end">
-    <nuxt-icon name="Heart" class="shared-end__heart" filled />
-    <SharedTitle size="s" theme="light">Thank you!</SharedTitle>
-    <SharedTitle size="s" theme="light">You’ve reached the end</SharedTitle>
+    <nuxt-icon name="heart" class="shared-end__heart" filled />
+    <SharedTitle size="s" theme="light">Спасибо!</SharedTitle>
+    <SharedTitle size="s" theme="light">Вы дошли до конца</SharedTitle>
   </div>
 </template>
 

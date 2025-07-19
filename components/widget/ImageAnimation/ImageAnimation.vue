@@ -1,17 +1,11 @@
 <template>
   <div ref="container" class="gradient-frame parallax-container">
-    <img
-      ref="img"
-      class="parallax-img"
-      :src="src"
-      :srcset="srcset || ''"
-      :alt="alt || 'images'"
-      :loading="isLazy ? 'lazy' : 'eager'"
-    />
+    <NuxtImg ref="img" class="parallax-img" :src="src" :alt="alt || 'images'" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { NuxtImg } from '#components'
 import type { SharedImageType } from '~/types/component.types'
 
 const container = ref<HTMLElement | null>(null)

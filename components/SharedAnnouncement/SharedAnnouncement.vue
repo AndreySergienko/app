@@ -2,9 +2,8 @@
   <div class="shared-announcement">
     <div class="shared-announcement__block-image">
       <div v-if="img" class="shared-announcement__image">
-        <img
+        <NuxtImg
           :src="img.src as string"
-          :srcset="(img.srcSet as string) || ''"
           :alt="img.alt || 'picture'"
           class="picture"
         />
@@ -15,9 +14,9 @@
       <SharedTitle class="shared-announcement__title" size="s" theme="dark">
         <slot name="title" />
       </SharedTitle>
-      <SharedText v-if="$slots.text" size="m" theme="dark"
-        ><slot name="text"
-      /></SharedText>
+      <SharedText v-if="$slots.text" size="m" theme="dark">
+        <slot name="text" />
+      </SharedText>
 
       <!--      <SharedTitle-->
       <!--        v-if="size === 'm' || size === 'l'"-->

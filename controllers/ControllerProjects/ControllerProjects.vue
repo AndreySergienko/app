@@ -9,14 +9,19 @@
 </template>
 <script setup lang="ts">
 import type { ISharedProjectProps } from '~/components/SharedProject/SharedProject.types'
-import TastyDropPreviewPng from '~/assets/images/projects/tastydrop/tastydrop-preview.png'
 
 const projects = reactive<Array<ISharedProjectProps>>([
   {
-    id: 'tastydropme',
-    img: TastyDropPreviewPng,
+    id: 'tastydrop',
+    img: '/projects/tastydrop/tastydrop-preview.png',
     title: 'TastyDrop',
     professionals: ['Team Lead', 'Tech Lead', 'Senior developer']
+  },
+  {
+    id: 'eterna',
+    img: '/projects/eterna/eterna-preview.webp',
+    title: 'Eterna',
+    professionals: ['Team Lead', 'Senior developer']
   }
 ])
 </script>
@@ -25,6 +30,6 @@ const projects = reactive<Array<ISharedProjectProps>>([
 .projects {
   display: grid;
   max-width: 67rem;
-  gap: var(--gap-l);
+  gap: var(--gap-xl);
 }
 </style>

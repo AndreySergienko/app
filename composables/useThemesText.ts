@@ -12,6 +12,6 @@ export function useThemesText(theme: keyof ComponentThemes) {
   const color = computed<string>(() => themes[theme])
 
   return {
-    color
+    color: readonly(color)
   }
 }

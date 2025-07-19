@@ -1,21 +1,20 @@
 <template>
   <div :class="['shared-card', classes[size]]">
     <div :class="['shared-card__block-image', classes[size]]">
-      <img
+      <NuxtImg
         v-if="img"
-        :src="(img.src as string) || ''"
+        :src="img.src as string"
         :alt="img.alt || 'picture'"
+        loading="eager"
         class="shared-card__image"
       />
     </div>
     <div :class="['shared-card__content', classes[size]]">
       <SharedTitle size="s" theme="light">{{ date }}</SharedTitle>
-      <SharedTitle class="shared-card__title" size="m" theme="dark">
+      <SharedTitle size="m" theme="dark" class="shared-card__title">
         <slot name="title" />
       </SharedTitle>
-      <SharedText v-if="$slots.text" size="m" theme="dark"
-        ><slot name="text"
-      /></SharedText>
+      <SharedText size="m" theme="dark"><slot name="text" /></SharedText>
 
       <!--      <SharedTitle-->
       <!--          v-if="size === 'm' || size === 'l'"-->

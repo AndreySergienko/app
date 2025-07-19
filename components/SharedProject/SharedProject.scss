@@ -3,7 +3,6 @@
 .project {
   text-decoration: none;
   max-width: 67rem;
-  max-height: 46rem;
 
   $root: &;
 
@@ -21,6 +20,7 @@
 
   &__image {
     max-width: 100%;
+    width: 100%;
     object-fit: cover;
     transition: transform linear var(--duration);
   }
@@ -34,6 +34,7 @@
   }
 
   &__title {
+    margin-left: var(--gap-s);
     color: var(--black);
     font-size: var(--font-size-s);
     font-weight: var(--weight-medium);

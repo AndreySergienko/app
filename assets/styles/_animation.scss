@@ -27,3 +27,44 @@
     transform: translateY(0);
   }
 }
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  20% {
+    left: 125%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+@keyframes smoke-smooth-appear {
+  0% {
+    transform: translateX(-150%) translateY(0) scale(0.8);
+    opacity: 0;
+    filter: blur(1.5rem);
+  }
+  10% {
+    opacity: 0.4;
+    filter: blur(1rem);
+  }
+  25% {
+    opacity: 0.6;
+    filter: blur(0.6rem);
+  }
+  50% {
+    transform: translateX(50%) translateY(10px) scale(1.2);
+    opacity: 0.4;
+    filter: blur(0.4rem);
+  }
+  90% {
+    transform: translateX(150%) translateY(0) scale(1);
+    opacity: 0;
+    filter: blur(1rem);
+  }
+  100% {
+    opacity: 0;
+  }
+}

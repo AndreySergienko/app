@@ -13,14 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import { useSlider } from './useSlider'
-import { useSliderDragSpin } from './useSliderDragSpin'
-
-interface ISharedSliderProps {
-  length: number
-  gap?: string
-  maxWidth?: string
-}
+import { useSlider } from './composables/useSlider'
+import { useSliderDragSpin } from './composables/useSliderDragSpin'
+import { useSliderDragSpinMobile } from './composables/useSliderDragSpinMobile'
+import type { ISharedSliderProps } from './SharedSlider.types'
 
 const props = withDefaults(defineProps<ISharedSliderProps>(), {
   maxWidth: '67.5rem',
@@ -29,14 +25,14 @@ const props = withDefaults(defineProps<ISharedSliderProps>(), {
 
 const MINIMUM_SLIDE = 0
 
-const isMounted = ref<boolean>(false)
+const isMounted = shallowRef<boolean>(false)
 const $sliderWrapper = ref<HTMLElement | null>()
 const $slider = ref<HTMLElement | null>(null)
-const cardWidth = ref<number>(0)
+const cardWidth = shallowRef<number>(0)
 
-const scrollLeft = ref<number>(0)
-const currentPage = ref<number>(MINIMUM_SLIDE)
-const maxOffset = ref<number>(0)
+const scrollLeft = shallowRef<number>(0)
+const currentPage = shallowRef<number>(MINIMUM_SLIDE)
+const maxOffset = shallowRef<number>(0)
 
 const updateScroll = (value: number) => {
   if (!$sliderWrapper.value) return
@@ -55,37 +51,54 @@ const { onMouseDown, initWheel, removeWheel } = useSliderDragSpin({
   updateScroll
 })
 
-onMounted(initWheel)
+const { initMobileScroll, removeMobileScroll } = useSliderDragSpinMobile({
+  sliderList: $sliderWrapper as Ref<HTMLElement>,
+  slider: $slider as Ref<HTMLElement>,
+  updateScroll
+})
 
-onUnmounted(removeWheel)
+onMounted(initWheel)
+onMounted(initMobileScroll)
+onMounted(prerenderOptions)
+onMounted(() => {
+  isMounted.value = true
+})
+
+onUnmounted(() => {
+  removeWheel()
+  removeMobileScroll()
+})
 
 function adaptiveData(sliderPageNew: number, slidePageOld: number) {
+  const howLontToScroll = 1
   if (!$sliderWrapper.value) return
   let offset = 0
   if (sliderPageNew > slidePageOld)
     offset = Math.min(
-      currentOffset.value + cardWidth.value * 2,
+      currentOffset.value + cardWidth.value * howLontToScroll,
       maxOffset.value
     )
-  else offset = Math.max(currentOffset.value - cardWidth.value * 2, 0)
+  else
+    offset = Math.max(
+      currentOffset.value - cardWidth.value * howLontToScroll,
+      0
+    )
 
   return animateTo(offset)
 }
 
 watch(currentPage, adaptiveData)
 
-onMounted(() => {
-  isMounted.value = true
-})
-onMounted(prerenderOptions)
-
 const hasPrev = computed<boolean>(() => scrollLeft.value !== 0)
 const hasNext = computed<boolean>(() => {
   if (!$sliderWrapper.value) return false
-  return (
-    scrollLeft.value + $sliderWrapper.value?.clientWidth <
-    $sliderWrapper.value?.scrollWidth
+  const epsilon = 2
+  const scrolled = Math.ceil(
+    scrollLeft.value + $sliderWrapper.value.clientWidth
   )
+  const total = Math.ceil($sliderWrapper.value.scrollWidth)
+
+  return scrolled + epsilon < total
 })
 
 function prerenderOptions() {
@@ -93,7 +106,7 @@ function prerenderOptions() {
   const slide = $sliderWrapper.value.children[0]
   $sliderWrapper.value.style.transition = 'transform .1s ease'
   const gap = parseInt(getComputedStyle($sliderWrapper.value).gap)
-  const { fullWidth } = getParametersSlide(slide, gap)
+  const { fullWidth } = getParametersSlide(slide as HTMLElement, gap)
   cardWidth.value = fullWidth
   const limit = calculateLimit(cardWidth.value)
   maxOffset.value = cardWidth.value * (props.length - limit)
@@ -107,7 +120,7 @@ function calculateLimit(cardWidth: number): number {
   return 1
 }
 
-function getParametersSlide($slide: Element, gap: number) {
+function getParametersSlide($slide: HTMLElement, gap: number) {
   const width = $slide.getBoundingClientRect().width
   const fullWidth = width + gap
   return {
@@ -127,37 +140,6 @@ const prevSlide = () => {
 }
 </script>
 
-<style scoped lang="scss">
-.slider {
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  &__content {
-    display: flex;
-    gap: v-bind('gap');
-    overflow: hidden;
-    width: 100%;
-  }
-
-  &__icon {
-    font-size: 3rem;
-  }
-}
-
-.arrow {
-  pointer-events: auto;
-  cursor: pointer;
-  position: absolute;
-  z-index: 111;
-  top: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-50%) translateX(-50%);
-  border-radius: 50%;
-
-  &--next {
-    right: 0;
-    transform: translateY(-50%) translateX(50%);
-  }
-}
+<style scoped lang="scss" src="./SharedSlider.scss">
+$gap: v-bind(gap);
 </style>

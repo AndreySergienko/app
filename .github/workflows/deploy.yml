@@ -39,6 +39,10 @@ jobs:
       - name: Build project
         run: npm run generate
 
+      - name: Gzip compress static files
+        run: |
+          find .output/public -type f \( -iname '*.js' -o -iname '*.css' -o -iname '*.html' -o -iname '*.json' -o -iname '*.svg' \) -exec gzip -k -9 {} \;
+
       - name: Verify files
         run: ls -R .output/public
 

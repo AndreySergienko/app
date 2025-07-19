@@ -90,12 +90,7 @@ const vueRules = {
     {
       order: [['script', 'template'], 'style']
     }
-  ],
-  /** Temp */
-  'vue/no-v-html': 'off',
-  'vue/no-mutating-props': ['off'],
-  'vue/prop-name-casing': ['off'],
-  'vue/require-explicit-emits': ['off']
+  ]
 }
 
 const typescriptConfig = {
