@@ -1,7 +1,7 @@
 <template>
   <div class="announcements-controller">
     <SharedTitle size="m" class="announcements-controller__title">
-      Announcements
+      Скоро в публикации
     </SharedTitle>
     <SharedSlider
       :length="3"

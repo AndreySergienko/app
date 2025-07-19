@@ -4,12 +4,7 @@
   position: fixed;
 
   border-right: 1px solid var(--light-gray);
-  padding: var(--gap-xxl);
-
-  &__container {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
+  padding: 0 var(--gap-xxl);
 
   &__inner {
     display: flex;
@@ -67,7 +62,7 @@
 
 @include media.media-breakpoint-down(xl) {
   .shared-sidebar {
-    padding: var(--gap-l);
+    padding: 0 var(--gap-l);
   }
 }
 

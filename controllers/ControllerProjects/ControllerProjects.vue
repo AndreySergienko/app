@@ -30,6 +30,6 @@ const projects = reactive<Array<ISharedProjectProps>>([
 .projects {
   display: grid;
   max-width: 67rem;
-  gap: var(--gap-l);
+  gap: var(--gap-xl);
 }
 </style>

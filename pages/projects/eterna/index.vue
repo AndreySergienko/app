@@ -19,6 +19,13 @@
         зрения разработки системы, но он нестандартен в разработке анимаций и
         пользовательского интерфейса.
       </SharedText>
+
+      <WidgetSmokeImageAnimation>
+        <NuxtImg
+          src="/projects/eterna/animation.webp"
+          alt="animation in website"
+        />
+      </WidgetSmokeImageAnimation>
     </WidgetSectionProject>
     <WidgetSectionProject id="analytics">
       <SharedTitle size="m">
@@ -39,6 +46,13 @@
           <SharedText size="m">{{ item }}</SharedText>
         </template>
       </SharedList>
+
+      <WidgetSmokeImageAnimation>
+        <NuxtImg
+          src="/projects/eterna/interactive-map.webp"
+          alt="interactive-map"
+        />
+      </WidgetSmokeImageAnimation>
     </WidgetSectionProject>
 
     <WidgetSectionProject id="success">
@@ -47,9 +61,37 @@
         <span>Успех</span>
       </SharedTitle>
 
+      <SharedText size="m">
+        Пожалуй, это один из тех проектов, когда несмотря на все сложности все
+        прошло идеально. Проект превзошёл все ожидания.
+      </SharedText>
+
       <div class="eterna__chart">
         <Bar :data="chartData" :options="chartOptions" />
       </div>
+
+      <SharedNotes
+        color-border="#6A1C1F"
+        color-label="#6A1C1F"
+        color-text="#4b3a2d"
+        background-color="#fdf9f2"
+      >
+        <template #title>Примечание:</template>
+        <template #text>
+          Параметры указаны относительные, т.к это коммерческая тайна. Пропорции
+          сохранены. 🤭
+        </template>
+      </SharedNotes>
+
+      <SharedTitle size="m">
+        Подобные проекты не требуют детального описания, прошу вас переходить на
+        сайт и своими глазами всё оценить!
+
+        <NuxtLink class="eterna__btn" target="_blank" to="https://aeterna.tv">
+          В мир Этерны
+          <span class="arrow">→</span>
+        </NuxtLink>
+      </SharedTitle>
     </WidgetSectionProject>
   </WidgetContainerProject>
 </template>
@@ -102,15 +144,15 @@ definePageMeta({
 ChartJS.register(BarElement, CategoryScale, LinearScale, Tooltip, Legend)
 
 const chartData = {
-  labels: ['⏱ Время', '📅 Релиз', '🎯 Результат'],
+  labels: ['⏱ Время', '📅 Дата релиза', '🎯 Ожидания'],
   datasets: [
     {
-      label: 'План',
+      label: 'Планируемое',
       data: [100, 50, 80],
       backgroundColor: '#CFAE74' // Золотистый
     },
     {
-      label: 'Факт',
+      label: 'Фактическое',
       data: [95, 40, 95],
       backgroundColor: '#6A1C1F' // Бордовый
     }

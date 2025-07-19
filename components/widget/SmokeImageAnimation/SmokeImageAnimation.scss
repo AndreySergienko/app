@@ -1,0 +1,92 @@
+.smoke {
+  position: absolute;
+  bottom: 0;
+  background: radial-gradient(
+    rgba(30, 30, 30, 0.9),
+    rgba(10, 10, 10, 0.6),
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.5;
+  animation: smoke-smooth-appear 40s linear infinite;
+  // animation: smoke-flow 40s linear infinite;
+  z-index: 2;
+  pointer-events: none;
+
+  &-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+    &:deep(img) {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &-1 {
+    width: 12rem;
+    height: 12rem;
+    left: 20%;
+    animation-delay: 0s;
+  }
+
+  &-2 {
+    width: 15rem;
+    height: 15rem;
+    left: 40%;
+    animation-delay: 2s;
+  }
+
+  &-3 {
+    width: 100rem;
+    height: 100rem;
+    left: 60%;
+    animation-delay: 4s;
+  }
+
+  &-4 {
+    width: 130rem;
+    height: 130rem;
+    left: 75%;
+    animation-delay: 1s;
+  }
+
+  &-5 {
+    width: 140rem;
+    height: 140rem;
+    left: 10%;
+    animation-delay: 3s;
+  }
+}
+
+@keyframes smoke-smooth-appear {
+  0% {
+    transform: translateX(-150%) translateY(0) scale(0.8);
+    opacity: 0;
+    filter: blur(1.5rem);
+  }
+  10% {
+    opacity: 0.4;
+    filter: blur(1rem);
+  }
+  25% {
+    opacity: 0.6;
+    filter: blur(0.6rem);
+  }
+  50% {
+    transform: translateX(50%) translateY(10px) scale(1.2);
+    opacity: 0.4;
+    filter: blur(0.4rem);
+  }
+  90% {
+    transform: translateX(150%) translateY(0) scale(1);
+    opacity: 0;
+    filter: blur(1rem);
+  }
+  100% {
+    opacity: 0;
+  }
+}

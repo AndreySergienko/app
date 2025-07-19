@@ -26,7 +26,7 @@
               class="shared-sidebar__link"
               v-bind="link"
             >
-              <nuxt-icon name="Arrow" filled />
+              <nuxt-icon name="arrow" filled />
               {{ link.title }}
             </SharedLink>
           </div>

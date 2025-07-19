@@ -10,9 +10,9 @@
         <div>
           <div class="tabs">
             <SharedTab to="/posts" :is-active="isActivePostsTab">
-              Posts
+              Посты
             </SharedTab>
-            <SharedTab to="/projects">Project</SharedTab>
+            <SharedTab to="/projects">Описание проектов</SharedTab>
           </div>
         </div>
 
