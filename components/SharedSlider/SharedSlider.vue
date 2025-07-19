@@ -73,14 +73,19 @@ onUnmounted(() => {
 })
 
 function adaptiveData(sliderPageNew: number, slidePageOld: number) {
+  const howLontToScroll = 1
   if (!$sliderWrapper.value) return
   let offset = 0
   if (sliderPageNew > slidePageOld)
     offset = Math.min(
-      currentOffset.value + cardWidth.value * 2,
+      currentOffset.value + cardWidth.value * howLontToScroll,
       maxOffset.value
     )
-  else offset = Math.max(currentOffset.value - cardWidth.value * 2, 0)
+  else
+    offset = Math.max(
+      currentOffset.value - cardWidth.value * howLontToScroll,
+      0
+    )
 
   return animateTo(offset)
 }
@@ -109,7 +114,7 @@ function prerenderOptions() {
   const slide = $sliderWrapper.value.children[0]
   $sliderWrapper.value.style.transition = 'transform .1s ease'
   const gap = parseInt(getComputedStyle($sliderWrapper.value).gap)
-  const { fullWidth } = getParametersSlide(slide, gap)
+  const { fullWidth } = getParametersSlide(slide as HTMLElement, gap)
   cardWidth.value = fullWidth
   const limit = calculateLimit(cardWidth.value)
   maxOffset.value = cardWidth.value * (props.length - limit)
@@ -123,7 +128,7 @@ function calculateLimit(cardWidth: number): number {
   return 1
 }
 
-function getParametersSlide($slide: Element, gap: number) {
+function getParametersSlide($slide: HTMLElement, gap: number) {
   const width = $slide.getBoundingClientRect().width
   const fullWidth = width + gap
   return {
