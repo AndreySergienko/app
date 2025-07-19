@@ -3,7 +3,6 @@
 .project {
   text-decoration: none;
   max-width: 67rem;
-  max-height: 46rem;
 
   $root: &;
 
@@ -35,6 +34,7 @@
   }
 
   &__title {
+    margin-left: var(--gap-s);
     color: var(--black);
     font-size: var(--font-size-s);
     font-weight: var(--weight-medium);

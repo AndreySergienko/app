@@ -2,7 +2,7 @@
 
 .shared-card {
   position: relative;
-  border-radius: 10px;
+  border-radius: 1rem;
   background-color: var(--gray);
   overflow: hidden;
 
@@ -53,8 +53,8 @@
   &__content {
     display: flex;
     flex-direction: column;
-    gap: var(--gap-xxl);
-    padding: var(--gap-xxl);
+    padding: var(--gap-xl);
+    gap: var(--gap-l);
 
     &.small {
       padding: var(--gap-xl);

@@ -1,3 +1,3 @@
 <template>
-  <div><ControllerProjects /></div>
+  <ControllerProjects />
 </template>

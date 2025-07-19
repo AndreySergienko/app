@@ -12,10 +12,16 @@ import type { ISharedProjectProps } from '~/components/SharedProject/SharedProje
 
 const projects = reactive<Array<ISharedProjectProps>>([
   {
-    id: 'tastydropme',
+    id: 'tastydrop',
     img: '/projects/tastydrop/tastydrop-preview.png',
     title: 'TastyDrop',
     professionals: ['Team Lead', 'Tech Lead', 'Senior developer']
+  },
+  {
+    id: 'eterna',
+    img: '/projects/eterna/eterna-preview.webp',
+    title: 'Eterna',
+    professionals: ['Team Lead', 'Senior developer']
   }
 ])
 </script>
@@ -24,6 +30,6 @@ const projects = reactive<Array<ISharedProjectProps>>([
 .projects {
   display: grid;
   max-width: 67rem;
-  gap: var(--gap-l);
+  gap: var(--gap-xl);
 }
 </style>

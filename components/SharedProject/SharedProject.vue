@@ -17,8 +17,9 @@
             class="project__profession"
             v-for="professional in project.professionals"
             :key="professional"
-            >{{ professional }}</span
           >
+            {{ professional }}
+          </span>
         </div>
       </div>
     </div>
