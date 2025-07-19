@@ -12,7 +12,7 @@
         <h1 class="project-layout__title" v-html="$route.meta.title" />
         <ControllerDescription />
 
-        <slot />
+        <main><slot /></main>
         <SharedShare />
       </SharedContainer>
     </div>
@@ -71,11 +71,6 @@
     top: 10rem;
     z-index: 1;
 
-    // @include media.media-breakpoint-down(xl) {
-    //   top: 7rem;
-    //   right: 10rem;
-    // }
-
     @include media.media-breakpoint-down(xl) {
       display: none;
     }
@@ -89,49 +84,4 @@
     flex-direction: column;
   }
 }
-// .project__share-icons {
-//   display: flex;
-//   gap: 1.3rem;
-//   font-size: var(--font-size-xxl);
-// }
-
-//@include media.media-breakpoint-down(xl) {
-//  .projects-layout__nav {
-//    right: 100px;
-//  }
-//}
-//
-//@include media.media-breakpoint-down(md) {
-//  .projects-layout__nav {
-//    display: none;
-//  }
-//}
-//
-//.projects-layout__nav-item {
-//  padding: 7px;
-//  border-left: 2px solid var(--dark-gray);
-//  color: var(--dark-gray);
-//  cursor: pointer;
-//}
-//
-//.projects-layout__nav-item.active {
-//  border-left: 2px solid var(--black);
-//  color: var(--black);
-//}
-//
-//@include media.media-breakpoint-down(l) {
-//  .sidebar {
-//    display: none;
-//  }
-//
-//  .projects-layout__button {
-//    left: 30px;
-//  }
-//}
-//
-//@include media.media-breakpoint-down(md) {
-//  .projects-layout__button {
-//    left: 20px;
-//  }
-//}
 </style>

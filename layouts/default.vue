@@ -9,9 +9,9 @@
         <ControllerAnnouncements />
         <div>
           <div class="tabs">
-            <SharedTab to="/posts" :is-active="isActivePostsTab"
-              >Posts</SharedTab
-            >
+            <SharedTab to="/posts" :is-active="isActivePostsTab">
+              Posts
+            </SharedTab>
             <SharedTab to="/projects">Project</SharedTab>
           </div>
         </div>

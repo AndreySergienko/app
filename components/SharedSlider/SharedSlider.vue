@@ -16,12 +16,7 @@
 import { useSlider } from './composables/useSlider'
 import { useSliderDragSpin } from './composables/useSliderDragSpin'
 import { useSliderDragSpinMobile } from './composables/useSliderDragSpinMobile'
-
-interface ISharedSliderProps {
-  length: number
-  gap?: string
-  maxWidth?: string
-}
+import type { ISharedSliderProps } from './SharedSlider.types'
 
 const props = withDefaults(defineProps<ISharedSliderProps>(), {
   maxWidth: '67.5rem',
@@ -30,14 +25,14 @@ const props = withDefaults(defineProps<ISharedSliderProps>(), {
 
 const MINIMUM_SLIDE = 0
 
-const isMounted = ref<boolean>(false)
+const isMounted = shallowRef<boolean>(false)
 const $sliderWrapper = ref<HTMLElement | null>()
 const $slider = ref<HTMLElement | null>(null)
-const cardWidth = ref<number>(0)
+const cardWidth = shallowRef<number>(0)
 
-const scrollLeft = ref<number>(0)
-const currentPage = ref<number>(MINIMUM_SLIDE)
-const maxOffset = ref<number>(0)
+const scrollLeft = shallowRef<number>(0)
+const currentPage = shallowRef<number>(MINIMUM_SLIDE)
+const maxOffset = shallowRef<number>(0)
 
 const updateScroll = (value: number) => {
   if (!$sliderWrapper.value) return
@@ -62,9 +57,11 @@ const { initMobileScroll, removeMobileScroll } = useSliderDragSpinMobile({
   updateScroll
 })
 
+onMounted(initWheel)
+onMounted(initMobileScroll)
+onMounted(prerenderOptions)
 onMounted(() => {
-  initWheel()
-  initMobileScroll()
+  isMounted.value = true
 })
 
 onUnmounted(() => {
@@ -91,11 +88,6 @@ function adaptiveData(sliderPageNew: number, slidePageOld: number) {
 }
 
 watch(currentPage, adaptiveData)
-
-onMounted(() => {
-  isMounted.value = true
-})
-onMounted(prerenderOptions)
 
 const hasPrev = computed<boolean>(() => scrollLeft.value !== 0)
 const hasNext = computed<boolean>(() => {
@@ -148,37 +140,6 @@ const prevSlide = () => {
 }
 </script>
 
-<style scoped lang="scss">
-.slider {
-  position: relative;
-  display: flex;
-  align-items: center;
-
-  &__content {
-    display: flex;
-    gap: v-bind('gap');
-    overflow: hidden;
-    width: 100%;
-  }
-
-  &__icon {
-    font-size: 3rem;
-  }
-}
-
-.arrow {
-  pointer-events: auto;
-  cursor: pointer;
-  position: absolute;
-  z-index: 111;
-  top: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-50%) translateX(-50%);
-  border-radius: 50%;
-
-  &--next {
-    right: 0;
-    transform: translateY(-50%) translateX(50%);
-  }
-}
+<style scoped lang="scss" src="./SharedSlider.scss">
+$gap: v-bind(gap);
 </style>

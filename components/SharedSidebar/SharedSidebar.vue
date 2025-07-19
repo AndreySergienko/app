@@ -10,12 +10,12 @@
               alt="Andrey Sergienko"
             />
             <div class="shared-sidebar__description">
-              <SharedTitle class="shared-sidebar__title" size="m"
-                >Andrey Sergienko</SharedTitle
-              >
-              <SharedText class="shared-sidebar__text" size="m"
-                >Frontend Head, Project Lead</SharedText
-              >
+              <SharedTitle class="shared-sidebar__title" size="m">
+                Andrey Sergienko
+              </SharedTitle>
+              <SharedText class="shared-sidebar__text" size="m">
+                Frontend Head, Project Lead
+              </SharedText>
             </div>
           </nuxt-link>
 

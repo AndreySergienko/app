@@ -3,7 +3,7 @@
     <li
       v-for="(item, index) in items"
       :key="index"
-      :class="{ 'list__item fade-in-up': hasVisible }"
+      :class="['list__item', hasVisible && 'fade-in-up']"
       :style="`animation-delay: ${index * 150}ms`"
     >
       <slot :item="item" />
@@ -12,16 +12,15 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
-  items: unknown[]
-  hasVisible: boolean
-}>()
+import type { SharedListExpose, SharedListProps } from './SharedList.types'
+
+defineProps<SharedListProps>()
 
 // ref на внутренний элемент
-const listRoot = ref(null)
+const listRoot = ref<HTMLElement | null>(null)
 
 // Экспортируешь его наружу
-defineExpose({
+defineExpose<SharedListExpose>({
   listRoot
 })
 </script>

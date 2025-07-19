@@ -2,9 +2,9 @@ export function useSlider(
   $slides: Ref<HTMLElement | null>,
   updateScroll: (value: number) => void
 ) {
-  const currentOffset = ref<number>(0)
-  const animationFrameId = ref<null | number>(null)
-  const isAnimating = ref(false)
+  const currentOffset = shallowRef<number>(0)
+  const animationFrameId = shallowRef<null | number>(null)
+  const isAnimating = shallowRef(false)
 
   const animateTo = (targetX: number) => {
     if (!$slides.value) return
@@ -39,6 +39,6 @@ export function useSlider(
 
   return {
     animateTo,
-    currentOffset
+    currentOffset: readonly(currentOffset)
   }
 }

@@ -1,0 +1,8 @@
+@use 'assets/styles/media';
+
+.eterna {
+  &__chart {
+    height: 32rem; /* Или то, что визуально подходит */
+    max-width: 100%;
+  }
+}

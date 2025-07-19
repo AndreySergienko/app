@@ -1,4 +1,5 @@
 export interface ISharedSliderProps {
-  slides: Array<string>
-  slidesToShow: number
+  length: number
+  gap?: string
+  maxWidth?: string
 }

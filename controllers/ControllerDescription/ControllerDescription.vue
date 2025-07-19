@@ -16,9 +16,9 @@
     <div class="description__container" v-if="$route.meta.info[2]">
       <h4 class="description__subtitle">Links</h4>
       <h3 class="description__title">
-        <a target="_blank" :href="$route.meta.info[2]?.link">{{
-          $route.meta.info[2]?.text
-        }}</a>
+        <a target="_blank" :href="$route.meta.info[2]?.link">
+          {{ $route.meta.info[2]?.text }}
+        </a>
       </h3>
     </div>
   </div>
