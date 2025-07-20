@@ -48,8 +48,8 @@
     height: 13rem;
 
     @include media.media-breakpoint-down(md) {
-      width: 100%;
-      // max-width: 32.5rem;
+      // width: 100%;
+      max-width: 32.5rem;
     }
   }
 
@@ -78,7 +78,7 @@
   }
 
   @include media.media-breakpoint-down(md) {
-    width: 100%;
-    // max-width: 32.5rem;
+    // width: 100%;
+    max-width: 32.5rem;
   }
 }
