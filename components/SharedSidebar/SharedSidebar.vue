@@ -81,9 +81,9 @@ const footerInfo: FooterTextTypes[] = [
   {
     text: 'ИНН: 744515129416'
   },
-  // {
-  //   text: 'ОГРН: 777374778'
-  // },
+  {
+    text: 'ОГРН: Как СЗ'
+  },
   {
     text: `© ${new Date().getFullYear()}, IE Andrey Sergienko`
   }
