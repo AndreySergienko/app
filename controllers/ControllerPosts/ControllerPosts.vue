@@ -30,7 +30,7 @@
       :img="{ src: '/posts/how-work.webp', alt: 'Просто картинка' }"
       date="Июль 19, 2025"
     >
-      <template #title>Какие работы я выполняю</template>
+      <template #title>Сфера моей работы</template>
       <template #text>
         <SharedList
           ref="listWork"

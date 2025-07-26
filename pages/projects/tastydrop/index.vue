@@ -59,7 +59,7 @@
 
       <SharedText size="m" class="note-gradient">
         Это был не просто рефакторинг — мы заново выстроили архитектуру,
-        ориентируясь на масштабирование.
+        адаптируя FSD подход под реалии Nuxt 3 и наши задачи.
       </SharedText>
 
       <WidgetImageAnimation
@@ -71,7 +71,7 @@
     <WidgetSectionProject id="process">
       <SharedTitle size="m" class="drop__text-wrapper">
         🎯
-        <span class="drop__text">Фишки и фишечки</span>
+        <span class="drop__text">Фишки</span>
       </SharedTitle>
       <SharedText size="m">
         Я отвечал за все анимации, звуки и пользовательские «вау»-моменты.
@@ -174,7 +174,7 @@ definePageMeta({
     { text: 'Team Lead / Tech Lead / Developer' },
     {
       link: 'https://tastydrop.com',
-      text: 'tasty-drop.xx'
+      text: 'tastydrop.com'
     }
   ],
   title: '🛠 Проект: TastyDrop | TastyGo'

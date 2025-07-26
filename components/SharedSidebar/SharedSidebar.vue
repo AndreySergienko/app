@@ -6,7 +6,7 @@
           <nuxt-link href="/" class="shared-sidebar__btn-main">
             <NuxtImg
               class="shared-sidebar__img"
-              src="/avatar.jpg"
+              src="/avatar.webp"
               alt="Andrey Sergienko"
             />
             <div class="shared-sidebar__description">
@@ -79,11 +79,11 @@ const themeFooter: SharedComponentThemeAndSize = {
 
 const footerInfo: FooterTextTypes[] = [
   {
-    text: 'ИНН: 777374778'
+    text: 'ИНН: 744515129416'
   },
-  {
-    text: 'ОГРН: 777374778'
-  },
+  // {
+  //   text: 'ОГРН: 777374778'
+  // },
   {
     text: `© ${new Date().getFullYear()}, IE Andrey Sergienko`
   }
